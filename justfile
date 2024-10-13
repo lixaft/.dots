@@ -2,25 +2,33 @@
 help:
     @just --list
 
-# initialize host
+# initialize a new host
 init host:
-    NIX_CONFIG="experimental-features = nix-command flakes" just deploy {{ host }}
+    NIX_CONFIG="experimental-features = nix-command flakes" just switch {{ host }}
 
-# update the flake hashes
+alias i := init
+
+# update the flake lock file
 update:
     nix flake update
 
-# install the configuration to the current host
-[positional-arguments]
-deploy host=`hostname`:
-    nixos-rebuild switch --use-remote-sudo --flake .#{{ host }}
+alias u := update
 
-# build and activate the current configuration
+# build the config, but neither activate it nor add it to the boot menu
+[positional-arguments]
+build host=`hostname`:
+    nixos-rebuild build --flake .#{{ host }}
+
+# build and activate the config, but do not add it to the boot menu
 [positional-arguments]
 test host=`hostname`:
     nixos-rebuild test --use-remote-sudo --flake .#{{ host }}
 
-alias d := deploy
-alias i := init
 alias t := test
-alias u := update
+
+# build and activate the config, and make it the boot default
+[positional-arguments]
+switch host=`hostname`:
+    nixos-rebuild switch --use-remote-sudo --flake .#{{ host }}
+
+alias s := switch

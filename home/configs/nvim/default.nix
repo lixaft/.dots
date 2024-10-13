@@ -1,22 +1,17 @@
 {
   pkgs,
   config,
-  theme,
   ...
 }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nvim_dir = "${config.home.homeDirectory}/.dots/home/configs/nvim";
-
-  jsonFormat = pkgs.formats.json { };
 in
 {
   xdg.configFile = {
     "nvim/after".source = mkOutOfStoreSymlink nvim_dir + "/after";
     "nvim/init.lua".source = mkOutOfStoreSymlink nvim_dir + "/init.lua";
-    "nvim/lua".source = mkOutOfStoreSymlink nvim_dir + "/lua";
     "nvim/plugin".source = mkOutOfStoreSymlink nvim_dir + "/plugin";
-    "nvim/theme.json".source = jsonFormat.generate "theme.json" theme;
   };
 
   programs.neovim = {
@@ -67,6 +62,7 @@ in
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
+      conform-nvim
       gitsigns-nvim
       harpoon2
       indent-o-matic

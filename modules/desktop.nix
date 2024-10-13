@@ -26,7 +26,7 @@
 
   services = {
     displayManager = {
-      defaultSession = "Hyprland";
+      defaultSession = "hyprland";
       sddm = {
         enable = true;
         package = pkgs.kdePackages.sddm;
@@ -65,6 +65,8 @@
   };
 
   programs = {
+    sway.enable = true;
+    river.enable = true;
     hyprland.enable = true;
     virt-manager.enable = true;
   };

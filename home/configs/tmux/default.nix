@@ -1,8 +1,8 @@
-{ pkgs, theme, ... }:
+{ ... }:
+
 let
-  inherit (theme) colors;
   env = "env TERM=xterm-256color";
-  reset = "#[fg=${colors.bar.fg},bg=${colors.bar.bg_dark},nobold,noitalics,nounderscore,nodim]";
+  reset = "#[fg=#a9b1d6,bg=#08080c,nobold,noitalics,nounderscore,nodim]";
 in
 {
   home.shellAliases = {
@@ -79,40 +79,36 @@ in
         window_number="#(${./numbers.sh} #I)"
         pane_numbers="#(${./numbers.sh} #P)"
 
-        set -g window-status-separator ""
-        set -g status-left-length 80
-        set -g status-right-length 150
+        set -g mode-style "fg=#73daca,bg=#15161e"
 
-        set -g mode-style "fg=${colors.aquamarine},bg=${colors.black}"
+        set -g message-style "bg=#7aa2f7,fg=#030305"
+        set -g message-command-style "fg=#c0caf5,bg=#15161e"
 
-        set -g message-style "bg=${colors.blue},fg=${colors.bg}"
-        set -g message-command-style "fg=${colors.white},bg=${colors.black}"
-
-        set -g pane-border-style "fg=${colors.black}"
-        set -g pane-active-border-style "fg=${colors.accent}"
+        set -g pane-border-style "fg=#15161e"
+        set -g pane-active-border-style "fg=#7aa2f7"
         set -g pane-border-status off
 
-        set -g status-style bg="${colors.bar.bg_dark}"
+        set -g status-style bg="#08080c"
 
         set -g status-left "\
-        #[fg=${colors.bar.bg_light},bg=${colors.accent},bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }\
+        #[fg=#15161e,bg=#7aa2f7,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }\
         #[bold,nodim]#S \
         "
 
         set -g window-status-current-format "${reset}\
-        #[fg=${colors.aquamarine},bg=${colors.bar.bg_light}] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
-        #[fg=${colors.bar.fg},bold,nodim]$window_number#W\
+        #[fg=#73daca,bg=#15161e] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
+        #[fg=#a9b1d6,bold,nodim]$window_number#W\
         #[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} \
         "
 
         set -g window-status-format "${reset}\
-        #[fg=${colors.bar.fg}] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
+        #[fg=#a9b1d6] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
         ${reset}$window_number#W \
         #[nobold,dim]$pane_numbers\
-        #[fg=${colors.yellow}]#{?window_last_flag,󰁯 ,} "
+        #[fg=#e0af68]#{?window_last_flag,󰁯 ,} "
 
         set -g status-right "\
-        #[bg=${colors.bar.bg_light}] %Y-%m-%d । %H:%M \
+        #[bg=#15161e] %Y-%m-%d । %H:%M \
         "
       '';
   };

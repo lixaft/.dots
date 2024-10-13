@@ -1,17 +1,14 @@
-{ theme, ... }:
-let
-  inherit (theme) colors;
-in
+{ inputs, ... }:
 {
   programs.alacritty = {
     enable = true;
 
     settings = {
-      window.opacity = 0.9;
+      import = [ "${inputs.tokyonight}/extras/alacritty/tokyonight_night.toml" ];
 
       font = {
         normal.family = "DejaVuSansM Nerd Font";
-        size = 17;
+        size = 20;
       };
 
       shell = {
@@ -23,46 +20,7 @@ in
         ];
       };
 
-      colors = {
-        primary = {
-          background = colors.bg;
-          foreground = colors.fg;
-        };
-        normal = {
-          inherit (colors)
-            black
-            blue
-            cyan
-            green
-            magenta
-            red
-            yellow
-            ;
-          white = colors.fg;
-        };
-        bright = {
-          inherit (colors)
-            black
-            blue
-            cyan
-            green
-            magenta
-            red
-            yellow
-            ;
-          white = colors.fg;
-        };
-        indexed_colors = [
-          {
-            index = 16;
-            color = colors.orange;
-          }
-          {
-            index = 17;
-            color = colors.red;
-          }
-        ];
-      };
+      colors.primary.background = "#000000";
     };
   };
 }

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  theme,
-  ...
-}:
+{ pkgs, ... }:
 {
   xdg.configFile = {
     "litecli/config".text = ''

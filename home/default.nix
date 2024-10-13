@@ -1,13 +1,4 @@
-{
-  theme,
-  system,
-  config,
-  pkgs,
-  ...
-}:
-let
-  root_dir = "${config.home.homeDirectory}/.dots";
-in
+{ system, pkgs, ... }:
 {
   home = rec {
     username = system.user;
@@ -15,17 +6,12 @@ in
     sessionPath = [ "${homeDirectory}/.local/bin" ];
 
     file = {
-      ".background-image".source = theme.wallpaper;
+      ".background-image".source = ../wall.png;
       ".local/bin/pydep".source = ./scripts/pydep;
       ".local/bin/tmux-sessionizer".source = ./scripts/tmux-sessionizer;
     };
 
     shellAliases = rec {
-      os-update = "nix flake update ${root_dir}";
-      os-test = "sudo nixos-rebuild test --flake ${root_dir}";
-      os-rebuild = "sudo nixos-rebuild switch --flake ${root_dir}";
-      os-upgrade = "${os-update} && ${os-rebuild}";
-
       db = "distrobox";
       dev = "distrobox enter dev";
 
@@ -152,11 +138,8 @@ in
     ./configs/nixpkgs
     ./configs/nvim
     ./configs/rofi
-    ./configs/starship
     ./configs/theme
     ./configs/tmux
-    ./configs/waybar
-    ./configs/wofi
     ./configs/xdg
   ];
 

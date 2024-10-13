@@ -1,25 +1,22 @@
-{ theme, ... }:
-let
-  inherit (theme) colors;
-in
+{ ... }:
 {
   programs.fzf = {
     enable = true;
-
+    defaultCommand = "fd --highlight-line --info=inline-right --ansi --layout=reverse --border=none";
     colors = {
       "bg+" = "-1";
       "bg" = "-1";
-      "border" = "${colors.comment}";
-      "fg+" = "${colors.fg}";
-      "fg" = "${colors.fg}";
-      "header" = "${colors.comment}";
-      "hl+" = "${colors.blue}";
-      "hl" = "${colors.blue}";
-      "info" = "${colors.comment}";
-      "marker" = "${colors.green}";
-      "pointer" = "${colors.purple}";
-      "prompt" = "${colors.comment}";
-      "spinner" = "${colors.comment}";
+      "border" = "#565f89";
+      "fg+" = "#c0caf5";
+      "fg" = "#c0caf5";
+      "header" = "#565f89";
+      "hl+" = "#7aa2f7";
+      "hl" = "#7aa2f7";
+      "info" = "#565f89";
+      "marker" = "#9ece6a";
+      "pointer" = "#9d7cd8";
+      "prompt" = "#565f89";
+      "spinner" = "#565f89";
     };
   };
 }

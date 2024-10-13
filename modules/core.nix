@@ -62,7 +62,9 @@
     nix-ld.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [ virtiofsd ];
+  environment.systemPackages = with pkgs; [
+    virtiofsd
+  ];
 
   users.users.${system.user} = {
     isNormalUser = true;

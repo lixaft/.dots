@@ -17,10 +17,9 @@
 let
   systemFn = if darwin then nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
 
-  specialArgs = rec {
+  specialArgs = {
     inputs = inputs;
     system = systemInputs;
-    theme = import ../theme;
   };
 
   wslModule = nix-wsl.nixosModules.wsl;

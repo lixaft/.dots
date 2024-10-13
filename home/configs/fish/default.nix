@@ -1,15 +1,15 @@
-{ theme, pkgs, ... }:
-let
-  inherit (theme) colors;
-in
 {
-  programs.starship.enableFishIntegration = false;
-
+  config,
+  inputs,
+  lib,
+  ...
+}:
+{
   programs.fish = {
     enable = true;
 
     shellAliases = {
-      refresh = "source $HOME/.config/fish/config.fish";
+      refresh = "source ${config.xdg.configHome}/fish/config.fish";
     };
 
     shellAbbrs = {
@@ -26,13 +26,41 @@ in
     functions = {
       __editor_paginate = # fish
         ''fish_commandline_append " &| $EDITOR -"'';
+
       __last_command = # fish
         ''echo $history[1]'';
+
+      fish_prompt = # fish
+        ''
+          set -l last_status $status
+
+          # Path.
+          set_color --bold blue
+          printf "$(prompt_pwd)"
+
+          # Git.
+          set_color normal
+          printf "$(fish_git_prompt)"
+
+          # Status.
+          if test $last_status -ne 0
+              set_color --bold red
+            printf " [$last_status]"
+          end
+
+          # Symbol.
+          set_color normal --bold
+          printf ' ➜ '
+
+          # Reset.
+          set_color normal
+        '';
     };
 
     interactiveShellInit = # fish
       ''
         set fish_greeting ""
+        set -g __fish_git_prompt_color_branch magenta --bold
 
         # Nix override the default Ctrl+r with a `fzf` one :s
         bind --erase \cr
@@ -44,45 +72,22 @@ in
         bind \cs "tmux-sessionizer; commandline -f execute"
         bind \ct "tmux-sessionizer /tmp; commandline -f execute"
 
-        # Syntax highlighting colors.
-        set --global fish_color_normal "${colors.fg}"
-        set --global fish_color_command "${colors.cyan}"
-        set --global fish_color_keyword "${colors.magenta}"
-        set --global fish_color_quote "${colors.yellow}"
-        set --global fish_color_redirection "${colors.fg}"
-        set --global fish_color_end "${colors.orange}"
-        set --global fish_color_error "${colors.red}"
-        set --global fish_color_param "${colors.purple}"
-        set --global fish_color_comment "${colors.comment}"
-        set --global fish_color_selection --background="${colors.bg_highlight}"
-        set --global fish_color_search_match --background="${colors.bg_highlight}"
-        set --global fish_color_operator "${colors.green}"
-        set --global fish_color_escape "${colors.magenta}"
-        set --global fish_color_autosuggestion "${colors.comment}"
-
-        # Completion pager colors.
-        set --global fish_pager_color_progress "${colors.comment}"
-        set --global fish_pager_color_prefix "${colors.cyan}"
-        set --global fish_pager_color_completion "${colors.fg}"
-        set --global fish_pager_color_description "${colors.comment}"
-        set --global fish_pager_color_selected_background --background="${colors.bg_highlight}"
+        # Theme.
+        ${lib.readFile "${inputs.tokyonight}/extras/fish/tokyonight_night.fish"}
       '';
 
     shellInitLast = # fish
       ''
-        # In tmux, make `cd` go to the session dir instead of `$HOME`.
+        #
+        # Make `cd` go the the tmux session if any.
         # This cannot be defined with the `functions' option from home manager,
-        # as it must be done after Zoxide initialization.
+        # as it must be done after zoxide initialization.
         function cd
           if set -q "TMUX"; and test -z "$argv"
               set argv (tmux display-message -p "#{session_path}")
           end
           __zoxide_z $argv
         end
-
-        # Allow starship to run properly inside distrobox.
-        ${pkgs.starship}/bin/starship init fish | source
-        enable_transience
       '';
   };
 }

@@ -1,9 +1,13 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   home.shellAliases = {
     cat = "${pkgs.bat}/bin/bat";
     diff = "${pkgs.bat-extras.batdiff}/bin/batdiff";
     man = "${pkgs.bat-extras.batman}/bin/batman";
+  };
+
+  xdg.configFile = {
+    "bat/themes/tokyonight.tmTheme".source = "${inputs.tokyonight}/extras/sublime/tokyonight_night.tmTheme";
   };
 
   programs.bat = {
@@ -19,18 +23,6 @@
 
     config = {
       theme = "tokyonight";
-    };
-
-    themes = {
-      tokyonight = {
-        src = pkgs.fetchFromGitHub {
-          owner = "folke";
-          repo = "tokyonight.nvim";
-          rev = "main";
-          sha256 = "sha256-ItCmSUMMTe8iQeneIJLuWedVXsNgm+FXNtdrrdJ/1oE=";
-        };
-        file = "extras/sublime/tokyonight_night.tmTheme";
-      };
     };
   };
 }
