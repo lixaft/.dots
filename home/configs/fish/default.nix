@@ -70,10 +70,10 @@
 
         # Bindings.
         bind \ev "__editor_paginate";
-        bind \cg "tmux-sessionizer ~/todo.md; commandline -f execute"
-        bind \ch "tmux-sessionizer ~; commandline -f execute"
-        bind \cs "tmux-sessionizer; commandline -f execute"
-        bind \ct "tmux-sessionizer /tmp; commandline -f execute"
+        bind \cs "${../../scripts/tmux-sessionizer}; commandline -f execute"
+        bind \ch "${../../scripts/tmux-sessionizer} ~; commandline -f execute"
+        bind \ct "${../../scripts/tmux-sessionizer} /tmp; commandline -f execute"
+        bind \cg "${../../scripts/tmux-sessionizer} ~/todo.md; commandline -f execute"
 
         # Theme.
         ${lib.readFile "${inputs.tokyonight}/extras/fish/tokyonight_night.fish"}

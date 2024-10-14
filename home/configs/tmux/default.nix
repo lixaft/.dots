@@ -68,10 +68,10 @@ in {
         bind Enter setw synchronize-panes
 
         # Search projects.
-        bind C-s run-shell "tmux new-window tmux-sessionizer"
-        bind t run-shell "tmux-sessionizer /tmp"
-        bind h run-shell "tmux-sessionizer ~"
-        bind g run-shell "tmux-sessionizer ~/todo.md"
+        bind C-s run-shell "tmux new-window ${../../scripts/tmux-sessionizer}"
+        bind t run-shell "${../../scripts/tmux-sessionizer} /tmp"
+        bind h run-shell "${../../scripts/tmux-sessionizer} ~"
+        bind g run-shell "${../../scripts/tmux-sessionizer} ~/todo.md"
 
         # Statusbar.
         window_number="#(${./numbers.sh} #I)"

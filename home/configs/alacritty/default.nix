@@ -15,7 +15,7 @@
         args = [
           "--interactive" # Required for tmux colors.
           "--command"
-          "tmux attach || tmux-sessionizer ~"
+          "tmux attach || ${../../scripts/tmux-sessionizer} ~"
         ];
       };
 

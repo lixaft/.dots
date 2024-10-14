@@ -1,6 +1,6 @@
 {system, ...}: {
   imports = [
-    ../../modules/local.nix
+    ../../modules/locale.nix
     ../../modules/nix.nix
     ../../modules/user.nix
     ../../modules/virtualisation.nix

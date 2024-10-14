@@ -25,28 +25,23 @@ in
   systemFn {
     inherit system;
     modules = [
-      # Pass common arguments to all modules.
       {config._module.args = args;}
 
-      # Load WSL module.
       (
         if wsl.enable
         then nix-wsl.nixosModules.wsl
         else {}
       )
 
-      # Load home manager module.
       (
         if home.enable
         then home-manager.nixosModules.home-manager
         else {}
       )
 
-      # Load user and host modules.
       ../hosts/${host}
       ../users/${user}
 
-      # Load home manager configuration module.
       (
         if home.enable
         then {

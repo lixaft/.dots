@@ -8,13 +8,10 @@
 
     username = systemConfig.user;
     homeDirectory = "/home/${username}";
-    sessionPath = ["${homeDirectory}/.local/bin"];
-
-    file = {
-      ".background-image".source = ../wall.png;
-      ".local/bin/pydep".source = ./scripts/pydep;
-      ".local/bin/tmux-sessionizer".source = ./scripts/tmux-sessionizer;
-    };
+    sessionPath = [
+      "${./scripts}"
+      "${homeDirectory}/.local/bin"
+    ];
 
     shellAliases = {
       db = "distrobox";

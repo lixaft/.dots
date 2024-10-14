@@ -65,7 +65,7 @@
     enable = true;
     config.common.default = "*";
     xdgOpenUsePortal = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
   };
 
   users.users.${systemConfig.user}.extraGroups = ["networkmanager"];

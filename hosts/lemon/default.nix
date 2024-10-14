@@ -5,7 +5,7 @@
 }: {
   imports = [
     ../../modules/boot.nix
-    ../../modules/local.nix
+    ../../modules/locale.nix
     ../../modules/nix.nix
     ../../modules/user.nix
     ../../modules/desktop.nix
