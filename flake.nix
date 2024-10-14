@@ -41,8 +41,6 @@
         system = "x86_64-linux";
         host = "kiwi";
         user = "lixaft";
-        stateVersion = "23.11";
-        desktop.enable = true;
         home = {
           enable = true;
           stateVersion = "23.11";
@@ -52,8 +50,6 @@
         system = "x86_64-linux";
         host = "lemon";
         user = "lixaft";
-        stateVersion = "23.11";
-        desktop.enable = true;
         home = {
           enable = true;
           stateVersion = "23.11";
@@ -63,7 +59,6 @@
         system = "x86_64-linux";
         host = "powder";
         user = "lixaft";
-        stateVersion = "23.11";
         wsl.enable = true;
         home = {
           enable = true;

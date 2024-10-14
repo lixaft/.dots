@@ -4,8 +4,13 @@
   ...
 }: {
   imports = [
-    ./hardware.nix
+    ../../modules/boot.nix
+    ../../modules/local.nix
+    ../../modules/nix.nix
+    ../../modules/user.nix
+    ../../modules/desktop.nix
     ../../modules/virtualisation.nix
+    ./hardware.nix
   ];
 
   services.xserver.videoDrivers = ["nvidia"];
@@ -24,4 +29,6 @@
   };
 
   environment.systemPackages = with pkgs; [nfs-utils];
+
+  system.stateVersion = "23.11";
 }

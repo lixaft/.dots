@@ -59,10 +59,7 @@
   };
 
   programs = {
-    sway.enable = true;
-    river.enable = true;
     hyprland.enable = true;
-    virt-manager.enable = true;
   };
 
   xdg.portal = {

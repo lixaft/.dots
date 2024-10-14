@@ -8,10 +8,8 @@
   system,
   host,
   user,
-  stateVersion,
   darwin ? {enable = false;},
   wsl ? {enable = false;},
-  desktop ? {enable = false;},
   home ? {enable = false;},
 } @ systemConfig: let
   systemFn =
@@ -44,17 +42,11 @@ in
         else {}
       )
 
-      # Load system modules.
-      ../modules/system/nix.nix
-      ../modules/system/boot.nix
-      ../modules/system/local.nix
-      ../modules/system/user.nix
-
       # Load user and host modules.
       ../hosts/${host}
       ../users/${user}
 
-      # Load home module.
+      # Load home manager configuration module.
       (
         if home.enable
         then {

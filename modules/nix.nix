@@ -1,4 +1,4 @@
-{systemConfig, ...}: {
+{...}: {
   nix = {
     settings = {
       auto-optimise-store = true;
@@ -23,6 +23,4 @@
   programs = {
     nix-ld.enable = true;
   };
-
-  system.stateVersion = systemConfig.stateVersion;
 }
