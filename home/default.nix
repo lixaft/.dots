@@ -53,6 +53,7 @@
       gcc
       geeqie
       gh
+      gimp
       gnumake
       go
       google-chrome

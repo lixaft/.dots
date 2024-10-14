@@ -1,11 +1,11 @@
-{
-  config,
-  system,
-  ...
-}: {
+{config, ...}: {
   imports = [
-    ../../modules/core.nix
+    ../../modules/boot.nix
+    ../../modules/local.nix
+    ../../modules/nix.nix
+    ../../modules/user.nix
     ../../modules/desktop.nix
+    ../../modules/virtualisation.nix
     ./hardware.nix
   ];
 
@@ -16,5 +16,5 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  system.stateVersion = system.stateVersion;
+  system.stateVersion = "23.11";
 }

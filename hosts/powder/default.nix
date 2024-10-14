@@ -1,5 +1,10 @@
 {system, ...}: {
-  imports = [../../modules/core.nix];
+  imports = [
+    ../../modules/local.nix
+    ../../modules/nix.nix
+    ../../modules/user.nix
+    ../../modules/virtualisation.nix
+  ];
 
   wsl = {
     enable = true;
@@ -34,5 +39,5 @@
     };
   };
 
-  system.stateVersion = system.stateVersion;
+  system.stateVersion = "23.11";
 }
