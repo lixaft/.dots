@@ -1,11 +1,10 @@
-{ ... }:
-{
+{...}: {
   xdg = {
     desktopEntries."lf" = {
       name = "Lf";
       genericName = "File Manager";
       exec = "alacritty --command lf";
-      categories = [ ];
+      categories = [];
     };
 
     configFile = {

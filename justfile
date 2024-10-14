@@ -19,6 +19,8 @@ alias u := update
 build host=`hostname`:
     nixos-rebuild build --flake .#{{ host }}
 
+alias b := build
+
 # build and activate the config, but do not add it to the boot menu
 [positional-arguments]
 test host=`hostname`:

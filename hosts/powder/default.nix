@@ -1,6 +1,5 @@
-{ system, ... }:
-{
-  imports = [ ../../modules/core.nix ];
+{system, ...}: {
+  imports = [../../modules/core.nix];
 
   wsl = {
     enable = true;

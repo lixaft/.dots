@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     dconf
@@ -24,7 +27,7 @@
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
-      enabled-extensions = [ "user-theme@gnome-shell-extensions.gcampax.github.com" ];
+      enabled-extensions = ["user-theme@gnome-shell-extensions.gcampax.github.com"];
     };
     "org/gnome/shell/extensions/user-theme" = {
       inherit (config.gtk.theme) name;

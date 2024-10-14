@@ -1,10 +1,7 @@
-{ ... }:
-
-let
+{...}: let
   env = "env TERM=xterm-256color";
   reset = "#[fg=#a9b1d6,bg=#08080c,nobold,noitalics,nounderscore,nodim]";
-in
-{
+in {
   home.shellAliases = {
     tmux = "${env} tmux";
     tmux-sessionizer = "${env} tmux-sessionizer";
@@ -23,7 +20,8 @@ in
     escapeTime = 0;
     historyLimit = 50000;
 
-    extraConfig = # tmux
+    extraConfig =
+      # tmux
       ''
         set -a terminal-features 'xterm-256color:RGB'
 

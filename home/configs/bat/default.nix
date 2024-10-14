@@ -1,5 +1,8 @@
-{ inputs, pkgs, ... }:
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   home.shellAliases = {
     cat = "${pkgs.bat}/bin/bat";
     diff = "${pkgs.bat-extras.batdiff}/bin/batdiff";

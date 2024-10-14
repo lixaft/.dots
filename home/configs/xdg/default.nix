@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
 {
+  pkgs,
+  config,
+  ...
+}: {
   xdg = {
     enable = true;
 
@@ -22,14 +25,14 @@
         name = "FileBot";
         exec = "${pkgs.filebot}/bin/filebot";
         terminal = false;
-        categories = [ "Application" ];
+        categories = ["Application"];
       };
 
       vm_rocky = {
         name = "Rocky";
         exec = ''virt-manager --connect qemu:///system --show-domain-console "rocky9"'';
         terminal = false;
-        categories = [ "Application" ];
+        categories = ["Application"];
       };
     };
   };

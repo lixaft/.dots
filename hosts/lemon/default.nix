@@ -1,17 +1,14 @@
 {
   pkgs,
   config,
-  system,
   ...
-}:
-{
+}: {
   imports = [
-    ../../modules/core.nix
-    ../../modules/desktop.nix
     ./hardware.nix
+    ../../modules/virtualisation.nix
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     open = false;
     modesetting.enable = true;
@@ -26,7 +23,5 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ nfs-utils ];
-
-  system.stateVersion = system.stateVersion;
+  environment.systemPackages = with pkgs; [nfs-utils];
 }

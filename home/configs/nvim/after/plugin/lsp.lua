@@ -86,7 +86,7 @@ lspconfig.ruff.setup({
   }),
   on_attach = on_attach,
 })
-lspconfig.ts_ls.setup({
+lspconfig.nil_ls.setup({
   capabilities = build_capabilities(),
   on_attach = on_attach,
 })
@@ -99,6 +99,10 @@ lspconfig.lua_ls.setup({
       format = { enable = false },
     },
   },
+})
+lspconfig.ts_ls.setup({
+  capabilities = build_capabilities(),
+  on_attach = on_attach,
 })
 lspconfig.clangd.setup({
   capabilities = build_capabilities({

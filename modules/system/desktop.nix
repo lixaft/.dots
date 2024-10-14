@@ -1,14 +1,8 @@
-{ system, pkgs, ... }:
 {
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      efiSupport = true;
-      useOSProber = true;
-      device = "nodev";
-    };
-  };
+  systemConfig,
+  pkgs,
+  ...
+}: {
 
   hardware = {
     bluetooth.enable = true;
@@ -19,7 +13,7 @@
   };
 
   networking = {
-    hostName = system.host;
+    hostName = systemConfig.host;
     networkmanager.enable = true;
     firewall.enable = true;
   };
@@ -75,8 +69,8 @@
     enable = true;
     config.common.default = "*";
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  users.users.${system.user}.extraGroups = [ "networkmanager" ];
+  users.users.${systemConfig.user}.extraGroups = ["networkmanager"];
 }

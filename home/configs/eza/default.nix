@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home = {
-    packages = with pkgs; [ eza ];
+    packages = with pkgs; [eza];
     shellAliases = rec {
       eza = "${pkgs.eza}/bin/eza --git --icons --group-directories-first";
       ls = "${eza}";

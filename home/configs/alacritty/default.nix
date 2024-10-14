@@ -1,10 +1,9 @@
-{ inputs, ... }:
-{
+{inputs, ...}: {
   programs.alacritty = {
     enable = true;
 
     settings = {
-      import = [ "${inputs.tokyonight}/extras/alacritty/tokyonight_night.toml" ];
+      import = ["${inputs.tokyonight}/extras/alacritty/tokyonight_night.toml"];
 
       font = {
         normal.family = "DejaVuSansM Nerd Font";

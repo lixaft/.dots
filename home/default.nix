@@ -1,9 +1,14 @@
-{ system, pkgs, ... }:
 {
+  systemConfig,
+  pkgs,
+  ...
+}: {
   home = rec {
-    username = system.user;
+    stateVersion = systemConfig.home.stateVersion;
+
+    username = systemConfig.user;
     homeDirectory = "/home/${username}";
-    sessionPath = [ "${homeDirectory}/.local/bin" ];
+    sessionPath = ["${homeDirectory}/.local/bin"];
 
     file = {
       ".background-image".source = ../wall.png;
@@ -11,7 +16,7 @@
       ".local/bin/tmux-sessionizer".source = ./scripts/tmux-sessionizer;
     };
 
-    shellAliases = rec {
+    shellAliases = {
       db = "distrobox";
       dev = "distrobox enter dev";
 
@@ -118,8 +123,8 @@
     enable = true;
     settings = {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = [ "qemu:///system" ];
-        uris = [ "qemu:///system" ];
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
       };
     };
   };
@@ -144,6 +149,4 @@
   ];
 
   systemd.user.startServices = "sd-switch";
-
-  home.stateVersion = system.stateVersion;
 }

@@ -2,12 +2,10 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (config.lib.file) mkOutOfStoreSymlink;
   nvim_dir = "${config.home.homeDirectory}/.dots/home/configs/nvim";
-in
-{
+in {
   xdg.configFile = {
     "nvim/after".source = mkOutOfStoreSymlink nvim_dir + "/after";
     "nvim/init.lua".source = mkOutOfStoreSymlink nvim_dir + "/init.lua";
@@ -23,14 +21,15 @@ in
       tree-sitter
 
       # LSP.
+      basedpyright
       bash-language-server
       clang-tools
       cmake-language-server
       gopls
       lua-language-server
+      nil
       nodePackages.typescript-language-server
       pyright
-      basedpyright
       python3Packages.jedi-language-server
       ruff
       rust-analyzer
@@ -38,6 +37,7 @@ in
       zls
 
       # Formatter & Linters.
+      alejandra
       mypy
       nodePackages.prettier
       selene
@@ -80,7 +80,7 @@ in
       nvim-ufo
       nvim-web-devicons
       oil-nvim
-      render-markdown
+      render-markdown-nvim
       telescope-nvim
       tokyonight-nvim
       treesj

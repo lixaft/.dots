@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   xdg.configFile = {
     "litecli/config".text = ''
       syntax_style = native

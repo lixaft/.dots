@@ -1,12 +1,15 @@
-{ config, system, ... }:
 {
+  config,
+  system,
+  ...
+}: {
   imports = [
     ../../modules/core.nix
     ../../modules/desktop.nix
     ./hardware.nix
   ];
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     nvidiaSettings = true;

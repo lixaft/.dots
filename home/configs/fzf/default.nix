@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   programs.fzf = {
     enable = true;
     defaultCommand = "fd --highlight-line --info=inline-right --ansi --layout=reverse --border=none";

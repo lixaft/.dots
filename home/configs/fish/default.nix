@@ -3,8 +3,7 @@
   inputs,
   lib,
   ...
-}:
-{
+}: {
   programs.fish = {
     enable = true;
 
@@ -24,13 +23,16 @@
     };
 
     functions = {
-      __editor_paginate = # fish
+      __editor_paginate =
+        # fish
         ''fish_commandline_append " &| $EDITOR -"'';
 
-      __last_command = # fish
+      __last_command =
+        # fish
         ''echo $history[1]'';
 
-      fish_prompt = # fish
+      fish_prompt =
+        # fish
         ''
           set -l last_status $status
 
@@ -57,7 +59,8 @@
         '';
     };
 
-    interactiveShellInit = # fish
+    interactiveShellInit =
+      # fish
       ''
         set fish_greeting ""
         set -g __fish_git_prompt_color_branch magenta --bold
@@ -76,7 +79,8 @@
         ${lib.readFile "${inputs.tokyonight}/extras/fish/tokyonight_night.fish"}
       '';
 
-    shellInitLast = # fish
+    shellInitLast =
+      # fish
       ''
         #
         # Make `cd` go the the tmux session if any.

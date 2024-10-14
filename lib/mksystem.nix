@@ -4,47 +4,69 @@
   nix-darwin,
   home-manager,
   ...
-}@inputs:
-{
+} @ inputs: {
   system,
   host,
   user,
-  home ? false,
-  wsl ? false,
-  darwin ? false,
   stateVersion,
-}@systemInputs:
-let
-  systemFn = if darwin then nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
+  darwin ? {enable = false;},
+  wsl ? {enable = false;},
+  desktop ? {enable = false;},
+  home ? {enable = false;},
+} @ systemConfig: let
+  systemFn =
+    if darwin.enable
+    then nix-darwin.lib.darwinSystem
+    else nixpkgs.lib.nixosSystem;
 
-  specialArgs = {
+  args = {
     inputs = inputs;
-    system = systemInputs;
-  };
-
-  wslModule = nix-wsl.nixosModules.wsl;
-  homeModule = home-manager.nixosModules.home-manager;
-
-  homeConfig = {
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users.${user}.imports = [ ../home ];
-      extraSpecialArgs = specialArgs;
-      backupFileExtension = "bak";
-    };
+    systemConfig = systemConfig;
   };
 in
-systemFn {
-  inherit system;
-  modules = [
-    { config._module.args = specialArgs; }
+  systemFn {
+    inherit system;
+    modules = [
+      # Pass common arguments to all modules.
+      {config._module.args = args;}
 
-    (if wsl then wslModule else { })
+      # Load WSL module.
+      (
+        if wsl.enable
+        then nix-wsl.nixosModules.wsl
+        else {}
+      )
 
-    ../hosts/${host}
+      # Load home manager module.
+      (
+        if home.enable
+        then home-manager.nixosModules.home-manager
+        else {}
+      )
 
-    (if home then homeModule else { })
-    (if home then homeConfig else { })
-  ];
-}
+      # Load system modules.
+      ../modules/system/nix.nix
+      ../modules/system/boot.nix
+      ../modules/system/local.nix
+      ../modules/system/user.nix
+
+      # Load user and host modules.
+      ../hosts/${host}
+      ../users/${user}
+
+      # Load home module.
+      (
+        if home.enable
+        then {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.${user}.imports = [../home];
+            extraSpecialArgs = args;
+            backupFileExtension = "bak";
+          };
+        }
+        else {}
+      )
+    ];
+  }

@@ -1,9 +1,7 @@
-{ ... }:
-let
+{...}: let
   mod = "Mod4";
   refresh_i3_status = "killall -SIGUSR1 i3blocks";
-in
-{
+in {
   xsession.windowManager.i3 = {
     enable = true;
 
@@ -11,7 +9,7 @@ in
       focus.followMouse = false;
 
       fonts = {
-        names = [ "DejaVuSansM Nerd Font" ];
+        names = ["DejaVuSansM Nerd Font"];
         size = 18.0;
       };
 

@@ -27,47 +27,49 @@
     };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }@inputs:
-    let
-      mkSystem = (import ./lib inputs).mkSystem;
-    in
-    {
-      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    mkSystem = (import ./lib inputs).mkSystem;
+  in {
+    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
 
-      nixosConfigurations = {
-        "kiwi" = mkSystem {
-          system = "x86_64-linux";
-          host = "kiwi";
-          user = "lixaft";
-          home = true;
-          stateVersion = "23.11";
-        };
-        "lemon" = mkSystem {
-          system = "x86_64-linux";
-          host = "lemon";
-          user = "lixaft";
-          home = true;
-          stateVersion = "23.11";
-        };
-        "powder" = mkSystem {
-          system = "x86_64-linux";
-          host = "powder";
-          user = "lixaft";
-          home = true;
-          wsl = true;
+    nixosConfigurations = {
+      "kiwi" = mkSystem {
+        system = "x86_64-linux";
+        host = "kiwi";
+        user = "lixaft";
+        stateVersion = "23.11";
+        desktop.enable = true;
+        home = {
+          enable = true;
           stateVersion = "23.11";
         };
       };
-      darwinConfigurations = {
-        "apple" = mkSystem {
-          system = "x86_64-darwin";
-          host = "apple";
-          user = "lixaft";
-          home = false;
-          darwin = true;
+      "lemon" = mkSystem {
+        system = "x86_64-linux";
+        host = "lemon";
+        user = "lixaft";
+        stateVersion = "23.11";
+        desktop.enable = true;
+        home = {
+          enable = true;
+          stateVersion = "23.11";
+        };
+      };
+      "powder" = mkSystem {
+        system = "x86_64-linux";
+        host = "powder";
+        user = "lixaft";
+        stateVersion = "23.11";
+        wsl.enable = true;
+        home = {
+          enable = true;
           stateVersion = "23.11";
         };
       };
     };
+  };
 }

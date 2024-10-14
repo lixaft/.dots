@@ -1,4 +1,4 @@
 {
   allowUnfree = true;
-  permittedInsecurePackages = [ "python" ];
+  permittedInsecurePackages = ["python"];
 }
