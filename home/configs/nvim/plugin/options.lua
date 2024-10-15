@@ -1,8 +1,5 @@
 vim.opt.termguicolors = true
 
--- Turn that damn bell off...
-vim.opt.belloff = "all"
-
 -- Display.
 vim.opt.shortmess = "I"
 vim.opt.showmode = false
@@ -32,16 +29,14 @@ vim.opt.showbreak = "> "
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- -- Tab.
--- vim.opt.tabline = "test"
+-- Mouse.
+vim.opt.mouse = "a"
 
 -- Backup.
 vim.opt.swapfile = true
 vim.opt.backup = true
 vim.opt.undofile = true
-vim.opt.directory = os.getenv("HOME") .. "/.cache/nvim/swap"
-vim.opt.backupdir = os.getenv("HOME") .. "/.cache/nvim/backup"
-vim.opt.undodir = os.getenv("HOME") .. "/.cache/nvim/undo"
+vim.opt.directory = os.getenv("XDG_STATE_HOME") .. "/nvim/swap"
+vim.opt.backupdir = os.getenv("XDG_STATE_HOME") .. "/nvim/backup"
+vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
 
--- Mouse.
-vim.opt.mouse = "a"

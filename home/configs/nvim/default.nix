@@ -1,15 +1,8 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
-  inherit (config.lib.file) mkOutOfStoreSymlink;
-  nvim_dir = "${config.home.homeDirectory}/.dots/home/configs/nvim";
-in {
+{pkgs, ...}: {
   xdg.configFile = {
-    "nvim/after".source = mkOutOfStoreSymlink nvim_dir + "/after";
-    "nvim/init.lua".source = mkOutOfStoreSymlink nvim_dir + "/init.lua";
-    "nvim/plugin".source = mkOutOfStoreSymlink nvim_dir + "/plugin";
+    "nvim/after".source = ./after;
+    "nvim/init.lua".source = ./init.lua;
+    "nvim/plugin".source = ./plugin;
   };
 
   programs.neovim = {
@@ -21,7 +14,6 @@ in {
       tree-sitter
 
       # LSP.
-      basedpyright
       bash-language-server
       clang-tools
       cmake-language-server
@@ -30,7 +22,6 @@ in {
       nil
       nodePackages.typescript-language-server
       pyright
-      python3Packages.jedi-language-server
       ruff
       rust-analyzer
       typos-lsp
@@ -57,12 +48,11 @@ in {
     withRuby = true;
 
     plugins = with pkgs.vimPlugins; [
-      cloak-nvim
       cmp-buffer
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
-      conform-nvim
+      friendly-snippets
       gitsigns-nvim
       harpoon2
       indent-o-matic
@@ -89,7 +79,6 @@ in {
       vim-fugitive
       vim-illuminate
       virt-column-nvim
-      zen-mode-nvim
     ];
   };
 }

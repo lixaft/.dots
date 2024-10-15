@@ -2,8 +2,6 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 
-local behavior = cmp.ConfirmBehavior.Replace
-
 cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
@@ -25,7 +23,10 @@ cmp.setup({
     ["<c-e>"] = cmp.mapping.abort(),
     ["<cr>"] = function(fallback)
       if cmp.visible() and cmp.get_active_entry() then
-        cmp.confirm({ behavior = behavior, select = false })
+        cmp.confirm({
+          behavior = cmp.ConfirmBehavior.Replace,
+          select = false,
+        })
       else
         fallback()
       end

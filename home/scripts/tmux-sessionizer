@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# set -eo pipefail
 
 function filter_dirs() {
     for each in $(cat "/dev/stdin"); do

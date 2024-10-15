@@ -89,7 +89,7 @@ in {
         set -g status-style bg="#08080c"
 
         set -g status-left "\
-        #[fg=#15161e,bg=#7aa2f7,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }\
+        #[fg=#08080c,bg=#7aa2f7,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }\
         #[bold,nodim]#S \
         "
 

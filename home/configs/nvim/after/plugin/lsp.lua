@@ -58,7 +58,7 @@ local function on_attach(_, buffer)
   vim.keymap.set("n", "H", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help, opts)
 
-  vim.keymap.set("n", "<leader>e", vim.diagnostic.setqflist, opts)
+  vim.keymap.set("n", "<leader>q", vim.diagnostic.setqflist, opts)
   vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
   vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
   vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)

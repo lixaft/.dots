@@ -1,19 +1,3 @@
--- Window.
-vim.keymap.set("n", "<m-left>", "<c-w>h")
-vim.keymap.set("n", "<m-right>", "<c-w>l")
-vim.keymap.set("n", "<m-up>", "<c-w>k")
-vim.keymap.set("n", "<m-down>", "<c-w>j")
-
-vim.keymap.set("n", "<s-left>", "<c-w>5<")
-vim.keymap.set("n", "<s-right>", "<c-w>5>")
-vim.keymap.set("n", "<s-up>", "<c-w>5+")
-vim.keymap.set("n", "<s-down>", "<c-w>5-")
-
-vim.keymap.set("n", "<c-left>", "<c-w>H")
-vim.keymap.set("n", "<c-right>", "<c-w>L")
-vim.keymap.set("n", "<c-up>", "<c-w>K")
-vim.keymap.set("n", "<c-down>", "<c-w>J")
-
 -- Keep cursor at the middle of the screen on big vertical movement.
 vim.keymap.set("n", "<c-o>", "<c-o>zz")
 vim.keymap.set("n", "<c-i>", "<c-i>zz")
@@ -37,9 +21,6 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 -- Move line(s) up and down.
 vim.keymap.set("v", "J", ":move '>+1<cr>gv=gv")
 vim.keymap.set("v", "K", ":move '<-2<cr>gv=gv")
-
--- Paste over visual selection.
-vim.keymap.set({ "v" }, "<leader>p", [["_dP]])
 
 -- Do not move cursor on join line.
 vim.keymap.set("n", "J", "mzJ`z")
