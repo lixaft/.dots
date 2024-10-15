@@ -13,8 +13,7 @@
       "${homeDirectory}/.local/bin"
     ];
 
-    shellAliases = {
-      db = "distrobox";
+    shellAliases = rec {
       dev = "distrobox enter dev";
 
       df = "df -H";
@@ -22,15 +21,24 @@
 
       fd = "${pkgs.fd}/bin/fd --hidden";
       grep = "${pkgs.ripgrep}/bin/rg";
+
+      eza = "${pkgs.eza}/bin/eza --git --icons --group-directories-first";
+      ls = "${eza}";
+      l = "${eza}";
+      la = "${eza} --all";
+      ll = "${eza} --long";
+      lla = "${eza} --long --all";
+      t = "${eza} --tree";
+      ta = "${eza} --tree --all";
+      tl = "${eza} --tree --long";
+      tla = "${eza} --tree --long --all";
     };
 
     packages = with pkgs; [
       act
       alacritty
-      baobab
       bazecor
       bc
-      black
       blender
       brave
       btop
@@ -40,9 +48,8 @@
       curl
       discord
       distrobox
-      eog
+      eza
       fd
-      feh
       ffmpeg
       figma-linux
       filebot
@@ -54,8 +61,8 @@
       gnumake
       go
       google-chrome
-      gpick
       graphviz
+      grim
       hyprpicker
       iaito
       jq
@@ -80,16 +87,18 @@
       pypy
       python3
       qbittorrent
+      qimgv # Image viewer.
       rename
       ripgrep
       ruff
       selene
+      slurp
       spotify
       sqlfluff
       stylua
-      sushi
+      sushi # File previewer.
       tlrc
-      totem
+      totem # Movie player.
       tree
       twine
       typos
@@ -110,11 +119,6 @@
     zoxide.enable = true;
   };
 
-  services = {
-    picom.enable = true;
-    unclutter.enable = true;
-  };
-
   fonts.fontconfig.enable = true;
 
   dconf = {
@@ -130,12 +134,10 @@
   imports = [
     ./configs/alacritty
     ./configs/bat
-    ./configs/eza
     ./configs/fish
     ./configs/fzf
     ./configs/git
     ./configs/hypr
-    ./configs/i3
     ./configs/lf
     ./configs/litecli
     ./configs/nixpkgs

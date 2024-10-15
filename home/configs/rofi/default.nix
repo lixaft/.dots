@@ -7,7 +7,5 @@
       modi = "drun";
       show-icons = true;
     };
-
-    # theme = "${./style.css}";
   };
 }
