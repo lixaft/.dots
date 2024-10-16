@@ -74,6 +74,10 @@ ignore = [
     "TD006",  # invalid-todo-capitalization
     "PLR2004",  # magic-value-comparison
 
+    # Rule requirements.
+    "D203",  # one-blank-line-before-class (D211)
+    "D213",  # multi-line-summary-first-line (D212)
+
     # Formatter requirements.
     "COM812",  # missing-trailing-comma
     "ISC001",  # single-line-implicit-string-concatenation
@@ -98,8 +102,5 @@ required-imports = [
     "from __future__ import annotations"
 ]
 
-[lint.pep8-naming]
-ignore-names = [
-    # Ast.
-    "visit_*",
-]
+[lint.pydocstyle]
+convention = "google"

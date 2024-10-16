@@ -27,6 +27,7 @@ prompt {
 
 entry {
     placeholder: "Run";
+    placeholder-color: #565f89;
     width: 32em;
     expand: false;
 }

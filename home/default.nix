@@ -53,7 +53,6 @@
       ffmpeg
       figma-linux
       filebot
-      flameshot
       gcc
       geeqie
       gh
@@ -73,8 +72,6 @@
       mypy
       nautilus
       nerdfonts
-      nixfmt-rfc-style
-      nodePackages.prettier
       nodejs
       obs-studio
       parallel
@@ -84,26 +81,21 @@
       playerctl
       pre-commit
       protonvpn-gui
-      pypy
       python3
       qbittorrent
       qimgv # Image viewer.
       rename
       ripgrep
-      ruff
-      selene
       slurp
       spotify
-      sqlfluff
-      stylua
       sushi # File previewer.
       tlrc
       totem # Movie player.
       tree
       twine
-      typos
       uv
       vcv-rack
+      vlc
       wget
       wl-clipboard
       xclip
