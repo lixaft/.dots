@@ -22,5 +22,8 @@
 
   programs = {
     nix-ld.enable = true;
+    nix-index-database = {
+      comma.enable = true;
+    };
   };
 }

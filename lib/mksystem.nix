@@ -3,6 +3,7 @@
   nix-wsl,
   nix-darwin,
   home-manager,
+  nix-index-database,
   ...
 } @ inputs: {
   system,
@@ -37,6 +38,12 @@ in
         if home.enable
         then home-manager.nixosModules.home-manager
         else {}
+      )
+
+      (
+        if darwin.enable
+        then nix-index-database.darwinModules.nix-index
+        else nix-index-database.nixosModules.nix-index
       )
 
       ../hosts/${host}
