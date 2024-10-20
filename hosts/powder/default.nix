@@ -1,4 +1,4 @@
-{system, ...}: {
+{systemConfig, ...}: {
   imports = [
     ../../modules/locale.nix
     ../../modules/nix.nix
@@ -9,10 +9,10 @@
   wsl = {
     enable = true;
     startMenuLaunchers = true;
-    defaultUser = system.user;
+    defaultUser = systemConfig.user;
     wslConf = {
       automount.root = "/mnt";
-      network.hostname = system.host;
+      network.hostname = systemConfig.host;
     };
   };
 
