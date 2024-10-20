@@ -48,6 +48,7 @@
     ];
   in {
     formatter = lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
     devShells = lib.genAttrs systems (system: {
       default = import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
     });
