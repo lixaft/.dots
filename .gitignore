@@ -1,2 +1,4 @@
 *.pyc
+.direnv
+.envrc
 result

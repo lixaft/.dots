@@ -8,10 +8,15 @@
 
     username = systemConfig.user;
     homeDirectory = "/home/${username}";
+
     sessionPath = [
       "${./scripts}"
       "${homeDirectory}/.local/bin"
     ];
+
+    sessionVariables = {
+      DIRENV_LOG_FORMAT = "";
+    };
 
     shellAliases = rec {
       dev = "distrobox enter dev";
@@ -35,16 +40,13 @@
     };
 
     packages = with pkgs; [
-      act
       alacritty
       bazecor
       bc
       blender
       brave
       btop
-      cargo
       cloc
-      cmake
       curl
       discord
       distrobox
@@ -53,12 +55,9 @@
       ffmpeg
       figma-linux
       filebot
-      gcc
       geeqie
       gh
       gimp
-      gnumake
-      go
       google-chrome
       graphviz
       grim
@@ -69,7 +68,6 @@
       killall
       less
       luajit
-      mypy
       nautilus
       nerdfonts
       nodejs
@@ -79,7 +77,6 @@
       peek
       pkgs.file
       playerctl
-      pre-commit
       protonvpn-gui
       python3
       qbittorrent
@@ -92,21 +89,23 @@
       tlrc
       totem # Movie player.
       tree
-      twine
-      uv
       vcv-rack
       vlc
       wget
       wl-clipboard
       xclip
       xdg-utils
-      zig
     ];
   };
 
   programs = {
     bash.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     home-manager.enable = true;
+    nix-index.enable = true;
     thefuck.enable = true;
     zoxide.enable = true;
   };

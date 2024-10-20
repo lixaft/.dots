@@ -10,6 +10,7 @@ oil.setup({
       local name = {
         "..",
         ".DS_Store",
+        ".direnv",
         ".git",
         ".mypy_cache",
         ".nox",

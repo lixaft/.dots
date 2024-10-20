@@ -75,6 +75,9 @@
         bind \ct "${../../scripts/tmux-sessionizer} /tmp; commandline -f execute"
         bind \cg "${../../scripts/tmux-sessionizer} ~/todo.md; commandline -f execute"
 
+        # Load direnv.
+        eval (direnv hook fish)
+
         # Theme.
         ${lib.readFile "${inputs.tokyonight}/extras/fish/tokyonight_night.fish"}
       '';
@@ -83,9 +86,9 @@
       # fish
       ''
         #
-        # Make `cd` go the the tmux session if any.
-        # This cannot be defined with the `functions' option from home manager,
-        # as it must be done after zoxide initialization.
+        # Make `cd` go the the tmux session if any. This cannot be defined
+        # with the `functions' option from home manager, as it must be define
+        # after zoxide initialization.
         function cd
           if set -q "TMUX"; and test -z "$argv"
               set argv (tmux display-message -p "#{session_path}")

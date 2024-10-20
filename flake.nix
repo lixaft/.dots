@@ -37,9 +37,20 @@
     home-manager,
     ...
   } @ inputs: let
+    inherit (nixpkgs) lib;
     mkSystem = (import ./lib inputs).mkSystem;
+
+    systems = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
   in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    formatter = lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    devShells = lib.genAttrs systems (system: {
+      default = import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
+    });
 
     nixosConfigurations = {
       "kiwi" = mkSystem {
