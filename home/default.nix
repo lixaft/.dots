@@ -64,13 +64,10 @@
       hyprpicker
       iaito
       jq
-      just
       killall
       less
-      luajit
       nautilus
       nerdfonts
-      nodejs
       obs-studio
       parallel
       pavucontrol
@@ -78,7 +75,6 @@
       pkgs.file
       playerctl
       protonvpn-gui
-      python3
       qbittorrent
       qimgv # Image viewer.
       rename
@@ -93,7 +89,6 @@
       vlc
       wget
       wl-clipboard
-      xclip
       xdg-utils
     ];
   };
