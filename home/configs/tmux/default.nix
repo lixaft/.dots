@@ -77,6 +77,9 @@ in {
         window_number="#(${./numbers.sh} #I)"
         pane_numbers="#(${./numbers.sh} #P)"
 
+        set -g status-left-length 64
+        set -g status-right-length 64
+
         set -g mode-style "fg=#73daca,bg=#15161e"
 
         set -g message-style "bg=#7aa2f7,fg=#030305"
