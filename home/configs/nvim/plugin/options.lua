@@ -20,6 +20,12 @@ vim.opt.smartcase = true
 -- Interactive search/replace.
 vim.opt.inccommand = "split"
 
+-- Indent.
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+
 -- Wrap.
 vim.opt.linebreak = true
 vim.opt.breakindent = true
@@ -39,4 +45,3 @@ vim.opt.undofile = true
 vim.opt.directory = os.getenv("XDG_STATE_HOME") .. "/nvim/swap"
 vim.opt.backupdir = os.getenv("XDG_STATE_HOME") .. "/nvim/backup"
 vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
-

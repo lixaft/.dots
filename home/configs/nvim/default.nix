@@ -67,7 +67,6 @@
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
-      nvim-ufo
       nvim-web-devicons
       oil-nvim
       render-markdown-nvim
