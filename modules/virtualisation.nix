@@ -28,6 +28,7 @@
 
   environment.systemPackages = with pkgs; [
     virtiofsd
+    podman-compose
   ];
 
   users.users.${systemConfig.user} = {
