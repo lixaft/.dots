@@ -19,8 +19,9 @@
 
     extraPackages = with pkgs; [
       fswatch
+      postgresql # Required by dadbod.
+      python3Packages.pylatexenc # Required by render-markdown.
       tree-sitter
-      python3Packages.pylatexenc # For render-markdown.
 
       # LSP.
       bash-language-server
@@ -74,6 +75,9 @@
       treesj
       undotree
       vim-better-whitespace
+      vim-dadbod
+      vim-dadbod-completion
+      vim-dadbod-ui
       vim-fugitive
       vim-illuminate
       virt-column-nvim
