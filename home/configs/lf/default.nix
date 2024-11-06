@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   xdg = {
     desktopEntries."lf" = {
       name = "Lf";
@@ -24,6 +24,6 @@
       icons = true;
     };
 
-    previewer.source = ./pv.sh;
+    previewer.source = "${pkgs.pistol}/bin/pistol";
   };
 }

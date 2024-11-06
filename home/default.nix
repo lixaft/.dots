@@ -129,6 +129,7 @@
     ./configs/litecli
     ./configs/nixpkgs
     ./configs/nvim
+    ./configs/pistol
     ./configs/rofi
     ./configs/theme
     ./configs/tmux
