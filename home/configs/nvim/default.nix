@@ -21,6 +21,7 @@
       fswatch
       postgresql # Required by dadbod.
       python3Packages.pylatexenc # Required by render-markdown.
+      sqlite # Required by dadbod.
       tree-sitter
 
       # LSP.
