@@ -62,8 +62,6 @@
       gimp
       google-chrome
       graphviz
-      grim
-      hyprpicker
       iaito
       jq
       killall
@@ -81,7 +79,6 @@
       qimgv # Image viewer.
       rename
       ripgrep
-      slurp
       spotify
       sushi # File previewer.
       tlrc
