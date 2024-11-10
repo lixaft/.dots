@@ -19,8 +19,6 @@
     };
 
     shellAliases = rec {
-      dev = "distrobox enter dev";
-
       df = "df -H";
       du = "du -H";
 
@@ -33,6 +31,7 @@
       la = "${eza} --all";
       ll = "${eza} --long";
       lla = "${eza} --long --all";
+      tree = "${eza} --tree";
       t = "${eza} --tree";
       ta = "${eza} --tree --all";
       tl = "${eza} --tree --long";
@@ -43,15 +42,12 @@
 
     packages = with pkgs; [
       alacritty
-      bazecor
       bc # Basic calculator (required by ...)
-      blender
       brave
       btop
       cloc
       curl
       discord
-      distrobox
       eza
       fd
       ffmpeg
@@ -83,7 +79,6 @@
       sushi # File previewer.
       tlrc
       totem # Movie player.
-      tree
       vlc
       wget
       wl-clipboard
