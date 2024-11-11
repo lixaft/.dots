@@ -1,15 +1,17 @@
+--# selene: allow(mixed_table)
 local lualine = require("lualine")
 
 lualine.setup({
   options = {
     theme = "tokyonight-night",
 
+    always_show_tabline = false,
+    globalstatus = true,
+
     component_separators = {
       left = "।",
       right = "।",
     },
-
-    globalstatus = true,
 
     section_separators = {
       left = "",
@@ -49,16 +51,7 @@ lualine.setup({
       end,
     },
     lualine_b = {
-      { [1] = "tabs", mode = 2, max_length = vim.o.columns },
-      {
-        -- The tabline options will force set the `showtabline` option to 2
-        -- (which always display the tab bar). We want to restore the default
-        -- behavior here.
-        function()
-          vim.o.showtabline = 1
-          return ""
-        end,
-      },
+      { "tabs", mode = 2, max_length = vim.o.columns },
     },
     lualine_c = {},
     lualine_x = {},
