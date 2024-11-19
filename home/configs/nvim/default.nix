@@ -23,6 +23,7 @@
       python3Packages.pylatexenc # Required by render-markdown.
       sqlite # Required by dadbod.
       tree-sitter
+      zig  # Required for zls.
 
       # LSP.
       bash-language-server
