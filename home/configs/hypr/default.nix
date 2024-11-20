@@ -34,7 +34,7 @@
         "${mod}, q, exit"
         "${mod}, t, exec, ${pkgs.alacritty}/bin/alacritty"
         "${mod}, c, killactive"
-        "${mod}, e, exec, ${pkgs.nautilus}/bin/nautilus"
+        "${mod}, e, exec, ${pkgs.pcmanfm}/bin/pcmanfm"
         "${mod}, v, togglefloating"
         "${mod}, f, fullscreen"
         "${mod}, d, exec, rofi -theme ${../rofi/launcher.rasi} -show"

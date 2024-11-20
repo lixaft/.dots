@@ -62,11 +62,11 @@
       jq
       killall
       less
-      nautilus
       nerdfonts
       obs-studio
       parallel
       pavucontrol
+      pcmanfm
       peek
       pkgs.file
       playerctl
