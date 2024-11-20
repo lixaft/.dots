@@ -44,7 +44,6 @@
       alacritty
       bc # Basic calculator (required by ...)
       brave
-      btop
       cloc
       curl
       discord
@@ -53,11 +52,9 @@
       ffmpeg
       figma-linux
       filebot
-      geeqie # Image Viewer.
       gh
       gimp
       google-chrome
-      graphviz
       iaito
       jq
       killall
@@ -70,17 +67,13 @@
       peek
       pkgs.file
       playerctl
-      protonvpn-gui
       qbittorrent
-      qimgv # Image viewer.
+      qimgv
       rename
       ripgrep
       spotify
-      sushi # File previewer.
       tlrc
-      totem # Movie player.
       vlc
-      wget
       wl-clipboard
       xdg-utils
     ];
