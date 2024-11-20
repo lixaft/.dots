@@ -35,5 +35,13 @@
         categories = ["Application"];
       };
     };
+
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "image/jpeg" = "qimgv.desktop";
+        "image/png" = "qimgv.desktop";
+      };
+    };
   };
 }
