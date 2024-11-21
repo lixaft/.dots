@@ -42,7 +42,6 @@
 
     packages = with pkgs; [
       alacritty
-      bc # Basic calculator (required by ...)
       brave
       cloc
       curl
