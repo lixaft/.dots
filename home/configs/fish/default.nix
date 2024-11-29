@@ -20,6 +20,10 @@
         position = "anywhere";
         function = "__last_command";
       };
+      "uniqc" = {
+        position = "command";
+        expansion = "sort | uniq -c | sort -nr";
+      };
     };
 
     functions = {
