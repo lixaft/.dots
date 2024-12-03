@@ -42,6 +42,7 @@
 
     packages = with pkgs; [
       alacritty
+      binutils
       brave
       cloc
       curl
