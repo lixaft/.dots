@@ -28,6 +28,12 @@ in
     modules = [
       {config._module.args = args;}
 
+      {
+        environment.systemPackages = [
+          inputs.ghostty.packages.${system}.default
+        ];
+      }
+
       (
         if wsl.enable
         then nix-wsl.nixosModules.wsl

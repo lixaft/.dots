@@ -59,7 +59,7 @@
       jq
       killall
       less
-      nerdfonts
+      nerd-fonts.dejavu-sans-mono
       obs-studio
       parallel
       pavucontrol
