@@ -15,8 +15,8 @@
 
       decoration = {
         blur.enabled = false;
-        drop_shadow = false;
         rounding = 0;
+        shadow.enabled = false;
       };
 
       animations.enabled = false;
@@ -34,7 +34,7 @@
         "${mod}, q, exit"
         "${mod}, t, exec, ${pkgs.alacritty}/bin/alacritty"
         "${mod}, c, killactive"
-        "${mod}, e, exec, ${pkgs.pcmanfm}/bin/pcmanfm"
+        "${mod}, e, exec, ${pkgs.pcmanfm}/bin/nautilus"
         "${mod}, v, togglefloating"
         "${mod}, f, fullscreen"
         "${mod}, d, exec, rofi -theme ${../rofi/launcher.rasi} -show"
