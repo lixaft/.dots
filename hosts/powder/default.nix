@@ -17,10 +17,6 @@
   };
 
   fileSystems = {
-    "/a" = {
-      device = "A:";
-      fsType = "drvfs";
-    };
     "/c" = {
       device = "C:";
       fsType = "drvfs";
