@@ -18,12 +18,20 @@
     withRuby = true;
 
     extraPackages = with pkgs; [
-      fswatch
+      # Dependencies.
+      chafa # Required by fzf-lua.
+      delta # Required by fzf-lua.
+      fd # Required by fzf-lua.
+      fswatch # Required by nvim.
+      fzf # Required by fzf-lua.
       postgresql # Required by dadbod.
       python3Packages.pylatexenc # Required by render-markdown.
+      ripgrep # Required by fzf-lua.
       sqlite # Required by dadbod.
-      tree-sitter
-      zig  # Required for zls.
+      tree-sitter # Required by nvim.
+      ueberzugpp # Required by fzf-lua.
+      viu # Required by fzf-lua.
+      zig # Required for zls.
 
       # LSP.
       bash-language-server
@@ -32,7 +40,7 @@
       gopls
       lua-language-server
       nil
-      nodePackages.typescript-language-server
+      ols
       pyright
       ruff
       rust-analyzer
@@ -45,26 +53,21 @@
       nodePackages.prettier
       selene
       shfmt
-      sqlfluff
+      sql-formatter
       stylua
     ];
 
     plugins = with pkgs.vimPlugins; [
-      cmp-buffer
-      cmp-nvim-lsp
-      cmp-path
-      cmp_luasnip
+      blink-cmp
+      conform-nvim
       friendly-snippets
+      fzf-lua
       gitsigns-nvim
-      harpoon2
       indent-o-matic
-      lspkind-nvim
+      lazydev-nvim
       lualine-nvim
-      luasnip
-      neodev-nvim
-      none-ls-nvim
-      nvim-cmp
       nvim-colorizer-lua
+      nvim-lint
       nvim-lspconfig
       nvim-treesitter-context
       nvim-treesitter-textobjects
@@ -72,7 +75,6 @@
       nvim-web-devicons
       oil-nvim
       render-markdown-nvim
-      telescope-nvim
       tokyonight-nvim
       treesj
       undotree

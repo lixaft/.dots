@@ -1,8 +1,9 @@
 local colorizer = require("colorizer")
 
 colorizer.setup({
+  -- selene: allow(mixed_table)
   filetypes = {
-    [1] = "*",
+    "*",
     css = { css = true },
   },
   user_default_options = {

@@ -1,4 +1,3 @@
---# selene: allow(mixed_table)
 local lualine = require("lualine")
 
 lualine.setup({
@@ -44,6 +43,7 @@ lualine.setup({
     },
   },
 
+  -- selene: allow(mixed_table)
   tabline = {
     lualine_a = {
       function()
