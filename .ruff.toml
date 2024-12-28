@@ -51,7 +51,7 @@ select = [
     "SLOT",  # flake8-slots
     "T10",  # flake8-debugger
     "T20",  # flake8-print
-    "TCH",  # flake8-type-checking
+    "TC",  # flake8-type-checking
     "TD",  # flake8-todos
     "TID",  # flake8-tidy-imports
     "TRY",  # tryceratops
@@ -61,30 +61,15 @@ select = [
 ]
 ignore = [
     "ANN401",  # any-type
-    "D100",  # undocumented-public-module
-    "D107",  # undocumented-public-init
     "PERF203",  # try-except-in-loop
-    "PLR0911",  # too-many-return-statements
-    "PLR0912",  # too-many-branches
-    "PLR0913", # too-many-arguments
-    "PLR0915", # too-many-statements
     "SIM108",  # if-else-block-instead-of-if-exp
     "TD002",  # invalid-todo-tag
     "TD003",  # missing-todo-author
     "TD006",  # invalid-todo-capitalization
-    "PLR2004",  # magic-value-comparison
-
-    # Rule requirements.
-    "D203",  # one-blank-line-before-class (D211)
-    "D213",  # multi-line-summary-first-line (D212)
 
     # Formatter requirements.
     "COM812",  # missing-trailing-comma
     "ISC001",  # single-line-implicit-string-concatenation
-
-    # Deprecated.
-    "ANN101",  # missing-type-self
-    "ANN102",  # missing-type-cls
 ]
 fixable = ["ALL"]
 

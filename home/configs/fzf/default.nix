@@ -1,7 +1,7 @@
-{...}: {
+{pkgs, ...}: {
   programs.fzf = {
     enable = true;
-    defaultCommand = "fd --highlight-line --info=inline-right --ansi --layout=reverse --border=none";
+    defaultCommand = "${pkgs.fd}/bin/fd --highlight-line --info=inline-right --ansi --layout=reverse --border=none";
     colors = {
       "bg+" = "-1";
       "bg" = "-1";

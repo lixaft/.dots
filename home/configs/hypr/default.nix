@@ -1,7 +1,5 @@
 {pkgs, ...}: {
-  wayland.windowManager.hyprland = let
-    mod = "SUPER";
-  in {
+  wayland.windowManager.hyprland = {
     enable = true;
     settings = {
       general = {
@@ -27,58 +25,65 @@
       };
 
       input.follow_mouse = 0;
-
       cursor.inactive_timeout = 3;
 
       bind = [
-        "${mod}, q, exit"
-        "${mod}, t, exec, ${pkgs.alacritty}/bin/alacritty"
-        "${mod}, c, killactive"
-        "${mod}, e, exec, ${pkgs.pcmanfm}/bin/nautilus"
-        "${mod}, v, togglefloating"
-        "${mod}, f, fullscreen"
-        "${mod}, d, exec, rofi -theme ${../rofi/launcher.rasi} -show"
-        "${mod}, p, exec, ${pkgs.hyprpicker}/bin/hyprpicker --autocopy --format=hex"
+        "SUPER, q, exit"
+        "SUPER, t, exec, ${pkgs.alacritty}/bin/alacritty"
+        "SUPER, c, killactive"
+        "SUPER, e, exec, ${pkgs.alacritty}/bin/alacritty --command ${pkgs.lf}/bin/lf"
+        "SUPER, v, togglefloating"
+        "SUPER, f, fullscreen"
+        "SUPER, d, exec, rofi -theme ${../rofi/launcher.rasi} -show"
+        "SUPER, p, exec, ${pkgs.hyprpicker}/bin/hyprpicker --autocopy --format=hex"
         '', Print, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b 000000AA -w 1 -c FFFFFF80-d)" - | wl-copy''
+        "Control_L, Print, exec, ${pkgs.peek}/bin/peek"
 
-        "${mod}, l, movefocus, l"
-        "${mod}, h, movefocus, r"
-        "${mod}, j, movefocus, u"
-        "${mod}, k, movefocus, d"
+        "SUPER, l, movefocus, l"
+        "SUPER, h, movefocus, r"
+        "SUPER, j, movefocus, u"
+        "SUPER, k, movefocus, d"
 
-        "${mod}, 1, workspace, 1"
-        "${mod}, 2, workspace, 2"
-        "${mod}, 3, workspace, 3"
-        "${mod}, 4, workspace, 4"
-        "${mod}, 5, workspace, 5"
-        "${mod}, 6, workspace, 6"
-        "${mod}, 7, workspace, 7"
-        "${mod}, 8, workspace, 8"
-        "${mod}, 9, workspace, 9"
+        "SUPER, 1, workspace, 1"
+        "SUPER, 2, workspace, 2"
+        "SUPER, 3, workspace, 3"
+        "SUPER, 4, workspace, 4"
+        "SUPER, 5, workspace, 5"
+        "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 7"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
 
-        "${mod}, F1, movetoworkspace, 1"
-        "${mod}, F2, movetoworkspace, 2"
-        "${mod}, F3, movetoworkspace, 3"
-        "${mod}, F4, movetoworkspace, 4"
-        "${mod}, F5, movetoworkspace, 5"
-        "${mod}, F6, movetoworkspace, 6"
-        "${mod}, F7, movetoworkspace, 7"
-        "${mod}, F8, movetoworkspace, 8"
-        "${mod}, F9, movetoworkspace, 9"
+        "SUPER, F1, movetoworkspace, 1"
+        "SUPER, F2, movetoworkspace, 2"
+        "SUPER, F3, movetoworkspace, 3"
+        "SUPER, F4, movetoworkspace, 4"
+        "SUPER, F5, movetoworkspace, 5"
+        "SUPER, F6, movetoworkspace, 6"
+        "SUPER, F7, movetoworkspace, 7"
+        "SUPER, F8, movetoworkspace, 8"
+        "SUPER, F9, movetoworkspace, 9"
       ];
 
       bindm = [
-        "${mod}, mouse:272, movewindow"
-        "${mod}, mouse:273, resizewindow"
+        "SUPER, mouse:272, movewindow"
+        "SUPER, mouse:273, resizewindow"
       ];
 
       bindl = [
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
-        ", XF86AudioNext, exec, playerctl next"
+        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
+        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
+        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+      ];
+
+      exec-once = [
+        "[workspace 2 silent] ${pkgs.spotify}/bin/spotify"
+        "[workspace 3 silent] ${pkgs.alacritty}/bin/alacritty"
+        "[workspace 4 silent] ${pkgs.brave}/bin/brave"
+        "hyprctl dispatch workspace 3"
       ];
 
       windowrulev2 = [
@@ -91,7 +96,7 @@
 
     extraConfig = ''
       # Resize mode.
-      bind = ${mod}, r, submap, resize
+      bind = SUPER, r, submap, resize
       submap = resize
       binde = , l, resizeactive, 50 0
       binde = , h, resizeactive, -50 0
@@ -103,13 +108,13 @@
     '';
   };
 
-  services.hyprpaper = {
+  services.hyprpaper = let
+    wall = "${../../../wall.png}";
+  in {
     enable = true;
-    settings = let
-      img = "${../../../wall.png}";
-    in {
-      preload = img;
-      wallpaper = ",${img}";
+    settings = {
+      preload = wall;
+      wallpaper = ",${wall}";
     };
   };
 }

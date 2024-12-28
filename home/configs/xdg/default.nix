@@ -23,6 +23,7 @@
     desktopEntries = {
       filebot = {
         name = "FileBot";
+        icon = ./filebot.svg;
         exec = "${pkgs.filebot}/bin/filebot";
         terminal = false;
         categories = ["Application"];

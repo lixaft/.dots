@@ -21,6 +21,7 @@
     shellAliases = rec {
       df = "df -H";
       du = "du -H";
+      cal = "cal --monday";
 
       fd = "${pkgs.fd}/bin/fd --hidden";
       grep = "${pkgs.ripgrep}/bin/rg";
@@ -54,19 +55,19 @@
       filebot
       gh
       gimp
+      gnome-text-editor
       google-chrome
       iaito
       jq
       killall
       less
+      nautilus
       nerd-fonts.dejavu-sans-mono
       obs-studio
       parallel
       pavucontrol
-      pcmanfm
       peek
       pkgs.file
-      playerctl
       qbittorrent
       qimgv
       rename
@@ -96,6 +97,9 @@
   dconf = {
     enable = true;
     settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
       "org/virt-manager/virt-manager/connections" = {
         autoconnect = ["qemu:///system"];
         uris = ["qemu:///system"];
@@ -112,13 +116,13 @@
     ./configs/hypr
     ./configs/lf
     ./configs/litecli
-    ./configs/nixpkgs
     ./configs/nvim
     ./configs/pistol
     ./configs/rofi
     ./configs/theme
     ./configs/tmux
     ./configs/xdg
+    ./games.nix
   ];
 
   systemd.user.startServices = "sd-switch";
