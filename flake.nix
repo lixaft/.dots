@@ -53,6 +53,8 @@
       default = import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
     });
 
+    templates = (import ./templates) inputs;
+
     nixosConfigurations = {
       "kiwi" = mkSystem {
         system = "x86_64-linux";
