@@ -82,10 +82,9 @@
 
   programs = {
     bash.enable = true;
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
+    carapace.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
     home-manager.enable = true;
     nix-index.enable = true;
     thefuck.enable = true;
@@ -116,9 +115,11 @@
     ./configs/hypr
     ./configs/lf
     ./configs/litecli
+    ./configs/nushell
     ./configs/nvim
     ./configs/pistol
     ./configs/rofi
+    ./configs/starship
     ./configs/theme
     ./configs/tmux
     ./configs/xdg
