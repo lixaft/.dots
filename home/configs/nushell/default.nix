@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   programs.nushell = {
     enable = true;
 
@@ -72,9 +76,20 @@
 
       "cd" = "__smart_cd";
       "ci" = "zi";
+      "cat" = "bat";
+      "diff" = "batdiff";
+      "man" = "batman";
     };
 
-    # I don't really know why they don't seem to be picked up automatically.
+    # I don't really know why, but they don't seem to be picked up automatically.
     environmentVariables = config.home.sessionVariables;
+    extraEnv =
+      # nu
+      ''
+        use std/util "path add"
+        ${lib.concatStringsSep "\n" (
+          map (x: ''path add "${x}"'') config.home.sessionPath
+        )}
+      '';
   };
 }
