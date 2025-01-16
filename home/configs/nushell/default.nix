@@ -14,44 +14,40 @@
             modifier: CONTROL
             keycode: Char_s
             mode: emacs
-            event: [
-              { edit: Clear }
-              { edit: InsertString, value: "${../../scripts/tmux-sessionizer}" }
-              { send: Enter }
-            ]
+            event: {
+              send: executehostcommand,
+              cmd: "${../../scripts/tmux-sessionizer}"
+            }
           }
           {
             name: tmux_sessionizer_home
             modifier: CONTROL
             keycode: Char_h
             mode: emacs
-            event: [
-              { edit: Clear }
-              { edit: InsertString, value: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}" }
-              { send: Enter }
-            ]
+            event: {
+              send: executehostcommand,
+              cmd: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}"
+            }
           }
           {
             name: tmux_sessionizer_tmp
             modifier: CONTROL
             keycode: Char_t
             mode: emacs
-            event: [
-              { edit: Clear }
-              { edit: InsertString, value: "${../../scripts/tmux-sessionizer} /tmp" }
-              { send: Enter }
-            ]
+            event: {
+              send: executehostcommand,
+              cmd: "${../../scripts/tmux-sessionizer} /tmp"
+            }
           }
           {
             name: tmux_sessionizer_todo
             modifier: CONTROL
             keycode: Char_g
             mode: emacs
-            event: [
-              { edit: Clear }
-              { edit: InsertString, value: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}/todo.md" }
-              { send: Enter }
-            ]
+            event: {
+              send: executehostcommand,
+              cmd: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}/todo.md"
+            }
           }
         ]
 
@@ -77,5 +73,8 @@
       "cd" = "__smart_cd";
       "ci" = "zi";
     };
+
+    # I don't really know why they don't seem to be picked up automatically.
+    environmentVariables = config.home.sessionVariables;
   };
 }
