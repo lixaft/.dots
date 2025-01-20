@@ -4,10 +4,10 @@
   ...
 }: {
   users.users.${systemConfig.user} = {
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
 
-  programs = {
-    fish.enable = true;
-  };
+  environment.systemPackages = with pkgs; [
+    nushell
+  ];
 }
