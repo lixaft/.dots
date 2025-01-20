@@ -1,8 +1,6 @@
-{...}: {
-  default = {
-    path = ./generic;
-  };
-  generic = {
-    path = ./generic;
-  };
+{...}: rec {
+  generic = {path = ./generic;};
+  python = {path = ./python;};
+
+  default = generic;
 }
