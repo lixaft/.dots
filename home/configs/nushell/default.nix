@@ -75,7 +75,7 @@
       "lla" = "ls -la";
 
       "cd" = "__smart_cd";
-      "ci" = "zi";
+      "cdi" = "zi";
       "cat" = "bat";
       "diff" = "batdiff";
       "man" = "batman";
