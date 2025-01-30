@@ -37,8 +37,6 @@
       ta = "${eza} --tree --all";
       tl = "${eza} --tree --long";
       tla = "${eza} --tree --long --all";
-
-      docker-compose = "${pkgs.podman-compose}/bin/podman-compose";
     };
 
     packages = with pkgs; [

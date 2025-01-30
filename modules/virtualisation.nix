@@ -15,10 +15,12 @@
       };
     };
 
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
+      rootless = {
+        enable = true;
+        setSocketVariable = true;
+      };
     };
   };
 
@@ -28,13 +30,12 @@
 
   environment.systemPackages = with pkgs; [
     virtiofsd
-    podman-compose
+    docker-compose
   ];
 
   users.users.${systemConfig.user} = {
     extraGroups = [
       "libvirtd"
-      "podman"
     ];
   };
 }
