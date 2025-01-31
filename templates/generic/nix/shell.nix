@@ -4,7 +4,7 @@ pkgs.mkShell {
 
   shellHook = ''
     if [[ -f .env ]]; then
-        export $(cat .env | xargs)
+        export $(grep -v '^#' .env | xargs)
     fi
   '';
 }
