@@ -9,7 +9,6 @@ conform.setup({
     nix = { "alejandra" },
     python = { "ruff_organize_imports", "ruff_format" },
     sh = { "shfmt" },
-    sql = { "sql_formatter" },
     yaml = { "prettier" },
   },
   formatters = {

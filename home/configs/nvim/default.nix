@@ -53,7 +53,6 @@
       nodePackages.prettier
       selene
       shfmt
-      sql-formatter
       stylua
     ];
 

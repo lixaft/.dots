@@ -1,8 +1,8 @@
 local lint = require("lint")
 
 lint.linters_by_ft = {
-  lua = { "selene" },
   python = { "mypy" },
+  lua = { "selene" },
 }
 
 -- TODO: Switch to dmypy when new version is available in nix packages.
