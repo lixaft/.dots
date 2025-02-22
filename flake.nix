@@ -74,6 +74,12 @@
           stateVersion = "23.11";
         };
       };
+      "mango" = mkSystem {
+        system = "x86_64-linux";
+        host = "mango";
+        user = "lab";
+        home.enable = false;
+      };
       "powder" = mkSystem {
         system = "x86_64-linux";
         host = "powder";
