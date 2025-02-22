@@ -18,9 +18,13 @@ build host=`hostname`:
 # build and activate the config, but do not add it to the boot menu
 [positional-arguments]
 test host=`hostname`:
-    nixos-rebuild test --use-remote-sudo --flake .#{{ host }}
+    nixos-rebuild test --flake .#{{ host }}
 
 # build and activate the config, and make it the boot default
 [positional-arguments]
 switch host=`hostname`:
-    nixos-rebuild switch --use-remote-sudo --flake .#{{ host }}
+    nixos-rebuild switch --flake .#{{ host }}
+
+# build and activate the config, and make it the boot default
+switch-anywhere user=`id -un` host=`hostname`:
+    sudo nixos-anywhere -S --flake ".#{{ host }}" {{ user }}@{{ host }}
