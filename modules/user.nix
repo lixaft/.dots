@@ -1,7 +1,7 @@
-{systemConfig, ...}: {
-  users.users.${systemConfig.user} = {
+{flakeConfig, ...}: {
+  users.users.${flakeConfig.user} = {
     isNormalUser = true;
-    description = "${systemConfig.user}";
+    description = "${flakeConfig.user}";
     extraGroups = ["wheel"];
   };
 }

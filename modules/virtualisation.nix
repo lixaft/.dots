@@ -1,6 +1,6 @@
 {
   pkgs,
-  systemConfig,
+  flakeConfig,
   ...
 }: {
   virtualisation = {
@@ -33,7 +33,7 @@
     docker-compose
   ];
 
-  users.users.${systemConfig.user} = {
+  users.users.${flakeConfig.user} = {
     extraGroups = [
       "libvirtd"
     ];

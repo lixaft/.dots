@@ -1,9 +1,9 @@
 {
   pkgs,
-  systemConfig,
+  flakeConfig,
   ...
 }: {
-  users.users.${systemConfig.user} = {
+  users.users.${flakeConfig.user} = {
     isNormalUser = true;
     shell = pkgs.bash;
     extraGroups = ["wheel"];

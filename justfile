@@ -13,18 +13,28 @@ update:
 # build the config, but neither activate it nor add it to the boot menu
 [positional-arguments]
 build host=`hostname`:
-    nixos-rebuild build --flake .#{{ host }}
+    nixos-rebuild \
+        --flake .#{{ host }} \
+        build
 
 # build and activate the config, but do not add it to the boot menu
 [positional-arguments]
 test host=`hostname`:
-    nixos-rebuild test --flake .#{{ host }}
+    sudo nixos-rebuild \
+        --flake .#{{ host }} \
+        test
 
-# build and activate the config, and make it the boot default
+# build the config, activate it, and make it the boot default
 [positional-arguments]
 switch host=`hostname`:
-    nixos-rebuild switch --flake .#{{ host }}
+    sudo nixos-rebuild \
+        --flake .#{{ host }} \
+        switch
 
-# build and activate the config, and make it the boot default
-switch-anywhere user=`id -un` host=`hostname`:
-    sudo nixos-anywhere -S --flake ".#{{ host }}" {{ user }}@{{ host }}
+# build the config, activate it, and make it the boot default (remotely)
+remote-switch host:
+    nixos-rebuild \
+        --build-host {{ host }} \
+        --target-host {{ host }} \
+        --flake .#{{ replace_regex(host, ".*@", "") }} \
+        switch

@@ -12,7 +12,7 @@
   darwin ? {enable = false;},
   wsl ? {enable = false;},
   home ? {enable = false;},
-} @ systemConfig: let
+} @ flakeConfig: let
   systemFn =
     if darwin.enable
     then nix-darwin.lib.darwinSystem
@@ -20,7 +20,7 @@
 
   args = {
     inputs = inputs;
-    systemConfig = systemConfig;
+    flakeConfig = flakeConfig;
   };
 in
   systemFn {
