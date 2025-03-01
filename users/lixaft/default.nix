@@ -1,9 +1,9 @@
 {
   pkgs,
-  systemConfig,
+  flakeConfig,
   ...
 }: {
-  users.users.${systemConfig.user} = {
+  users.users.${flakeConfig.user} = {
     shell = pkgs.nushell;
   };
 

@@ -1,5 +1,5 @@
 {
-  systemConfig,
+  flakeConfig,
   pkgs,
   ...
 }: {
@@ -12,7 +12,7 @@
   };
 
   networking = {
-    hostName = systemConfig.host;
+    hostName = flakeConfig.host;
     networkmanager.enable = true;
     firewall.enable = true;
   };
@@ -27,7 +27,7 @@
       settings = {
         default_session = {
           command = "${pkgs.greetd.tuigreet}/bin/tuigreet --remember --remember-user-session --time";
-          user = systemConfig.user;
+          user = flakeConfig.user;
         };
       };
     };
@@ -56,6 +56,7 @@
 
   programs = {
     hyprland.enable = true;
+    nix-index-database.comma.enable = true;
   };
 
   xdg.portal = {
@@ -65,5 +66,5 @@
     extraPortals = with pkgs; [xdg-desktop-portal-gtk];
   };
 
-  users.users.${systemConfig.user}.extraGroups = ["networkmanager"];
+  users.users.${flakeConfig.user}.extraGroups = ["networkmanager"];
 }

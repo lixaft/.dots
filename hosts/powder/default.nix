@@ -1,4 +1,4 @@
-{systemConfig, ...}: {
+{flakeConfig, ...}: {
   imports = [
     ../../modules/locale.nix
     ../../modules/nix.nix
@@ -9,10 +9,10 @@
   wsl = {
     enable = true;
     startMenuLaunchers = true;
-    defaultUser = systemConfig.user;
+    defaultUser = flakeConfig.user;
     wslConf = {
       automount.root = "/mnt";
-      network.hostname = systemConfig.host;
+      network.hostname = flakeConfig.host;
     };
   };
 

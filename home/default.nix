@@ -1,12 +1,12 @@
 {
-  systemConfig,
+  flakeConfig,
   pkgs,
   ...
 }: {
   home = rec {
-    stateVersion = systemConfig.home.stateVersion;
+    stateVersion = flakeConfig.home.stateVersion;
 
-    username = systemConfig.user;
+    username = flakeConfig.user;
     homeDirectory = "/home/${username}";
 
     sessionPath = [
@@ -122,7 +122,6 @@
     ./configs/theme
     ./configs/tmux
     ./configs/xdg
-    ./games.nix
   ];
 
   systemd.user.startServices = "sd-switch";

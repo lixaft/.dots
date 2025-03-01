@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  flakeConfig,
   ...
 }: {
   imports = [
@@ -29,6 +30,8 @@
   };
 
   environment.systemPackages = with pkgs; [nfs-utils];
+
+  nix.settings.trusted-users = [flakeConfig.user];
 
   system.stateVersion = "23.11";
 }
