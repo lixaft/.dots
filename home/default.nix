@@ -109,6 +109,7 @@
     ./configs/bat
     ./configs/fish
     ./configs/fzf
+    ./configs/gdb
     ./configs/git
     ./configs/hypr
     ./configs/lf
