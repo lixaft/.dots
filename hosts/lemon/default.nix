@@ -6,10 +6,11 @@
 }: {
   imports = [
     ../../modules/boot.nix
+    ../../modules/desktop.nix
     ../../modules/locale.nix
     ../../modules/nix.nix
+    ../../modules/shell.nix
     ../../modules/user.nix
-    ../../modules/desktop.nix
     ../../modules/virtualisation.nix
     ./hardware.nix
   ];
