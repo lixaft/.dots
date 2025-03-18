@@ -43,7 +43,6 @@
       alacritty
       binutils
       brave
-      cloc
       curl
       discord
       eza
@@ -55,14 +54,11 @@
       gimp
       gnome-text-editor
       google-chrome
-      iaito
       jq
-      killall
       less
       nautilus
       nerd-fonts.dejavu-sans-mono
       obs-studio
-      parallel
       pavucontrol
       peek
       pkgs.file
