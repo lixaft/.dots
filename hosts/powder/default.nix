@@ -10,6 +10,7 @@
     enable = true;
     startMenuLaunchers = true;
     defaultUser = flakeConfig.user;
+    docker-desktop.enable = true;
     wslConf = {
       automount.root = "/mnt";
       network.hostname = flakeConfig.host;
