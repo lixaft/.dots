@@ -18,9 +18,14 @@
     };
   };
 
+  hardware = {
+    bluetooth.enable = false;
+  };
+
   networking = {
     hostName = flakeConfig.host;
     networkmanager.enable = true;
+    networkmanager.wifi.powersave = false;
     firewall.enable = true;
   };
 
@@ -35,7 +40,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    git
     nfs-utils
     jellyfin
     jellyfin-web
