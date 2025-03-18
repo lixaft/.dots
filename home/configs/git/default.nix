@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   programs.git = {
     enable = true;
 
@@ -37,15 +37,23 @@
     delta = {
       enable = true;
       options = {
-        syntax-theme = "tokyonight";
         line-numbers = true;
+        line-numbers-minus-style = "#914c54";
+        line-numbers-plus-style = "#449dab";
+        line-numbers-zero-style = "#3b4261";
+        minus-emph-style = "#db4b4b #713137";
+        minus-empty-line-marker-style = "#db4b4b #37222c";
+        minus-non-emph-style = "#db4b4b #37222c";
+        minus-style = "#db4b4b #37222c";
+        plus-emph-style = "syntax #2c5a66";
+        plus-emptly-line-marker-style = "syntax #20303b";
+        plus-non-emph-style = "syntax #20303b";
+        plus-style = "syntax #20303b";
+        syntax-theme = "tokyonight";
       };
     };
 
     includes = [
-      {
-        path = "${inputs.tokyonight}/extras/delta/tokyonight_night.gitconfig";
-      }
       {
         condition = "gitdir:~/dev/stim/";
         contents = {
