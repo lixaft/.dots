@@ -56,7 +56,6 @@
 
   programs = {
     hyprland.enable = true;
-    nix-index-database.comma.enable = true;
   };
 
   xdg.portal = {

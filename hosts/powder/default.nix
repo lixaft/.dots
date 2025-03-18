@@ -2,6 +2,7 @@
   imports = [
     ../../modules/locale.nix
     ../../modules/nix.nix
+    ../../modules/shell.nix
     ../../modules/user.nix
     ../../modules/virtualisation.nix
   ];
