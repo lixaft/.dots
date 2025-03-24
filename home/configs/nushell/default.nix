@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   programs.nushell = {
@@ -79,6 +80,8 @@
       "cat" = "bat";
       "diff" = "batdiff";
       "man" = "batman";
+
+      "fg" = "job unfreeze";
     };
 
     # I don't really know why, but they don't seem to be picked up automatically.
