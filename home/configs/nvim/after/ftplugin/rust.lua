@@ -2,5 +2,5 @@
 vim.opt_local.shiftwidth = 4
 
 -- LSP.
-vim.lsp.start(vim.lsp.config.rust_analyzer)
-vim.lsp.start(vim.lsp.config.typos_lsp)
+vim.lsp.start(vim.lsp.config["rust_analyzer"])
+vim.lsp.start(vim.lsp.config["typos_lsp"])
