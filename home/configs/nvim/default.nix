@@ -68,7 +68,6 @@
       lualine-nvim
       nvim-colorizer-lua
       nvim-lint
-      # nvim-lspconfig
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
