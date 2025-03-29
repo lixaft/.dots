@@ -1,4 +1,3 @@
-local opt = vim.opt_local
-
-opt.commentstring = "-- %s"
-opt.shiftwidth = 4
+-- Options.
+vim.opt_local.commentstring = "-- %s"
+vim.opt_local.shiftwidth = 4

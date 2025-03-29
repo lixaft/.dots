@@ -33,5 +33,26 @@ vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("n", "gh", "<cmd>nohlsearch<cr>")
 vim.keymap.set("n", "gs", "<cmd>set spell!<cr>")
 
+-- LSP.
+pcall(vim.keymap.del, "n", "grr")
+pcall(vim.keymap.del, "n", "gra")
+pcall(vim.keymap.del, "n", "gri")
+pcall(vim.keymap.del, "n", "grn")
+
+vim.keymap.set("n", "gr", vim.lsp.buf.rename)
+
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gR", vim.lsp.buf.references)
+vim.keymap.set("n", "K", vim.lsp.buf.hover)
+vim.keymap.set("n", "H", vim.lsp.buf.signature_help)
+vim.keymap.set("i", "<c-h>", vim.lsp.buf.signature_help)
+
+vim.keymap.set("n", "<c-q>", vim.diagnostic.setqflist)
+vim.keymap.set("n", "gl", vim.diagnostic.open_float)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set({ "n", "v" }, "ga", vim.lsp.buf.code_action)
+
 -- Escape (keep it hidden in the bottom of the file :s).
 vim.keymap.set({ "n", "i", "v" }, "<c-c>", "<esc>")

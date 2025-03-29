@@ -2,6 +2,7 @@
   xdg.configFile = {
     "nvim/after".source = ./after;
     "nvim/init.lua".source = ./init.lua;
+    "nvim/lua".source = ./lua;
     "nvim/plugin".source = ./plugin;
   };
 
@@ -67,7 +68,7 @@
       lualine-nvim
       nvim-colorizer-lua
       nvim-lint
-      nvim-lspconfig
+      # nvim-lspconfig
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars

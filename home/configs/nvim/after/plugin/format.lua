@@ -18,7 +18,7 @@ conform.setup({
         "--fix",
         "--unsafe-fixes",
         "--force-exclude",
-        "--select=I001,I002,TC001,TC002,TC003,TC004,TC005,TID252",
+        "--select=I001,I002,TC001,TC002,TC003,TC004,TC005,TID252,RUF022",
         "--exit-zero",
         "--no-cache",
         "--stdin-filename",

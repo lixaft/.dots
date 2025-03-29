@@ -1,10 +1,11 @@
+-- Color.
 vim.opt.termguicolors = true
 
 -- Display.
 vim.opt.shortmess = "I"
 vim.opt.showmode = false
 
--- Columns.
+-- Column.
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = { "80", "100" }
 vim.opt.number = true
@@ -20,7 +21,7 @@ vim.opt.smartcase = true
 -- Interactive search/replace.
 vim.opt.inccommand = "split"
 
--- Indent.
+-- Fold.
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldtext = ""
