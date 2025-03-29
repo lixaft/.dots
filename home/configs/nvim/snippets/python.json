@@ -1,0 +1,10 @@
+{
+  "Pretty print": {
+    "prefix": "pprint",
+    "body": "__import__(\"pprint\").pprint(${1:expression})$0"
+  },
+  "Path join here": {
+    "prefix": "herejoin",
+    "body": "os.path.join(os.path.dirname(__file__), ${1:expression})$0"
+  }
+}

@@ -3,7 +3,9 @@
     "nvim/after".source = ./after;
     "nvim/init.lua".source = ./init.lua;
     "nvim/lua".source = ./lua;
+    "nvim/package.json".source = ./package.json;
     "nvim/plugin".source = ./plugin;
+    "nvim/snippets".source = ./snippets;
   };
 
   programs.neovim = {
@@ -60,7 +62,6 @@
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       conform-nvim
-      friendly-snippets
       fzf-lua
       gitsigns-nvim
       indent-o-matic
