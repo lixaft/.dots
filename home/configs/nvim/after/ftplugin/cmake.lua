@@ -1,3 +1,5 @@
+local flake = require("flake")
+
 -- LSP.
-vim.lsp.start(vim.lsp.config["cmake"])
-vim.lsp.start(vim.lsp.config["typos_lsp"])
+flake.lsp.start("cmake")
+flake.lsp.start("typos_lsp")

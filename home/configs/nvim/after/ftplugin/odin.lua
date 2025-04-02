@@ -1,3 +1,5 @@
+local flake = require("flake")
+
 -- LSP.
-vim.lsp.start(vim.lsp.config["ols"])
-vim.lsp.start(vim.lsp.config["typos_lsp"])
+flake.lsp.start("ols")
+flake.lsp.start("typos_lsp")

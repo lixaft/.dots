@@ -5,12 +5,13 @@
 }: {
   xdg.configFile = {
     "nvim/after".source = ./after;
+    "nvim/colors".source = ./colors;
     "nvim/init.lua".source = ./init.lua;
+    "nvim/lua/flake".source = ./lua/flake;
     "nvim/package.json".source = ./package.json;
     "nvim/plugin".source = ./plugin;
-    "nvim/colors".source = ./colors;
     "nvim/snippets".source = ./snippets;
-    "nvim/lua/flake/colors.lua".text =
+    "nvim/lua/_flakeColors.lua".text =
       # lua
       ''
         return vim.json.decode([[${builtins.toJSON flakeLib.colors}]])

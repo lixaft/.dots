@@ -1,2 +1,4 @@
+local flake = require("flake")
+
 -- Options.
-vim.opt_local.shiftwidth = 2
+flake.opt_local.shiftwidth = 2
