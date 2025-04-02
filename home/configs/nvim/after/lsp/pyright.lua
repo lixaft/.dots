@@ -18,8 +18,7 @@ return {
     },
     python = {
       analysis = {
-        ignore = "*",
-        typeCheckingMode = "off",
+        ignore = { "*" },
       },
     },
   },

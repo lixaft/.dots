@@ -21,6 +21,7 @@
   args = {
     inputs = inputs;
     flakeConfig = flakeConfig;
+    flakeLib = import ./default.nix inputs;
   };
 in
   systemFn {

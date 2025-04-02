@@ -18,4 +18,9 @@ return {
   capabilities = cmp.get_lsp_capabilities({
     offsetEncoding = { "utf-16" },
   }),
+  settings = {
+    Style = {
+      AngledHeaders = { "/nix/store/.*" },
+    },
+  },
 }

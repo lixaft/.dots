@@ -46,3 +46,6 @@ vim.opt.undofile = true
 vim.opt.directory = os.getenv("XDG_STATE_HOME") .. "/nvim/swap"
 vim.opt.backupdir = os.getenv("XDG_STATE_HOME") .. "/nvim/backup"
 vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
+
+-- Status Bar.
+vim.opt.laststatus = 3

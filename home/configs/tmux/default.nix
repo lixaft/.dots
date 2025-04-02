@@ -23,7 +23,11 @@ in {
     extraConfig =
       # tmux
       ''
-        set -a terminal-features 'xterm-256color:RGB'
+        set -g default-terminal 'tmux-256color'
+        set -a terminal-features 'alacritty:RGB'
+
+        # Recommended by nvim.
+        set -g focus-events on
 
         # Renumber windows when a window is closed.
         set -g renumber-windows on
@@ -35,6 +39,9 @@ in {
 
         # Allow switching to previous with `-` like the `cd` command.
         bind - switch-client -l
+
+        # Statusbar.
+        bind S run-shell "tmux set -g status \$(tmux show -g -w status | grep -q off && echo on || echo off)"
 
         # Sane split commands.
         bind | split-window -h -c "#{pane_current_path}"

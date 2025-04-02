@@ -1,11 +1,20 @@
-{pkgs, ...}: {
+{
+  flakeLib,
+  pkgs,
+  ...
+}: {
   xdg.configFile = {
     "nvim/after".source = ./after;
     "nvim/init.lua".source = ./init.lua;
-    "nvim/lua".source = ./lua;
     "nvim/package.json".source = ./package.json;
     "nvim/plugin".source = ./plugin;
+    "nvim/colors".source = ./colors;
     "nvim/snippets".source = ./snippets;
+    "nvim/lua/flake/colors.lua".text =
+      # lua
+      ''
+        return vim.json.decode([[${builtins.toJSON flakeLib.colors}]])
+      '';
   };
 
   programs.neovim = {
@@ -66,7 +75,6 @@
       gitsigns-nvim
       indent-o-matic
       lazydev-nvim
-      lualine-nvim
       nvim-colorizer-lua
       nvim-lint
       nvim-treesitter-context
@@ -75,7 +83,6 @@
       nvim-web-devicons
       oil-nvim
       render-markdown-nvim
-      tokyonight-nvim
       treesj
       undotree
       vim-better-whitespace
