@@ -1,4 +1,4 @@
--- local C = require("flake.colors")
+-- local flake = require("flake")
 
 vim.cmd([[hi clear]])
 if vim.fn.exists("syntax_on") == 1 then
@@ -29,7 +29,6 @@ vim.api.nvim_set_hl(0, "NormalFloat", { fg = C.fg, bg = C.black })
 vim.api.nvim_set_hl(0, "Comment", { fg = C.comment })
 vim.api.nvim_set_hl(0, "Statement", { fg = C.fg, bold = true })
 vim.api.nvim_set_hl(0, "Statement", { fg = C.fg, bold = true })
-vim.api.nvim_set_hl(0, "@string.documentation", { link = "Comment" })
 
 -- Interface.
 vim.api.nvim_set_hl(0, "LineNr", { fg = C.fg, bold = true })
@@ -42,3 +41,6 @@ vim.api.nvim_set_hl(0, "TabLineSel", { bg = C.bg, fg = C.fg })
 -- Others.
 vim.api.nvim_set_hl(0, "ColorColumn", { fg = C.comment, bg = "None" })
 vim.api.nvim_set_hl(0, "VirtColumn", { link = "ColorColumn" })
+
+-- Treesitter.
+vim.api.nvim_set_hl(0, "@string.documentation", { fg = C.comment })
