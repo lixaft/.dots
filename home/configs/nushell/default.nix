@@ -82,6 +82,7 @@
       "man" = "batman";
 
       "fg" = "job unfreeze";
+      "fixway" = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
 
     # I don't really know why, but they don't seem to be picked up automatically.

@@ -43,4 +43,5 @@ vim.api.nvim_set_hl(0, "ColorColumn", { fg = C.comment, bg = "None" })
 vim.api.nvim_set_hl(0, "VirtColumn", { link = "ColorColumn" })
 
 -- Treesitter.
+vim.api.nvim_set_hl(0, "@markup", { link = "@none" })
 vim.api.nvim_set_hl(0, "@string.documentation", { fg = C.comment })
