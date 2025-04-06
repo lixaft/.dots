@@ -3,8 +3,12 @@
     "prefix": "pprint",
     "body": "__import__(\"pprint\").pprint(${1:expression})$0"
   },
+  "Here": {
+    "prefix": "here",
+    "body": "HERE = os.path.dirname(__file__)"
+  },
   "Path join here": {
-    "prefix": "herejoin",
+    "prefix": "joinhere",
     "body": "os.path.join(os.path.dirname(__file__), ${1:expression})$0"
   },
   "Qt Widget": {

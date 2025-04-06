@@ -10,6 +10,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = { "80", "100" }
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.numberwidth = 4
 
 -- Scroll.
 vim.opt.scrolloff = 8
