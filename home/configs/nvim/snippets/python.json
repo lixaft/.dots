@@ -3,6 +3,10 @@
     "prefix": "pprint",
     "body": "__import__(\"pprint\").pprint(${1:expression})$0"
   },
+  "Json print": {
+    "prefix": "jprint",
+    "body": "print(__import__(\"json\").dumps(${1:expression}, indent=2))$0"
+  },
   "Here": {
     "prefix": "here",
     "body": "HERE = os.path.dirname(__file__)"

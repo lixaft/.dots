@@ -74,6 +74,7 @@
       conform-nvim
       fzf-lua
       gitsigns-nvim
+      harpoon2
       indent-o-matic
       lazydev-nvim
       nvim-colorizer-lua
