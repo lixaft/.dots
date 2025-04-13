@@ -79,7 +79,7 @@ configs.setup({
 })
 
 context.setup({
-  separator = "-",
+  separator = "―",
   multiline_threshold = 1,
 })
 

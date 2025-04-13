@@ -1,7 +1,7 @@
 -- Keep cursor at the middle of the screen on big vertical movement.
-vim.keymap.set("n", "<c-o>", "<c-o>zz")
-vim.keymap.set("n", "<c-i>", "<c-i>zz")
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
+vim.keymap.set("n", "<c-i>", "<c-i>zz")
+vim.keymap.set("n", "<c-o>", "<c-o>zz")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
 
 -- Make `n` and `N` search consistent between `/` and `?`.

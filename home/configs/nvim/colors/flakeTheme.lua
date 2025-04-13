@@ -12,11 +12,16 @@ local function hl(name, val)
   vim.api.nvim_set_hl(0, name, val)
 end
 
+vim.keymap.set("n", "<leader>gt", ":so /home/lixaft/.dots/home/configs/nvim/colors/flakeTheme.lua<cr>")
+
 local C = {
   fg = "#acacc8",
   bg = "#000000",
 
+  bg2 = "#060609",
+
   white = "#d0d0f3",
+  black = "#060609",
 
   -- Yes.
   blue = "#2b80f0",
@@ -28,6 +33,7 @@ local C = {
 
   ui = {
     dim = "#101020",
+    selection = "#0f0f16",
   },
 
   status = {
@@ -43,16 +49,26 @@ local C = {
 
 -- Base.
 hl("Normal", { fg = C.fg, bg = C.bg })
--- hl("NormalFloat", { fg = C.fg, bg = C.ui.float_bg })
+hl("NormalFloat", { fg = C.fg, bg = C.bg2 })
 
 -- Interface.
-hl("LineNr", { fg = C.fg, bg = C.bg, bold = true })
-hl("LineNrAbove", { fg = C.ui.dim, bg = C.bg })
-hl("LineNrBelow", { fg = C.ui.dim, bg = C.bg })
+hl("EndOfBuffer", { fg = C.black })
+hl("LineNr", { fg = C.fg, bold = true })
+hl("LineNrAbove", { fg = C.ui.dim })
+hl("LineNrBelow", { fg = C.ui.dim })
+hl("Pmenu", { fg = C.fg, bg = "#0a0a0d" })
+hl("PmenuKind", { fg = C.lavender })
+hl("PmenuKindSel", { fg = C.lavender })
+hl("PmenuSBar", { bg = C.black })
+hl("PmenuSel", { fg = C.lavender, bg = C.ui.selection, bold = true })
+hl("Search", { bg = "#383858" })
+hl("CurSearch", { bg = "#585888", bold = true })
+hl("PmenuThumb", { bg = C.lavender })
 hl("SignColumn", { bg = C.bg })
 hl("StatusLine", { fg = C.status.fg, bg = C.status.bg })
 hl("TabLine", { fg = C.status.fg, bg = C.status.bg })
-hl("TabLineSel", { fg = C.fg, bg = C.status.bg, bold = true })
+hl("TabLineSel", { fg = C.fg, bold = true })
+hl("Visual", { bg = C.ui.selection })
 hl("WinSeparator", { fg = C.ui.dim })
 
 -- Syntax.
@@ -74,18 +90,13 @@ hl("String", { fg = C.green })
 hl("Type", { fg = C.lavender })
 
 -- -- Treesitter.
--- hl("@keyword.doxygen", { fg = C.blue })
--- hl("@keyword.function", { fg = C.blue })
--- hl("@keyword.modifier", { fg = C.blue })
--- hl("@keyword.type", { fg = C.blue })
 hl("@markup", { link = "@none" })
 hl("@string.documentation", { link = "Comment" })
 hl("@module", { fg = C.fg })
 hl("@variable", { fg = C.fg })
--- hl("@string.escape", { fg = C.purple })
+hl("@string.escape", { fg = C.fg })
 hl("@type.builtin", { link = "Type" })
 hl("@function.builtin", { link = "Function" })
---hl("@constant.builtin", { link = "Type" })
 
 -- Treesitter (todo).
 hl("@comment.error", { fg = C.red, bold = true })
@@ -96,13 +107,13 @@ hl("@comment.warning", { fg = C.yellow, bold = true })
 -- Treesitter (diff).
 hl("@attribute.diff", { fg = C.syntax.comment })
 hl("@constant.diff", { fg = C.syntax.comment })
-hl("@constructor.lua", { fg = C.syntax.comment })
 hl("@function.diff", { fg = C.syntax.comment })
 hl("@keyword.diff", { fg = C.syntax.comment })
 hl("@number.diff", { fg = C.syntax.comment })
 hl("@punctuation.special.diff", { fg = C.syntax.comment })
 hl("@string.special.path.diff", { fg = C.syntax.comment })
 hl("@variable.parameter.diff", { fg = C.syntax.comment })
+hl("@constructor.lua", { fg = C.syntax.comment })
 
 -- Git.
 hl("Added", { fg = C.green })
@@ -110,19 +121,29 @@ hl("Changed", { fg = C.lavender2 })
 hl("Removed", { fg = C.red })
 
 -- Fugitive.
-hl("fugitiveCount", { fg = C.rhythm2 })
-hl("fugitiveHeader", { fg = C.rhythm, bold = true })
-hl("fugitiveHeading", { fg = C.lavender2, bold = true })
-hl("fugitiveModifier", { fg = C.rhythm, bold = true })
-hl("fugitiveSection", { fg = C.syntax.comment })
+hl("fugitiveCount", { fg = C.yellow })
+hl("fugitiveHeader", { fg = C.lavender, bold = true })
+hl("fugitiveHeading", { fg = C.white, bold = true })
+hl("fugitiveModifier", { fg = C.lavender, bold = true })
+hl("fugitiveSection", { fg = C.fg })
 hl("fugitiveStagedHeading", { link = "fugitiveHeading" })
 hl("fugitiveStagedModifier", { link = "fugitiveModifier" })
-hl("fugitiveSymbolicRef", { fg = C.rhythm2 })
+hl("fugitiveStagedSection", { link = "fugitiveSection" })
+hl("fugitiveSymbolicRef", { fg = C.lavender2 })
 hl("fugitiveUnstagedHeading", { link = "fugitiveHeading" })
 hl("fugitiveUnstagedModifier", { link = "fugitiveModifier" })
+hl("fugitiveUnstagedSection", { link = "fugitiveSection" })
 hl("fugitiveUntrackedHeading", { link = "fugitiveHeading" })
 hl("fugitiveUntrackedModifier", { link = "fugitiveModifier" })
+hl("fugitiveUntrackedSection", { link = "fugitiveSection" })
 
--- Others.
-hl("ColorColumn", { fg = C.dim })
-hl("VirtColumn", { link = "ColorColumn" })
+-- TreesitterContext.
+hl("TreesitterContext", { fg = C.bg })
+hl("TreesitterContextLineNumber", { fg = C.ui.dim })
+hl("TreesitterContextSeparator", { fg = C.ui.dim })
+
+-- VirtColumn.
+hl("VirtColumn", { fg = C.black, bg = C.bg })
+
+-- Markdown.
+hl("RenderMarkdownCode", { bg = C.bg2 })
