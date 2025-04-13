@@ -54,6 +54,7 @@
       lua-language-server
       nil
       ols
+      postgres-lsp
       pyright
       ruff
       rust-analyzer
