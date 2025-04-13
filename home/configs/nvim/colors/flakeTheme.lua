@@ -37,6 +37,7 @@ hl("TabLine", { fg = C.status.fg, bg = C.status.bg })
 hl("TabLineSel", { fg = C.fg, bold = true })
 hl("Visual", { bg = C.ui.selection })
 hl("WinSeparator", { fg = C.ui.dim })
+hl("MatchParen", { bg = C.red })
 
 -- Syntax.
 hl("Boolean", { fg = C.syntax.boolean })
