@@ -1,5 +1,5 @@
 local flake = require("flake")
--- local C = flake.colors
+local C = flake.colors
 
 vim.cmd([[hi clear]])
 if vim.fn.exists("syntax_on") == 1 then
@@ -13,39 +13,6 @@ local function hl(name, val)
 end
 
 vim.keymap.set("n", "<leader>gt", ":so /home/lixaft/.dots/home/configs/nvim/colors/flakeTheme.lua<cr>")
-
-local C = {
-  fg = "#acacc8",
-  bg = "#000000",
-
-  bg2 = "#060609",
-
-  white = "#d0d0f3",
-  black = "#060609",
-
-  -- Yes.
-  blue = "#2b80f0",
-  green = "#a6e22e",
-  lavender = "#a29dfa",
-  lavender2 = "#6e75a8",
-  red = "#e61f44",
-  yellow = "#ffa700",
-
-  ui = {
-    dim = "#101020",
-    selection = "#0f0f16",
-  },
-
-  status = {
-    fg = "#303050",
-    bg = "#040406",
-  },
-
-  syntax = {
-    comment = "#303050",
-    operator = "#404060",
-  },
-}
 
 -- Base.
 hl("Normal", { fg = C.fg, bg = C.bg })
