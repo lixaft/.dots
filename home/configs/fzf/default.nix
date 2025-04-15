@@ -15,8 +15,8 @@ in {
       "fg+" = c.lavender;
       "fg" = c.fg;
       "header" = c.red;
-      "hl+" = c.green;
-      "hl" = c.green;
+      "hl+" = c.red;
+      "hl" = c.red;
       "info" = c.syntax.comment;
       "marker" = c.yellow;
       "pointer" = c.lavender;
