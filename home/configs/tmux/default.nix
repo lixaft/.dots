@@ -1,17 +1,12 @@
-{...}: let
-  env = "env TERM=xterm-256color";
-  reset = "#[fg=#a9b1d6,bg=#08080c,nobold,noitalics,nounderscore,nodim]";
+{flakeLib, ...}: let
+  c = flakeLib.colors;
+  reset = "#[fg=${c.status.fg},bg=${c.status.bg},nobold,noitalics,nounderscore,nodim]";
 in {
-  home.shellAliases = {
-    tmux = "${env} tmux";
-    tmux-sessionizer = "${env} tmux-sessionizer";
-  };
-
   programs.tmux = {
     enable = true;
 
     prefix = "C-a";
-    terminal = "xterm-256color";
+    terminal = "tmux-256color";
     mouse = true;
     resizeAmount = 10;
     keyMode = "vi";
@@ -81,9 +76,6 @@ in {
         bind g run-shell "${../../scripts/tmux-sessionizer} ~/todo.md"
 
         # Statusbar.
-        window_number="#(${./numbers.sh} #I)"
-        pane_numbers="#(${./numbers.sh} #P)"
-
         set -g status-left-length 64
         set -g status-right-length 64
 
@@ -96,27 +88,22 @@ in {
         set -g pane-active-border-style "fg=#7aa2f7"
         set -g pane-border-status off
 
-        set -g status-style bg="#08080c"
+        set -g status-style "fg=${c.status.fg},bg=${c.status.bg}"
 
-        set -g status-left "\
-        #[fg=#08080c,bg=#7aa2f7,bold] #{?client_prefix,󰠠 ,#[dim]󰤂 }\
-        #[bold,nodim]#S \
+        set -g status-left "${reset}\
+        #[fg=${c.lavender},bold]#S  \
         "
 
         set -g window-status-current-format "${reset}\
-        #[fg=#73daca,bg=#15161e] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
-        #[fg=#a9b1d6,bold,nodim]$window_number#W\
-        #[nobold,dim]#{?window_zoomed_flag, $zoom_number, $custom_pane} \
+        #[fg=${c.white},bold]#I #W \
         "
 
         set -g window-status-format "${reset}\
-        #[fg=#a9b1d6] #{?#{==:#{pane_current_command},ssh},󰣀 , }\
-        ${reset}$window_number#W \
-        #[nobold,dim]$pane_numbers\
-        #[fg=#e0af68]#{?window_last_flag,󰁯 ,} "
+        #I #W \
+        "
 
-        set -g status-right "\
-        #[bg=#15161e] %Y-%m-%d । %H:%M \
+        set -g status-right "${reset}\
+        %Y-%m-%d  %H:%M\
         "
       '';
   };

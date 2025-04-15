@@ -37,6 +37,8 @@
       ta = "${eza} --tree --all";
       tl = "${eza} --tree --long";
       tla = "${eza} --tree --long --all";
+
+      code = "${pkgs.vscodium}/bin/codium";
     };
 
     packages = with pkgs; [
@@ -69,6 +71,7 @@
       spotify
       tlrc
       vlc
+      vscodium
       wl-clipboard
       xdg-utils
     ];
