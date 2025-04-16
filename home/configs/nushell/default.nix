@@ -13,7 +13,7 @@ in {
       # nu
       ''
         $env.config.show_banner = false
-        $env.config.table.mode = "psql"
+        $env.config.table.mode = "light"
 
         $env.config.keybindings = [
           {
