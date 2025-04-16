@@ -1,4 +1,6 @@
-{...}: {
+{flakeLib, ...}: let
+  c = flakeLib.colors;
+in {
   programs.starship = {
     enable = true;
     settings = {
@@ -6,20 +8,20 @@
       format = "$directory$git_branch$status$character";
 
       character = {
-        format = "[➜](bold) ";
+        format = "[➜](${c.syntax.comment}) ";
       };
       directory = {
         truncation_symbol = "…/";
-        style = "bold blue";
+        style = "bold ${c.lavender}";
       };
       git_branch = {
-        format = "\\([$branch]($style)\\) ";
-        style = "bold purple";
+        format = "[\\(](${c.syntax.comment})[$branch]($style)[\\)](${c.syntax.comment}) ";
+        style = "${c.lavender2}";
       };
       status = {
         disabled = false;
         format = "[\\[$status\\]]($style) ";
-        style = "bold red";
+        style = "bold ${c.red}";
       };
     };
   };

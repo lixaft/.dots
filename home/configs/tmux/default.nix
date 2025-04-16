@@ -79,32 +79,24 @@ in {
         set -g status-left-length 64
         set -g status-right-length 64
 
-        set -g mode-style "fg=#73daca,bg=#15161e"
+        set -g mode-style "fg=${c.fg},bg=${c.status.bg}"
 
-        set -g message-style "bg=#7aa2f7,fg=#030305"
-        set -g message-command-style "fg=#c0caf5,bg=#15161e"
+        set -g message-style "fg=${c.fg},bg=${c.status.bg}"
+        set -g message-command-style "fg=${c.fg},bg=${c.status.bg}"
 
-        set -g pane-border-style "fg=#15161e"
-        set -g pane-active-border-style "fg=#7aa2f7"
+        set -g menu-style "fg=${c.fg},bg=${c.bg}"
+        set -g menu-selected-style "fg=${c.lavender},bg=${c.ui.selection}"
+
+        set -g pane-border-style "fg=${c.ui.separator}"
+        set -g pane-active-border-style "fg=${c.ui.separator}"
         set -g pane-border-status off
 
         set -g status-style "fg=${c.status.fg},bg=${c.status.bg}"
 
-        set -g status-left "${reset}\
-        #[fg=${c.lavender},bold]#S  \
-        "
-
-        set -g window-status-current-format "${reset}\
-        #[fg=${c.white},bold]#I #W \
-        "
-
-        set -g window-status-format "${reset}\
-        #I #W \
-        "
-
-        set -g status-right "${reset}\
-        %Y-%m-%d  %H:%M\
-        "
+        set -g status-left "${reset}#[fg=${c.lavender},bold]#S  "
+        set -g window-status-current-format "${reset}#[fg=${c.white},bold]#I #W  "
+        set -g window-status-format "${reset}#I #W  "
+        set -g status-right "${reset}%Y-%m-%d   %H:%M"
       '';
   };
 }

@@ -1,9 +1,11 @@
 {
   lib,
+  flakeLib,
   config,
-  pkgs,
   ...
-}: {
+}: let
+  c = flakeLib.colors;
+in {
   programs.nushell = {
     enable = true;
 
@@ -55,6 +57,35 @@
             }
           }
         ]
+
+        $env.config.color_config = {
+          header: { fg: "${c.lavender}", attr: b },
+          row_index: { fg: "${c.ui.dim}" },
+          separator: { fg: "${c.ui.dim}" },
+
+          shape_block: { fg: "${c.syntax.comment}" },
+          shape_bool: { fg: "${c.fg}" },
+          shape_custom: { fg: "${c.red}" },
+          shape_external: { fg: "${c.fg}" },
+          shape_externalarg: { fg: "${c.syntax.operator}" },
+          shape_flag: { fg: "${c.syntax.operator}" },
+          shape_float: { fg: "${c.syntax.number}" },
+          shape_garabage: { fg: "${c.fg}", bg: "${c.red}" },
+          shape_globpattern: { fg: "${c.syntax.string}" },
+          shape_int: { fg: "${c.syntax.number}" },
+          shape_internalcall: { fg: "${c.white}", attr: b },
+          shape_list: { fg: "${c.syntax.comment}" },
+          shape_literal: { fg: "${c.red}" },
+          shape_nothing: { fg: "${c.fg}" },
+          shape_operator: { fg: "${c.syntax.operator}" },
+          shape_path: { fg: "${c.syntax.string}" },
+          shape_record: { fg: "${c.red}" },
+          shape_signature: { fg: "${c.syntax.comment}" },
+          shape_string: { fg: "${c.syntax.string}" },
+          shape_string_interpolation: { fg: "${c.syntax.comment}" },
+          shape_table: { fg: "${c.syntax.comment}" },
+          shape_variable: { fg: "${c.fg}" },
+        }
 
         source ${config.xdg.cacheHome}/zoxide/init.nu
 

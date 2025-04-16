@@ -36,7 +36,7 @@ hl("StatusLine", { fg = C.status.fg, bg = C.status.bg })
 hl("TabLine", { fg = C.status.fg, bg = C.status.bg })
 hl("TabLineSel", { fg = C.fg, bold = true })
 hl("Visual", { bg = C.ui.selection })
-hl("WinSeparator", { fg = C.ui.dim })
+hl("WinSeparator", { fg = C.ui.separator })
 hl("MatchParen", { bg = C.red })
 
 -- Syntax.
@@ -108,7 +108,7 @@ hl("fugitiveUntrackedSection", { link = "fugitiveSection" })
 -- TreesitterContext.
 hl("TreesitterContext", { fg = C.bg })
 hl("TreesitterContextLineNumber", { fg = C.ui.dim })
-hl("TreesitterContextSeparator", { fg = C.ui.dim })
+hl("TreesitterContextSeparator", { fg = C.ui.separator })
 
 -- VirtColumn.
 hl("VirtColumn", { fg = C.black, bg = C.bg })

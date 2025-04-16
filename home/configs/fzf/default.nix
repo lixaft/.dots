@@ -11,7 +11,7 @@ in {
     colors = {
       "bg+" = "-1";
       "bg" = "-1";
-      "border" = c.ui.dim;
+      "border" = c.ui.separator;
       "fg+" = c.lavender;
       "fg" = c.fg;
       "header" = c.red;
