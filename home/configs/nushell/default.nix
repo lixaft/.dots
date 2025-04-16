@@ -102,21 +102,11 @@ in {
       '';
 
     shellAliases = {
-      "l" = "ls";
-      "la" = "ls -a";
-      "lla" = "ls -la";
-
-      "cd" = "__smart_cd";
-      "cdi" = "zi";
-      "cat" = "bat";
-      "diff" = "batdiff";
-      "man" = "batman";
-
-      "fg" = "job unfreeze";
-      "fixway" = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
+      cd = "__smart_cd";
+      fg = "job unfreeze";
     };
 
-    # I don't really know why, but they don't seem to be picked up automatically.
+    # I don't really know why, but they don't seem to be added automatically.
     environmentVariables = config.home.sessionVariables;
     extraEnv =
       # nu

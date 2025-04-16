@@ -18,25 +18,15 @@
       DIRENV_LOG_FORMAT = "";
     };
 
-    shellAliases = rec {
-      df = "df -H";
-      du = "du -H";
-      cal = "cal --monday";
+    shellAliases = {
+      l = "ls";
+      la = "ls -a";
+      lla = "ls -la";
 
-      fd = "${pkgs.fd}/bin/fd --hidden";
-      grep = "${pkgs.ripgrep}/bin/rg";
+      cdi = "zi";
 
-      eza = "${pkgs.eza}/bin/eza --git --icons --group-directories-first";
-      ls = "${eza}";
-      l = "${eza}";
-      la = "${eza} --all";
-      ll = "${eza} --long";
-      lla = "${eza} --long --all";
-      tree = "${eza} --tree";
-      t = "${eza} --tree";
-      ta = "${eza} --tree --all";
-      tl = "${eza} --tree --long";
-      tla = "${eza} --tree --long --all";
+      # Fix a weird copy/past bug on wsl.
+      fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
 
       code = "${pkgs.vscodium}/bin/codium";
     };
