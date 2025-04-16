@@ -64,7 +64,7 @@ in {
           separator: { fg: "${c.ui.dim}" },
 
           shape_block: { fg: "${c.syntax.comment}" },
-          shape_bool: { fg: "${c.syntax.booleaen}" },
+          shape_bool: { fg: "${c.syntax.boolean}" },
           shape_custom: { fg: "${c.red}" },
           shape_external: { fg: "${c.fg}" },
           shape_externalarg: { fg: "${c.gray}" },

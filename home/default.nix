@@ -14,10 +14,6 @@
       "${homeDirectory}/.local/bin"
     ];
 
-    sessionVariables = {
-      DIRENV_LOG_FORMAT = "";
-    };
-
     shellAliases = {
       l = "ls";
       la = "ls -a";
@@ -70,8 +66,6 @@
   programs = {
     bash.enable = true;
     carapace.enable = true;
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
     home-manager.enable = true;
     nix-index.enable = true;
     thefuck.enable = true;
@@ -96,6 +90,7 @@
   imports = [
     ./configs/alacritty
     ./configs/bat
+    ./configs/direnv
     ./configs/fish
     ./configs/fzf
     ./configs/gdb

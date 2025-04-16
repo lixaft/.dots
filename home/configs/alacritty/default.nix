@@ -22,9 +22,8 @@ in {
       terminal.shell = {
         program = "nu";
         args = [
-          "--interactive" # Required for tmux colors.
-          "--command"
-          "tmux attach || ${../../scripts/tmux-sessionizer} ~"
+          "--execute"
+          "do { tmux attach } or { ${../../scripts/tmux-sessionizer} ~ }"
         ];
       };
     };
