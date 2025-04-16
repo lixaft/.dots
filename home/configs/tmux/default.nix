@@ -79,7 +79,7 @@ in {
         set -g status-left-length 64
         set -g status-right-length 64
 
-        set -g mode-style "fg=${c.fg},bg=${c.status.bg}"
+        set -g mode-style "fg=${c.fg},bg=${c.ui.selection}"
 
         set -g message-style "fg=${c.fg},bg=${c.status.bg}"
         set -g message-command-style "fg=${c.fg},bg=${c.status.bg}"
