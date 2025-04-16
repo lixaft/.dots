@@ -86,7 +86,6 @@
       nvim-web-devicons
       oil-nvim
       render-markdown-nvim
-      snacks-nvim
       treesj
       undotree
       vim-better-whitespace
