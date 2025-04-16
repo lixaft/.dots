@@ -1,10 +1,10 @@
 rec {
   fg = "#acacc8";
   bg = "#000000";
-
   bg2 = black;
 
   white = "#d0d0f3";
+  gray = "#404060";
   black = "#060609";
 
   blue = "#2b80f0";
@@ -17,20 +17,20 @@ rec {
   yellow = "#ffa700";
 
   term = {
-    blue = purple;
-    yellow = yellow;
     black = ui.dim;
-    white = white;
-    red = red;
+    blue = purple;
+    cyan = cyan;
     green = green;
     magenta = lavender;
-    cyan = cyan;
+    red = red;
+    white = white;
+    yellow = yellow;
   };
 
   ui = {
     dim = "#101020";
-    separator = ui.dim;
     selection = "#0f0f16";
+    separator = ui.dim;
   };
 
   status = {
@@ -39,11 +39,16 @@ rec {
   };
 
   syntax = {
-    string = green;
-    number = yellow;
-    type = lavender;
-    function = lavender2;
+    boolean = fg;
     comment = "#303050";
-    operator = "#404060";
+    constant = white;
+    function = lavender2;
+    identifier = fg;
+    keyword = white;
+    number = yellow;
+    operator = gray;
+    punctuation = syntax.comment;
+    string = green;
+    type = lavender;
   };
 }

@@ -10,17 +10,13 @@ in {
         size = 20;
       };
 
-      colors = rec {
+      colors = {
         primary = {
           background = c.bg;
           foreground = c.fg;
         };
-
-        normal = {
-          inherit (c.term) black red green yellow blue magenta cyan white;
-        };
-
-        bright = normal;
+        normal = c.term;
+        bright = c.term;
       };
 
       terminal.shell = {
