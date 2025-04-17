@@ -4,7 +4,7 @@
   ...
 }: {
   home.shellAliases = {
-    cat = "${pkgs.bat}/bin/bat";
+    cat = "${pkgs.bat}/bin/bat --decorations=never";
     diff = "${pkgs.bat-extras.batdiff}/bin/batdiff";
     man = "${pkgs.bat-extras.batman}/bin/batman";
   };
