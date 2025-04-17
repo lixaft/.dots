@@ -1,5 +1,6 @@
 {
   flakeConfig,
+  flakeLib,
   pkgs,
   ...
 }: {
@@ -14,6 +15,18 @@
       "${homeDirectory}/.local/bin"
     ];
 
+    sessionVariables = {
+      LS_COLORS = flakeLib.concatAttrs "=" ":" {
+        di = "00;36";
+        ex = "01;32";
+        ln = "01;37";
+        or = "01;31";
+        "*.bak" = "00;90";
+        "*.lock" = "00;90";
+        "*~" = "00;90";
+      };
+    };
+
     shellAliases = {
       l = "ls";
       la = "ls -a";
@@ -21,10 +34,10 @@
 
       cdi = "zi";
 
+      code = "${pkgs.vscodium}/bin/codium";
+
       # Fix a weird copy/past bug on wsl.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
-
-      code = "${pkgs.vscodium}/bin/codium";
     };
 
     packages = with pkgs; [
