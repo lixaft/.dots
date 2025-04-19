@@ -1,9 +1,4 @@
-{
-  config,
-  inputs,
-  lib,
-  ...
-}: {
+{config, ...}: {
   programs.fish = {
     enable = true;
 
@@ -81,9 +76,6 @@
 
         # Load direnv.
         eval (direnv hook fish)
-
-        # Theme.
-        ${lib.readFile "${inputs.tokyonight}/extras/fish/tokyonight_night.fish"}
       '';
 
     shellInitLast =

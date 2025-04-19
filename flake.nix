@@ -25,11 +25,6 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    tokyonight = {
-      url = "github:folke/tokyonight.nvim";
-      flake = false;
-    };
   };
 
   outputs = {

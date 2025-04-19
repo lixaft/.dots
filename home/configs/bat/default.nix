@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...} @ inputs: {
   home.shellAliases = {
     cat = "${pkgs.bat}/bin/bat --decorations=never";
     diff = "${pkgs.bat-extras.batdiff}/bin/batdiff";
@@ -10,7 +6,7 @@
   };
 
   xdg.configFile = {
-    "bat/themes/flake.tmTheme".source = ./theme.nix inputs;
+    "bat/themes/flake.tmTheme".text = import ./theme.nix inputs;
   };
 
   programs.bat = {
@@ -25,7 +21,7 @@
     ];
 
     config = {
-      theme = "tokyonight";
+      theme = "flake";
     };
   };
 }
