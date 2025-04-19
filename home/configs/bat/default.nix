@@ -10,7 +10,7 @@
   };
 
   xdg.configFile = {
-    "bat/themes/tokyonight.tmTheme".source = "${inputs.tokyonight}/extras/sublime/tokyonight_night.tmTheme";
+    "bat/themes/flake.tmTheme".source = ./theme.nix inputs;
   };
 
   programs.bat = {

@@ -12,7 +12,7 @@
   ];
 
   fileSystems = {
-    "/media" = {
+    "/jellyfin" = {
       device = "papaya:/volume1/Jellyfin";
       fsType = "nfs";
     };

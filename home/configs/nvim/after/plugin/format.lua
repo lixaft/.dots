@@ -10,6 +10,7 @@ conform.setup({
     python = { "ruff_organize_imports", "ruff_format" },
     sh = { "shfmt" },
     yaml = { "prettier" },
+    meson = { "meson-format" },
   },
   formatters = {
     ruff_organize_imports = {
