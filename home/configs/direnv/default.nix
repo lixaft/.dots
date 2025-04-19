@@ -4,7 +4,7 @@
     nix-direnv.enable = true;
 
     config = {
-      log_format = "-";
+      log_filter = "^$";
     };
   };
 }

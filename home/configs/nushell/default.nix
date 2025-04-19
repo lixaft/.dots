@@ -104,6 +104,7 @@ in {
     shellAliases = {
       cd = "__smart_cd";
       fg = "job unfreeze";
+      "items kv" = "items {|k, v| { key: $k, value: $v }}";
     };
 
     # I don't really know why, but they don't seem to be added automatically.
