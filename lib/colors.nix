@@ -51,4 +51,11 @@ rec {
     string = green;
     type = lavender;
   };
+
+  diff = {
+    header = syntax.comment;
+    added = green;
+    changed = blue;
+    removed = red;
+  };
 }

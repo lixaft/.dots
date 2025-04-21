@@ -65,6 +65,7 @@ hl("String", { fg = c.syntax.string })
 hl("Type", { fg = c.syntax.type })
 
 -- -- Treesitter.
+hl("@constructor.lua", { fg = c.syntax.comment })
 hl("@function.builtin", { link = "Function" })
 hl("@markup", { link = "@none" })
 hl("@module", { fg = c.fg })
@@ -80,20 +81,19 @@ hl("@comment.todo", { fg = c.white, bold = true })
 hl("@comment.warning", { fg = c.yellow, bold = true })
 
 -- Treesitter (diff).
-hl("@attribute.diff", { fg = c.syntax.comment })
-hl("@constant.diff", { fg = c.syntax.comment })
-hl("@constructor.lua", { fg = c.syntax.comment })
-hl("@function.diff", { fg = c.syntax.comment })
-hl("@keyword.diff", { fg = c.syntax.comment })
-hl("@number.diff", { fg = c.syntax.comment })
-hl("@punctuation.special.diff", { fg = c.syntax.comment })
-hl("@string.special.path.diff", { fg = c.syntax.comment })
-hl("@variable.parameter.diff", { fg = c.syntax.comment })
+hl("@attribute.diff", { fg = c.diff.header })
+hl("@constant.diff", { fg = c.diff.header })
+hl("@function.diff", { fg = c.diff.header })
+hl("@keyword.diff", { fg = c.diff.header })
+hl("@number.diff", { fg = c.diff.header })
+hl("@punctuation.special.diff", { fg = c.diff.header })
+hl("@string.special.path.diff", { fg = c.diff.header })
+hl("@variable.parameter.diff", { fg = c.diff.header })
 
 -- Git.
-hl("Added", { fg = c.green })
-hl("Changed", { fg = c.lavender2 })
-hl("Removed", { fg = c.red })
+hl("Added", { fg = c.diff.added })
+hl("Changed", { fg = c.diff.changed })
+hl("Removed", { fg = c.diff.removed })
 
 -- Fugitive.
 hl("fugitiveCount", { fg = c.yellow })

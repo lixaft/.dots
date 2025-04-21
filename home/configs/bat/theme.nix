@@ -118,7 +118,7 @@ in
                     <key>settings</key>
                     <dict>
                         <key>foreground</key>
-                        <string>${c.syntax.comment}</string>
+                        <string>${c.diff.header}</string>
                     </dict>
                 </dict>
                 <dict>
@@ -127,7 +127,7 @@ in
                     <key>settings</key>
                     <dict>
                         <key>foreground</key>
-                        <string>${c.red}</string>
+                        <string>${c.diff.removed}</string>
                     </dict>
                 </dict>
                 <dict>
@@ -136,7 +136,7 @@ in
                     <key>settings</key>
                     <dict>
                         <key>foreground</key>
-                        <string>${c.green}</string>
+                        <string>${c.diff.added}</string>
                     </dict>
                 </dict>
                 <dict>
@@ -145,7 +145,7 @@ in
                     <key>settings</key>
                     <dict>
                         <key>foreground</key>
-                        <string>${c.blue}</string>
+                        <string>${c.diff.changed}</string>
                     </dict>
                 </dict>
             </array>

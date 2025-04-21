@@ -1,4 +1,6 @@
-{...}: {
+{flakeLib, ...}: let
+  c = flakeLib.colors;
+in {
   programs.git = {
     enable = true;
 
@@ -16,6 +18,12 @@
       pull.rebase = true;
       rebase.autostash = true;
       safe.directory = "*";
+
+      color.diff = {
+        meta = c.diff.header;
+        old = c.diff.removed;
+        new = c.diff.added;
+      };
     };
 
     aliases = {
