@@ -44,6 +44,7 @@ hl("SignColumn", { bg = c.bg })
 hl("StatusLine", { fg = c.status.fg, bg = c.status.bg })
 hl("TabLine", { fg = c.status.fg, bg = c.status.bg })
 hl("TabLineSel", { fg = c.fg, bold = true })
+hl("Title", { fg = c.syntax.keyword, bold = true })
 hl("Visual", { bg = c.ui.selection })
 hl("WinSeparator", { fg = c.ui.separator })
 
@@ -93,6 +94,9 @@ hl("@variable.parameter.diff", { fg = c.diff.header })
 -- Git.
 hl("Added", { fg = c.diff.added })
 hl("Changed", { fg = c.diff.changed })
+hl("DiffAdd", { fg = c.diff.added })
+hl("DiffChange", { fg = c.diff.changed })
+hl("DiffDelete", { fg = c.diff.removed })
 hl("Removed", { fg = c.diff.removed })
 
 -- Fugitive.
@@ -122,3 +126,11 @@ hl("VirtColumn", { fg = c.black, bg = c.bg })
 
 -- Markdown.
 hl("RenderMarkdownCode", { bg = c.bg2 })
+
+-- Fzf.
+hl("FzfLuaBorder", { fg = c.ui.separator })
+hl("FzfLuaCursorLine", { bg = c.ui.selection })
+hl("FzfLuaCursorLineNr", { link = "LineNr"})
+hl("FzfLuaLivePrompt", { link = "Normal" })
+hl("FzfLuaLiveSym", { fg = c.red })
+hl("FzfLuaTitle", { link = "Title" })
