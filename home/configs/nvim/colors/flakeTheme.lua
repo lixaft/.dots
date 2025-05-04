@@ -11,23 +11,21 @@ local function hl(name, val)
   vim.api.nvim_set_hl(0, name, val)
 end
 
-vim.keymap.set("n", "<leader>gt", ":so /home/lixaft/.dots/home/configs/nvim/colors/flakeTheme.lua<cr>")
-
 -- Base.
 hl("Normal", { fg = c.fg, bg = c.bg })
 hl("NormalFloat", { fg = c.fg, bg = c.bg2 })
 
 -- Interface.
 hl("CurSearch", { bg = "#585888", bold = true })
-hl("DiagnosticError", { fg = c.red})
-hl("DiagnosticHint", { fg = c.blue})
-hl("DiagnosticVirtualTextError", { fg = c.red , bg = c.ui.selection})
-hl("DiagnosticVirtualTextHint", { fg = c.blue , bg = c.ui.selection})
+hl("DiagnosticError", { fg = c.red })
+hl("DiagnosticHint", { fg = c.blue })
+hl("DiagnosticVirtualTextError", { fg = c.red, bg = c.ui.selection })
+hl("DiagnosticVirtualTextHint", { fg = c.blue, bg = c.ui.selection })
 hl("DiagnosticVirtualTextWarn", { fg = c.yellow, bg = c.ui.selection })
-hl("DiagnosticWarn", { fg = c.yellow})
+hl("DiagnosticWarn", { fg = c.yellow })
 hl("Directory", { fg = c.cyan })
 hl("EndOfBuffer", { fg = c.black })
-hl("ErrorMsg", { fg = c.red})
+hl("ErrorMsg", { fg = c.red })
 hl("LineNr", { fg = c.fg, bold = true })
 hl("LineNrAbove", { fg = c.ui.dim })
 hl("LineNrBelow", { fg = c.ui.dim })
@@ -130,7 +128,7 @@ hl("RenderMarkdownCode", { bg = c.bg2 })
 -- Fzf.
 hl("FzfLuaBorder", { fg = c.ui.separator })
 hl("FzfLuaCursorLine", { bg = c.ui.selection })
-hl("FzfLuaCursorLineNr", { link = "LineNr"})
+hl("FzfLuaCursorLineNr", { link = "LineNr" })
 hl("FzfLuaLivePrompt", { link = "Normal" })
 hl("FzfLuaLiveSym", { fg = c.red })
 hl("FzfLuaTitle", { link = "Title" })

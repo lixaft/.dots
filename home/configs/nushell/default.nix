@@ -1,10 +1,13 @@
 {
-  lib,
-  flakeLib,
   config,
+  flakeLib,
+  lib,
+  pkgs,
   ...
 }: let
   c = flakeLib.colors;
+
+  zoxide_file = "${config.xdg.cacheHome}/zoxide_init.nu";
 in {
   programs.nushell = {
     enable = true;
@@ -87,7 +90,7 @@ in {
           shape_variable: { fg: "${c.fg}" },
         }
 
-        source ${config.xdg.cacheHome}/zoxide/init.nu
+        source ${zoxide_file}
 
         def --env __smart_cd [path?: string] {
           if ($path == null and $env.TMUX? != null) {
@@ -116,6 +119,8 @@ in {
         ${lib.concatStringsSep "\n" (
           map (x: ''path add "${x}"'') config.home.sessionPath
         )}
+
+        ${pkgs.zoxide}/bin/zoxide init nushell | save -f "${zoxide_file}"
       '';
   };
 }

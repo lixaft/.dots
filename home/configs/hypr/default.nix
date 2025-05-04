@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -34,7 +38,7 @@
         "SUPER, e, exec, ${pkgs.alacritty}/bin/alacritty --command ${pkgs.lf}/bin/lf"
         "SUPER, v, togglefloating"
         "SUPER, f, fullscreen"
-        "SUPER, d, exec, rofi -theme ${../rofi/launcher.rasi} -show"
+        "SUPER, d, exec, rofi -theme ${config.xdg.configHome}/rofi/launcher.rasi -show"
         "SUPER, p, exec, ${pkgs.hyprpicker}/bin/hyprpicker --autocopy --format=hex"
         '', Print, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b 000000AA -w 1 -c FFFFFF80-d)" - | wl-copy''
         "Control_L, Print, exec, ${pkgs.peek}/bin/peek"
