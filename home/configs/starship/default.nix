@@ -5,7 +5,7 @@ in {
     enable = true;
     settings = {
       add_newline = false;
-      format = "$directory$git_branch$status$character";
+      format = "$directory$git_branch$nix_shell$status$character";
 
       character = {
         format = "[➜](${c.syntax.comment}) ";
@@ -22,6 +22,10 @@ in {
         disabled = false;
         format = "[\\[$status\\]]($style) ";
         style = "bold ${c.red}";
+      };
+      nix_shell = {
+        format = "[\\[nix\\]]($style) ";
+        style = "cyan";
       };
     };
   };
