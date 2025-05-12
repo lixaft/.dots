@@ -22,5 +22,19 @@
       "    def __init__(self, parent: QtWidgets.QWidget | None = None) -> None:",
       "        super().__init__(parent)$0"
     ]
+  },
+  "If main": {
+    "prefix": "ifmain",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    $0"
+    ]
+  },
+  "If main exit": {
+    "prefix": "ifmainexit",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    raise SystemExit(${1:main()})$0"
+    ]
   }
 }
