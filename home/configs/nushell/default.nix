@@ -23,8 +23,12 @@ in {
     extraConfig =
       # nu
       ''
-        def npsql [query: string] {
-          return (^psql --command $query --csv | from csv)
+        def --wrapped psql [...rest] {
+          if "-c" in $rest or "--command" in $rest {
+            return (^psql ...$rest --csv | from csv)
+          } else {
+            ^psql ...$rest
+          }
         }
 
         ${pkgs.zoxide}/bin/zoxide init nushell | save -f "${zoxide_file}"

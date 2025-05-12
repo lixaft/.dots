@@ -52,7 +52,7 @@
       figma-linux
       filebot
       gh
-      gimp
+      gimp3-with-plugins
       gnome-text-editor
       google-chrome
       jq
@@ -102,6 +102,7 @@
 
   imports = [
     ./configs/alacritty
+    ./configs/bash
     ./configs/bat
     ./configs/direnv
     ./configs/fish
