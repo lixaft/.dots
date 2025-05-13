@@ -24,10 +24,12 @@ in {
       # nu
       ''
         def --wrapped psql [...rest] {
+          # TODO: Find a way to set the pager globally. Perhaps via a
+          # wrapper script.
           if "-c" in $rest or "--command" in $rest {
-            return (^psql ...$rest --csv | from csv)
+            return (PAGER=bat ^psql ...$rest --csv | from csv)
           } else {
-            ^psql ...$rest
+            PAGER=bat ^psql ...$rest
           }
         }
 

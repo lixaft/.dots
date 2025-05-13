@@ -1,6 +1,6 @@
 {pkgs, ...} @ inputs: {
   home.shellAliases = {
-    cat = "${pkgs.bat}/bin/bat --decorations=never";
+    cat = "${pkgs.bat}/bin/bat";
     diff = "${pkgs.bat-extras.batdiff}/bin/batdiff";
     man = "${pkgs.bat-extras.batman}/bin/batman";
   };
@@ -22,6 +22,8 @@
 
     config = {
       theme = "flake";
+      wrap = "never";
+      decorations = "never";
     };
   };
 }
