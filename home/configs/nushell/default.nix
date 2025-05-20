@@ -52,6 +52,13 @@ in {
           table: {
             mode: "light"
           }
+          explore: {
+            status_bar_background: {
+              fg: "${c.status.fg}"
+              bg: "${c.status.bg}"
+            }
+            selected_cell: { bg: "${c.ui.selection}" }
+          }
 
           keybindings: [
             {
