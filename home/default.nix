@@ -36,7 +36,7 @@
 
       code = "${pkgs.vscodium}/bin/codium";
 
-      # Fix a weird copy/past bug on wsl.
+      # Fix a weird copy/past bug in wsl.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
 

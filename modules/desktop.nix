@@ -56,6 +56,7 @@
 
   programs = {
     hyprland.enable = true;
+    bazecor.enable = true;
   };
 
   xdg.portal = {
