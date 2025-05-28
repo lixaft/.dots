@@ -44,3 +44,4 @@ vim.keymap.set("n", "<leader>sp", fzf.builtin, { desc = "Fzf builtin providers" 
 vim.keymap.set("n", "<leader>sh", fzf.help_tags, { desc = "Help pages" })
 vim.keymap.set("n", "<leader>sn", fzf.spell_suggest, { desc = "Spell suggestions" })
 vim.keymap.set("n", "<leader>sc", fzf.command_history, { desc = "Command History" })
+vim.keymap.set("n", "<leader>sm", fzf.marks, { desc = "Command History" })

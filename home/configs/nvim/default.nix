@@ -78,6 +78,7 @@
       harpoon2
       indent-o-matic
       lazydev-nvim
+      marks-nvim
       nvim-colorizer-lua
       nvim-lint
       nvim-treesitter-context
