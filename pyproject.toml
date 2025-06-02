@@ -4,7 +4,7 @@ target-version = "py312"
 indent-width = 4
 line-length = 79
 
-[format]
+[ruff.format]
 preview = true
 docstring-code-format = true
 
