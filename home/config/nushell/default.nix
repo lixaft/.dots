@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   flakeLib,
   pkgs,
@@ -19,6 +20,15 @@ in {
 
     # I don't really know why, but they don't seem to be added automatically.
     environmentVariables = config.home.sessionVariables;
+
+    extraEnv =
+      # nu
+      ''
+        use std/util "path add"
+        ${lib.concatStringsSep "\n" (
+          map (x: ''path add "${x}"'') config.home.sessionPath
+        )}
+      '';
 
     extraConfig =
       # nu
