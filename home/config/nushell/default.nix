@@ -68,7 +68,7 @@ in {
               mode: emacs
               event: {
                 send: executehostcommand,
-                cmd: "${../../scripts/tmux-sessionizer}"
+                cmd: "${../../bin/tmux-sessionizer}"
               }
             }
             {
@@ -78,7 +78,7 @@ in {
               mode: emacs
               event: {
                 send: executehostcommand,
-                cmd: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}"
+                cmd: "${../../bin/tmux-sessionizer} ${config.home.homeDirectory}"
               }
             }
             {
@@ -88,7 +88,7 @@ in {
               mode: emacs
               event: {
                 send: executehostcommand,
-                cmd: "${../../scripts/tmux-sessionizer} /tmp"
+                cmd: "${../../bin/tmux-sessionizer} /tmp"
               }
             }
             {
@@ -98,7 +98,7 @@ in {
               mode: emacs
               event: {
                 send: executehostcommand,
-                cmd: "${../../scripts/tmux-sessionizer} ${config.home.homeDirectory}/todo.md"
+                cmd: "${../../bin/tmux-sessionizer} ${config.home.homeDirectory}/todo.md"
               }
             }
           ]

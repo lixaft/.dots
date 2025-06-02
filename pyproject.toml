@@ -1,3 +1,4 @@
+[ruff]
 target-version = "py312"
 
 indent-width = 4
@@ -10,7 +11,7 @@ docstring-code-format = true
 quote-style = "double"
 indent-style = "space"
 
-[lint]
+[ruff.lint]
 select = [
     "A",  # flake8-builtin
     "ANN",  # flake8-annotation
@@ -75,17 +76,17 @@ fixable = ["ALL"]
 
 task-tags = ["TODO"]
 
-[lint.flake8-annotations]
+[ruff.lint.flake8-annotations]
 allow-star-arg-any = true
 
-[lint.flake8-tidy-imports]
+[ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[lint.isort]
+[ruff.lint.isort]
 force-single-line = true
 required-imports = [
     "from __future__ import annotations"
 ]
 
-[lint.pydocstyle]
+[ruff.lint.pydocstyle]
 convention = "google"

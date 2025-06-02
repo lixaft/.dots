@@ -23,7 +23,7 @@ in {
         program = "nu";
         args = [
           "--execute"
-          "do { tmux attach } or { ${../../scripts/tmux-sessionizer} ~ }"
+          "do { tmux attach } or { ${../../bin/tmux-sessionizer} ~ }"
         ];
       };
     };

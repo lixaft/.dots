@@ -47,8 +47,8 @@ in
         else nix-index-database.nixosModules.nix-index
       )
 
-      ../hosts/${host}
-      ../users/${user}
+      ../host/${host}
+      ../user/${user}
 
       (
         if home.enable

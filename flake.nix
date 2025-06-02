@@ -27,11 +27,7 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = { nixpkgs, ... } @ inputs: let
     inherit (nixpkgs) lib;
     mkSystem = (import ./lib inputs).mkSystem;
 
@@ -44,11 +40,22 @@
   in {
     formatter = lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    devShells = lib.genAttrs systems (system: {
-      default = import ./shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
-    });
+    templates = rec {
+      generic = {path = ./misc/template/generic;};
+      python = {path = ./misc/template/python;};
+      default = generic;
+    };
 
-    templates = (import ./templates) inputs;
+    devShells = lib.genAttrs systems (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      default = pkgs.mkShell {
+        packages = with pkgs; [
+          home-manager
+          just
+        ];
+      };
+    });
 
     nixosConfigurations = {
       "kiwi" = mkSystem {

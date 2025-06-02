@@ -1,12 +1,12 @@
 {config, ...}: {
   imports = [
-    ../../modules/boot.nix
-    ../../modules/desktop.nix
-    ../../modules/locale.nix
-    ../../modules/nix.nix
-    ../../modules/shell.nix
-    ../../modules/user.nix
-    ../../modules/virtualisation.nix
+    ../../module/boot.nix
+    ../../module/desktop.nix
+    ../../module/locale.nix
+    ../../module/nix.nix
+    ../../module/shell.nix
+    ../../module/user.nix
+    ../../module/virtualisation.nix
     ./hardware.nix
   ];
 

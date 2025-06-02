@@ -69,10 +69,10 @@
 
         # Bindings.
         bind \ev "__editor_paginate";
-        bind \cs "${../../scripts/tmux-sessionizer}; commandline -f execute"
-        bind \ch "${../../scripts/tmux-sessionizer} ~; commandline -f execute"
-        bind \ct "${../../scripts/tmux-sessionizer} /tmp; commandline -f execute"
-        bind \cg "${../../scripts/tmux-sessionizer} ~/todo.md; commandline -f execute"
+        bind \cs "${../../bin/tmux-sessionizer}; commandline -f execute"
+        bind \ch "${../../bin/tmux-sessionizer} ~; commandline -f execute"
+        bind \ct "${../../bin/tmux-sessionizer} /tmp; commandline -f execute"
+        bind \cg "${../../bin/tmux-sessionizer} ~/todo.md; commandline -f execute"
 
         # Load direnv.
         eval (direnv hook fish)

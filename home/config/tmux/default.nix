@@ -19,7 +19,7 @@ in {
       # tmux
       ''
         set -g default-terminal 'tmux-256color'
-        set -a terminal-features 'alacritty:RGB'
+        set -a terminal-features 'xterm-256color:RGB'
 
         # Recommended by nvim.
         set -g focus-events on
@@ -70,10 +70,10 @@ in {
         bind Enter setw synchronize-panes
 
         # Search projects.
-        bind C-s run-shell "tmux new-window ${../../scripts/tmux-sessionizer}"
-        bind t run-shell "${../../scripts/tmux-sessionizer} /tmp"
-        bind h run-shell "${../../scripts/tmux-sessionizer} ~"
-        bind g run-shell "${../../scripts/tmux-sessionizer} ~/todo.md"
+        bind C-s run-shell "tmux new-window ${../../bin/tmux-sessionizer}"
+        bind t run-shell "${../../bin/tmux-sessionizer} /tmp"
+        bind h run-shell "${../../bin/tmux-sessionizer} ~"
+        bind g run-shell "${../../bin/tmux-sessionizer} ~/todo.md"
 
         # Statusbar.
         set -g status-left-length 64

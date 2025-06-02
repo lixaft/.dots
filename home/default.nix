@@ -11,7 +11,7 @@
     homeDirectory = "/home/${username}";
 
     sessionPath = [
-      "${./scripts}"
+      "${./bin}"
       "${homeDirectory}/.local/bin"
     ];
 
@@ -37,6 +37,7 @@
       code = "${pkgs.vscodium}/bin/codium";
 
       # Fix a weird copy/past bug in wsl.
+      # I don't think this is needed anymore, just keeping around ATM.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
 
@@ -101,25 +102,25 @@
   };
 
   imports = [
-    ./configs/alacritty
-    ./configs/bash
-    ./configs/bat
-    ./configs/direnv
-    ./configs/fish
-    ./configs/fzf
-    ./configs/gdb
-    ./configs/git
-    ./configs/hypr
-    ./configs/lf
-    ./configs/litecli
-    ./configs/nushell
-    ./configs/nvim
-    ./configs/pistol
-    ./configs/rofi
-    ./configs/starship
-    ./configs/theme
-    ./configs/tmux
-    ./configs/xdg
+    ./config/alacritty
+    ./config/bash
+    ./config/bat
+    ./config/direnv
+    ./config/fish
+    ./config/fzf
+    ./config/gdb
+    ./config/git
+    ./config/hypr
+    ./config/lf
+    ./config/litecli
+    ./config/nushell
+    ./config/nvim
+    ./config/pistol
+    ./config/rofi
+    ./config/starship
+    ./config/theme
+    ./config/tmux
+    ./config/xdg
   ];
 
   systemd.user.startServices = "sd-switch";

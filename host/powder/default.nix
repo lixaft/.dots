@@ -1,10 +1,10 @@
 {flakeConfig, ...}: {
   imports = [
-    ../../modules/locale.nix
-    ../../modules/nix.nix
-    ../../modules/shell.nix
-    ../../modules/user.nix
-    ../../modules/virtualisation.nix
+    ../../module/locale.nix
+    ../../module/nix.nix
+    ../../module/shell.nix
+    ../../module/user.nix
+    ../../module/virtualisation.nix
   ];
 
   wsl = {

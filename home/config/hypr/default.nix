@@ -113,7 +113,7 @@
   };
 
   services.hyprpaper = let
-    wall = "${../../../wall.png}";
+    wall = "${../../../misc/wall.png}";
   in {
     enable = true;
     settings = {
