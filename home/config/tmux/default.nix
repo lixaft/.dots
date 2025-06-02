@@ -18,8 +18,8 @@ in {
     extraConfig =
       # tmux
       ''
-        set -g default-terminal 'tmux-256color'
-        set -a terminal-features 'xterm-256color:RGB'
+        set -g default-terminal "tmux-256color"
+        set -a terminal-features "$TERM:RGB"
 
         # Recommended by nvim.
         set -g focus-events on
