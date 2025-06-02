@@ -58,6 +58,7 @@
       pyright
       ruff
       rust-analyzer
+      ty
       typos-lsp
       zls
 
@@ -65,7 +66,6 @@
       alejandra
       mypy
       nodePackages.prettier
-      selene
       shfmt
       stylua
     ];
