@@ -64,6 +64,7 @@
 
       # Formatter & Linters.
       alejandra
+      meson
       mypy
       nodePackages.prettier
       shfmt
