@@ -1,16 +1,21 @@
 local conform = require("conform")
 
 conform.setup({
+  default_format_opts = {
+    -- TODO: LSP fallback does not seem to work properly right now.
+    lsp_format = "fallback",
+  },
   formatters_by_ft = {
     ["*"] = { "injected" },
+    cpp = { "clang-format" },
     json = { "prettier" },
     lua = { "stylua" },
     markdown = { "prettier" },
+    meson = { "meson-format" },
     nix = { "alejandra" },
     python = { "ruff_organize_imports", "ruff_format" },
     sh = { "shfmt" },
     yaml = { "prettier" },
-    meson = { "meson-format" },
   },
   formatters = {
     ruff_organize_imports = {
@@ -30,9 +35,4 @@ conform.setup({
   },
 })
 
-vim.keymap.set("n", "<c-f>", function()
-  conform.format({
-    lsp_fallback = true,
-    quiet = true,
-  })
-end, { desc = "Format Buffer" })
+vim.keymap.set("n", "<c-f>", conform.format)
