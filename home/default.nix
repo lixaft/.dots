@@ -82,7 +82,7 @@
     carapace.enable = true;
     home-manager.enable = true;
     nix-index.enable = true;
-    thefuck.enable = true;
+    pay-respects.enable = true;
     zoxide.enable = true;
   };
 
