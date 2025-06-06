@@ -1,4 +1,4 @@
-{flakeLib, ...}: let
+{flakeLib, pkgs, ...}: let
   c = flakeLib.colors;
 in {
   programs.alacritty = {
@@ -20,10 +20,10 @@ in {
       };
 
       terminal.shell = {
-        program = "nu";
+        program = "bash";
         args = [
-          "--execute"
-          "do { tmux attach } or { ${../../bin/tmux-sessionizer} ~ }"
+          "-c"
+          "${pkgs.tmux}/bin/tmux attach &>/dev/null || ${../../bin/tmux-sessionizer} ~"
         ];
       };
     };
