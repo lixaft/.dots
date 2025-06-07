@@ -54,17 +54,23 @@ in {
         bind -n M-8 select-window -t 8
         bind -n M-9 select-window -t 9
 
-        # Fast pane switch (vim <3).
+        # Pane switch.
         bind -n M-h select-pane -L
         bind -n M-j select-pane -D
         bind -n M-k select-pane -U
         bind -n M-l select-pane -R
 
-        # Fast pane resize.
+        # Pane resize.
         bind -r H resize-pane -L 10
         bind -r J resize-pane -D 10
         bind -r K resize-pane -U 10
         bind -r L resize-pane -R 10
+
+        # # Pane swap.
+        # bind -n C-h swap-pane -L
+        # bind -n C-j swap-pane -D
+        # bind -n C-k swap-pane -U
+        # bind -n C-l swap-pane -R
 
         # Easy sync mode.
         bind Enter setw synchronize-panes

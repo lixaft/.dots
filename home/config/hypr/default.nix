@@ -54,10 +54,20 @@ in {
         '', Print, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b 000000AA -w 1 -c FFFFFF80-d)" - | wl-copy''
         "Control_L, Print, exec, ${pkgs.peek}/bin/peek"
 
-        "SUPER, l, movefocus, l"
-        "SUPER, h, movefocus, r"
+        "SUPER, l, movefocus, r"
+        "SUPER, h, movefocus, l"
         "SUPER, j, movefocus, u"
         "SUPER, k, movefocus, d"
+
+        "SUPER SHIFT, l, movewindow, r"
+        "SUPER SHIFT, h, movewindow, l"
+        "SUPER SHIFT, k, movewindow, u"
+        "SUPER SHIFT, j, movewindow, d"
+
+        "SUPER CTRL, l, resizeactive, 128 0"
+        "SUPER CTRL, h, resizeactive, -128 0"
+        "SUPER CTRL, k, resizeactive, 0 -128"
+        "SUPER CTRL, j, resizeactive, 0 128"
 
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
