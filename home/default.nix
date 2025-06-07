@@ -1,6 +1,7 @@
 {
   flakeConfig,
   flakeLib,
+  lib,
   pkgs,
   ...
 }: {
@@ -29,7 +30,7 @@
 
     shellAliases = {
       cdi = "zi";
-      code = "${pkgs.vscodium}/bin/codium";
+      code = lib.getExe pkgs.vscodium;
 
       # Fix a weird clipboard bug in wsl.
       # I don't think this is needed anymore, just keeping around ATM.
@@ -69,7 +70,6 @@
   };
 
   programs = {
-    bash.enable = true;
     carapace.enable = true;
     home-manager.enable = true;
     nix-index.enable = true;
