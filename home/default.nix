@@ -34,7 +34,7 @@
       code = lib.getExe pkgs.vscodium;
 
       # Fix a weird clipboard bug in wsl.
-      # I don't think this is needed anymore, just keeping around ATM.
+      # TODO: I don't think this is needed anymore, just keeping around ATM.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
 
@@ -57,6 +57,7 @@
       peek
       pkgs.file
       protonvpn-gui
+      python3
       qbittorrent
       qimgv
       rename
