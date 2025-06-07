@@ -7,6 +7,7 @@ with pkgs; [
   eza
   fd
   ffmpeg
+  file
   filebot
   gh
   gimp3-with-plugins
@@ -16,7 +17,6 @@ with pkgs; [
   nerd-fonts.dejavu-sans-mono
   pavucontrol
   peek
-  file
   protonvpn-gui
   python3
   qbittorrent
