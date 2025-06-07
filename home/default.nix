@@ -1,4 +1,5 @@
 {
+  config,
   flakeConfig,
   flakeLib,
   lib,
@@ -17,6 +18,7 @@
     ];
 
     sessionVariables = {
+      EDITOR = lib.getExe config.programs.neovim.package;
       PAGER = "${lib.getExe pkgs.less} --chop-long-lines";
       LS_COLORS = flakeLib.concatAttrs "=" ":" {
         di = "00;36";
@@ -30,8 +32,6 @@
     };
 
     shellAliases = {
-      code = lib.getExe pkgs.vscodium;
-
       # Fix a weird clipboard bug in wsl.
       # TODO: I don't think this is needed anymore, just keeping around ATM.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
@@ -47,8 +47,11 @@
     };
   };
 
-  programs = {
-    nix-index.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = ["DejaVuSansM Nerd Font"];
+    };
   };
 
   gtk = {
@@ -63,11 +66,8 @@
     enable = true;
   };
 
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = ["DejaVuSansM Nerd Font"];
-    };
+  programs = {
+    nix-index.enable = true;
   };
 
   imports = [

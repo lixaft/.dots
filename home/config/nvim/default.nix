@@ -21,7 +21,6 @@
 
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
 
     viAlias = true;
     vimAlias = true;
@@ -45,7 +44,7 @@
       tree-sitter # Required by nvim.
       ueberzugpp # Required by fzf-lua.
       viu # Required by fzf-lua.
-      zig # Required for zls.
+      zig # Required by zls.
 
       # LSP.
       bash-language-server
