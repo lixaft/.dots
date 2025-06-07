@@ -1,13 +1,14 @@
 {
-  pkgs,
   flakeLib,
+  lib,
+  pkgs,
   ...
 }: let
   c = flakeLib.colors;
 in {
   programs.fzf = {
     enable = true;
-    defaultCommand = "${pkgs.fd}/bin/fd --highlight-line --info=inline-right --ansi --layout=reverse --border=none";
+    defaultCommand = "${lib.getExe pkgs.fd} --highlight-line --info=inline-right --ansi --layout=reverse --border=none";
     colors = {
       "bg+" = "-1";
       "bg" = "-1";

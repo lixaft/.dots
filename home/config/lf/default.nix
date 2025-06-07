@@ -1,9 +1,13 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   xdg = {
     desktopEntries."lf" = {
       name = "Lf";
       genericName = "File Manager";
-      exec = "alacritty --command lf";
+      exec = "${lib.getExe pkgs.alacritty} --command lf";
       categories = [];
     };
 
@@ -24,6 +28,6 @@
       icons = true;
     };
 
-    previewer.source = "${pkgs.pistol}/bin/pistol";
+    previewer.source = lib.getExe pkgs.pistol;
   };
 }

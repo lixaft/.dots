@@ -1,7 +1,7 @@
 {
+  config,
   flakeLib,
   lib,
-  config,
   pkgs,
   ...
 }: let
@@ -44,15 +44,15 @@ in {
       bind = [
         "SUPER, q, exit"
         "SUPER, x, exec, loginctl kill-user ${config.home.username}"
-        "SUPER, t, exec, ${pkgs.alacritty}/bin/alacritty"
+        "SUPER, t, exec, ${lib.getExe pkgs.alacritty}"
         "SUPER, c, killactive"
-        "SUPER, e, exec, ${pkgs.alacritty}/bin/alacritty --command ${pkgs.lf}/bin/lf"
+        "SUPER, e, exec, ${lib.getExe pkgs.alacritty} --command ${pkgs.lf}/bin/lf"
         "SUPER, v, togglefloating"
         "SUPER, f, fullscreen"
         "SUPER, d, exec, rofi -theme ${config.xdg.configHome}/rofi/launcher.rasi -show"
-        "SUPER, p, exec, ${pkgs.hyprpicker}/bin/hyprpicker --autocopy --format=hex"
-        '', Print, exec, ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -b 000000AA -w 1 -c FFFFFF80-d)" - | wl-copy''
-        "Control_L, Print, exec, ${pkgs.peek}/bin/peek"
+        "SUPER, p, exec, ${lib.getExe pkgs.hyprpicker} --autocopy --format=hex"
+        '', Print, exec, ${lib.getExe pkgs.grim} -g "$(${pkgs.slurp}/bin/slurp -b 000000AA -w 1 -c FFFFFF80-d)" - | wl-copy''
+        "Control_L, Print, exec, ${lib.getExe pkgs.peek}"
 
         "SUPER, l, movefocus, r"
         "SUPER, h, movefocus, l"
@@ -99,15 +99,15 @@ in {
         ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        ", XF86AudioPlay, exec, ${pkgs.playerctl}/bin/playerctl play-pause"
-        ", XF86AudioPrev, exec, ${pkgs.playerctl}/bin/playerctl previous"
-        ", XF86AudioNext, exec, ${pkgs.playerctl}/bin/playerctl next"
+        ", XF86AudioPlay, exec, ${lib.getExe pkgs.playerctl} play-pause"
+        ", XF86AudioPrev, exec, ${lib.getExe pkgs.playerctl} previous"
+        ", XF86AudioNext, exec, ${lib.getExe pkgs.playerctl} next"
       ];
 
       exec-once = [
-        "[workspace 2 silent] ${pkgs.spotify}/bin/spotify"
-        "[workspace 3 silent] ${pkgs.alacritty}/bin/alacritty"
-        "[workspace 4 silent] ${pkgs.brave}/bin/brave"
+        "[workspace 2 silent] ${lib.getExe pkgs.spotify}"
+        "[workspace 3 silent] ${lib.getExe pkgs.alacritty}"
+        "[workspace 4 silent] ${lib.getExe pkgs.brave}"
         "hyprctl dispatch workspace 3"
       ];
 

@@ -1,5 +1,6 @@
 {
   flakeLib,
+  lib,
   pkgs,
   ...
 }: let
@@ -27,7 +28,7 @@ in {
         program = "bash";
         args = [
           "-c"
-          "${pkgs.tmux}/bin/tmux attach &>/dev/null || ${../../bin/tmux-sessionizer} ~"
+          "${lib.getExe pkgs.tmux} attach &>/dev/null || ${../../bin/tmux-sessionizer} ~"
         ];
       };
     };

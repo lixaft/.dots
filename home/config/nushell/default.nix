@@ -55,13 +55,13 @@ in {
 
         def --wrapped psql [...rest] {
           if "-c" in $rest or "--command" in $rest {
-            return (^psql ...$rest --csv | from csv)
+            return (${pkgs.postgresql}/bin/psql ...$rest --csv | from csv)
           } else {
-            ^psql ...$rest
+            ${pkgs.postgresql}/bin/psql ...$rest
           }
         }
 
-        ${pkgs.zoxide}/bin/zoxide init nushell | save -f "${zoxide_file}"
+        ${lib.getExe pkgs.zoxide} init nushell | save -f "${zoxide_file}"
         source ${zoxide_file}
 
         # Wrap cd (and zoxide) to return inside the tmux session path.

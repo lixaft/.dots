@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -40,7 +41,7 @@
       filebot = {
         name = "FileBot";
         icon = ./filebot.svg;
-        exec = "${pkgs.filebot}/bin/filebot";
+        exec = lib.getExe pkgs.filebot;
         terminal = false;
         categories = ["Application"];
       };

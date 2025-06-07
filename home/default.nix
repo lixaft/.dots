@@ -38,37 +38,7 @@
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
 
-    packages = with pkgs; [
-      alacritty
-      binutils
-      brave
-      discord
-      eza
-      fd
-      ffmpeg
-      filebot
-      gh
-      gimp3-with-plugins
-      google-chrome
-      less
-      nautilus
-      nerd-fonts.dejavu-sans-mono
-      pavucontrol
-      peek
-      pkgs.file
-      protonvpn-gui
-      python3
-      qbittorrent
-      qimgv
-      rename
-      ripgrep
-      spotify
-      tlrc
-      vlc
-      vscodium
-      wl-clipboard
-      xdg-utils
-    ];
+    packages = import ./packages.nix pkgs;
   };
 
   programs = {
@@ -99,6 +69,4 @@
     ./config/tmux
     ./config/xdg
   ];
-
-  systemd.user.startServices = "sd-switch";
 }
