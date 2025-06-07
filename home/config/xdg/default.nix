@@ -1,6 +1,6 @@
 {
-  pkgs,
   config,
+  pkgs,
   ...
 }: {
   xdg = {
@@ -20,14 +20,11 @@
       videos = "${config.home.homeDirectory}/videos";
     };
 
-    desktopEntries = {
-      filebot = {
-        name = "FileBot";
-        icon = ./filebot.svg;
-        exec = "${pkgs.filebot}/bin/filebot";
-        terminal = false;
-        categories = ["Application"];
-      };
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
     };
 
     mimeApps = {
@@ -39,11 +36,14 @@
       };
     };
 
-    portal = {
-      enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal-gtk
-      ];
+    desktopEntries = {
+      filebot = {
+        name = "FileBot";
+        icon = ./filebot.svg;
+        exec = "${pkgs.filebot}/bin/filebot";
+        terminal = false;
+        categories = ["Application"];
+      };
     };
   };
 }
