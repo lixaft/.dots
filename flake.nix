@@ -40,22 +40,11 @@
   in {
     formatter = lib.genAttrs systems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    templates = rec {
-      generic = {path = ./misc/template/generic;};
-      python = {path = ./misc/template/python;};
-      default = generic;
-    };
-
-    devShells = lib.genAttrs systems (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          home-manager
-          just
-        ];
-      };
+    devShells = lib.genAttrs systems (system: {
+      default = import ./misc/shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
     });
+
+    templates = import ./misc/tmeplate {};
 
     nixosConfigurations = {
       "kiwi" = mkSystem {
