@@ -17,6 +17,7 @@
     ];
 
     sessionVariables = {
+      PAGER = "${lib.getExe pkgs.less} --chop-long-lines";
       LS_COLORS = flakeLib.concatAttrs "=" ":" {
         di = "00;36";
         ex = "01;32";
