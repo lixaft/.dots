@@ -3,6 +3,7 @@
     ./alacritty
     ./bash
     ./bat
+    ./carapace
     ./dconf
     ./direnv
     ./fzf
@@ -12,11 +13,12 @@
     ./lf
     ./nushell
     ./nvim
+    ./pay-respects
     ./pistol
     ./rofi
     ./starship
-    ./theme
     ./tmux
     ./xdg
+    ./zoxide
   ];
 }

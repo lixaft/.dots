@@ -30,7 +30,6 @@
     };
 
     shellAliases = {
-      cdi = "zi";
       code = lib.getExe pkgs.vscodium;
 
       # Fix a weird clipboard bug in wsl.
@@ -39,14 +38,36 @@
     };
 
     packages = import ./packages.nix pkgs;
+
+    pointerCursor = {
+      name = "phinger-cursors-dark";
+      package = pkgs.phinger-cursors;
+      size = 32;
+      gtk.enable = true;
+    };
   };
 
   programs = {
-    carapace.enable = true;
-    home-manager.enable = true;
     nix-index.enable = true;
-    pay-respects.enable = true;
-    zoxide.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
+  qt = {
+    enable = true;
+  };
+
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      monospace = ["DejaVuSansM Nerd Font"];
+    };
   };
 
   imports = [
