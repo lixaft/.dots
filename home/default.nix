@@ -28,15 +28,10 @@
     };
 
     shellAliases = {
-      l = "ls";
-      la = "ls -a";
-      lla = "ls -la";
-
       cdi = "zi";
-
       code = "${pkgs.vscodium}/bin/codium";
 
-      # Fix a weird copy/past bug in wsl.
+      # Fix a weird clipboard bug in wsl.
       # I don't think this is needed anymore, just keeping around ATM.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };
@@ -45,22 +40,17 @@
       alacritty
       binutils
       brave
-      curl
       discord
       eza
       fd
       ffmpeg
-      figma-linux
       filebot
       gh
       gimp3-with-plugins
-      gnome-text-editor
       google-chrome
-      jq
       less
       nautilus
       nerd-fonts.dejavu-sans-mono
-      obs-studio
       pavucontrol
       peek
       pkgs.file
@@ -86,33 +76,17 @@
     zoxide.enable = true;
   };
 
-  fonts.fontconfig.enable = true;
-
-  dconf = {
-    enable = true;
-    settings = {
-      "org/gnome/desktop/interface" = {
-        color-scheme = "prefer-dark";
-      };
-      "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
-      };
-    };
-  };
-
   imports = [
     ./config/alacritty
     ./config/bash
     ./config/bat
+    ./config/dconf
     ./config/direnv
-    ./config/fish
     ./config/fzf
     ./config/gdb
     ./config/git
     ./config/hypr
     ./config/lf
-    ./config/litecli
     ./config/nushell
     ./config/nvim
     ./config/pistol

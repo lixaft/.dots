@@ -38,6 +38,7 @@
 
       bind = [
         "SUPER, q, exit"
+        "SUPER, x, exec, loginctl kill-user ${config.home.username}"
         "SUPER, t, exec, ${pkgs.alacritty}/bin/alacritty"
         "SUPER, c, killactive"
         "SUPER, e, exec, ${pkgs.alacritty}/bin/alacritty --command ${pkgs.lf}/bin/lf"

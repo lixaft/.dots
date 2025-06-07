@@ -43,6 +43,19 @@ in {
           }
         }
 
+        # Start a new http server.
+        def "http serve" [
+          --address (-a): string,  # Bind to this address.
+          --port (-p): string,  # Bind to this port.
+          directory?: string,  # Serve at this directory.
+        ] {
+          (${lib.getExe pkgs.python3} -m http.server
+            --bind ($address | default "127.0.0.1")
+            --directory ($directory | default ".")
+            ($port | default "8888")
+          )
+        }
+
         ${pkgs.zoxide}/bin/zoxide init nushell | save -f "${zoxide_file}"
         source ${zoxide_file}
 

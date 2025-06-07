@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   gtk = {
     enable = true;
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
+    # theme = {
+    #   name = "Adwaita-dark";
+    #   package = pkgs.gnome-themes-extra;
+    # };
   };
 
   home.pointerCursor = {
@@ -14,10 +14,17 @@
     gtk.enable = true;
   };
 
-  qt = {
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "adwaita";
+  #   style.name = "adwaita-dark";
+  #   style.package = pkgs.adwaita-qt;
+  # };
+
+  fonts.fontconfig = {
     enable = true;
-    platformTheme.name = "adwaita";
-    style.name = "adwaita-dark";
-    style.package = pkgs.adwaita-qt;
+    defaultFonts = {
+      monospace = ["DejaVuSansM Nerd Font"];
+    };
   };
 }

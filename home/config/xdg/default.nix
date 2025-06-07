@@ -35,7 +35,15 @@
       defaultApplications = {
         "image/jpeg" = "qimgv.desktop";
         "image/png" = "qimgv.desktop";
+        "image/svg+xml" = "brave-browser.desktop";
       };
+    };
+
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gtk
+      ];
     };
   };
 }

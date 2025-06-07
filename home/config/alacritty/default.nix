@@ -1,4 +1,8 @@
-{flakeLib, pkgs, ...}: let
+{
+  flakeLib,
+  pkgs,
+  ...
+}: let
   c = flakeLib.colors;
 in {
   programs.alacritty = {
