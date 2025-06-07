@@ -50,23 +50,6 @@
   };
 
   imports = [
-    ./config/alacritty
-    ./config/bash
-    ./config/bat
-    ./config/dconf
-    ./config/direnv
-    ./config/fzf
-    ./config/gdb
-    ./config/git
-    ./config/hypr
-    ./config/lf
-    ./config/nushell
-    ./config/nvim
-    ./config/pistol
-    ./config/rofi
-    ./config/starship
-    ./config/theme
-    ./config/tmux
-    ./config/xdg
+    ./config
   ];
 }
