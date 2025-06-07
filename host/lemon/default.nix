@@ -5,13 +5,13 @@
   ...
 }: {
   imports = [
-    ../../module/boot.nix
-    ../../module/desktop.nix
-    ../../module/locale.nix
-    ../../module/nix.nix
-    ../../module/shell.nix
-    ../../module/user.nix
-    ../../module/virtualisation.nix
+    ../shared/boot.nix
+    ../shared/desktop.nix
+    ../shared/locale.nix
+    ../shared/nix.nix
+    ../shared/shell.nix
+    ../shared/user.nix
+    ../shared/virtualisation.nix
     ./hardware.nix
   ];
 
