@@ -1,10 +1,14 @@
 {pkgs, ...}: {
   gtk = {
     enable = true;
-    # theme = {
-    #   name = "Adwaita-dark";
-    #   package = pkgs.gnome-themes-extra;
-    # };
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
+
+  qt = {
+    enable = true;
   };
 
   home.pointerCursor = {
@@ -13,13 +17,6 @@
     size = 32;
     gtk.enable = true;
   };
-
-  # qt = {
-  #   enable = true;
-  #   platformTheme.name = "adwaita";
-  #   style.name = "adwaita-dark";
-  #   style.package = pkgs.adwaita-qt;
-  # };
 
   fonts.fontconfig = {
     enable = true;

@@ -54,6 +54,7 @@
       pavucontrol
       peek
       pkgs.file
+      protonvpn-gui
       qbittorrent
       qimgv
       rename

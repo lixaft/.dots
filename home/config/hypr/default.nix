@@ -1,8 +1,13 @@
 {
+  flakeLib,
+  lib,
   config,
   pkgs,
   ...
-}: {
+}: let
+  c = flakeLib.colors;
+  rgb = color: "rgb(${lib.strings.removePrefix "#" color})";
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -16,8 +21,8 @@
         gaps_in = 0;
         gaps_out = 0;
         resize_on_border = true;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = rgb c.lavender;
+        "col.inactive_border" = rgb c.ui.separator;
       };
 
       decoration = {

@@ -13,7 +13,7 @@ in {
     enable = true;
 
     shellAliases = {
-      cd = "__smart_cd";
+      cd = "smart-cd";
       fg = "job unfreeze";
       "items kv" = "items {|k, v| { key: $k, value: $v }}";
     };
@@ -33,14 +33,11 @@ in {
     extraConfig =
       # nu
       ''
-        def --wrapped psql [...rest] {
-          # TODO: Find a way to set the pager globally. Perhaps via a
-          # wrapper script.
-          if "-c" in $rest or "--command" in $rest {
-            return (PAGER=bat ^psql ...$rest --csv | from csv)
-          } else {
-            PAGER=bat ^psql ...$rest
-          }
+        # Cd into the store location of package.
+        def --env cdp [
+          pkg: string,  # The nix package to cd in.
+        ] {
+          nix eval --raw $"nixpkgs#($pkg)" | cd $in
         }
 
         # Start a new http server.
@@ -56,10 +53,21 @@ in {
           )
         }
 
+        def --wrapped psql [...rest] {
+          if "-c" in $rest or "--command" in $rest {
+            return (^psql ...$rest --csv | from csv)
+          } else {
+            ^psql ...$rest
+          }
+        }
+
         ${pkgs.zoxide}/bin/zoxide init nushell | save -f "${zoxide_file}"
         source ${zoxide_file}
 
-        def --env __smart_cd [path?: string] {
+        # Wrap cd (and zoxide) to return inside the tmux session path.
+        def --env smart-cd [
+          path?: string,  # The directory to cd in.
+        ] {
           if ($path == null and $env.TMUX? != null) {
             let session_path = tmux display-message -p "#{session_path}"
             z $session_path
