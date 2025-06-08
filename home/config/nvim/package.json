@@ -1,5 +1,8 @@
 {
   "name": "flake-snippets",
+  "engines": {
+    "vscode": "^1.11.0"
+  },
   "contributes": {
     "snippets": [
       {
@@ -14,9 +17,7 @@
         "path": "./snippets/global.json"
       },
       {
-        "language": [
-          "python"
-        ],
+        "language": "python",
         "path": "./snippets/python.json"
       }
     ]

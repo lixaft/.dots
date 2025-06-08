@@ -95,6 +95,8 @@
       vim-fugitive
       vim-illuminate
       virt-column-nvim
+
+      # friendly-snippets
     ];
   };
 }
