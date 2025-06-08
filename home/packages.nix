@@ -1,6 +1,7 @@
 pkgs:
 with pkgs; [
   alacritty
+  bazecor
   binutils
   brave
   discord

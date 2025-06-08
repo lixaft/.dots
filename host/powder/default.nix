@@ -1,10 +1,11 @@
-{flakeConfig, ...}: {
+{
+  flakeConfig,
+  pkgs,
+  ...
+}: {
   imports = [
     ../shared/locale.nix
     ../shared/nix.nix
-    ../shared/shell.nix
-    ../shared/user.nix
-    ../shared/virtualisation.nix
   ];
 
   wsl = {
@@ -16,6 +17,14 @@
       automount.root = "/mnt";
       network.hostname = flakeConfig.host;
     };
+  };
+
+  environment.systemPackages = with pkgs; [
+    docker-compose
+  ];
+
+  programs = {
+    nix-index-database.comma.enable = true;
   };
 
   fileSystems = {

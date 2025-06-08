@@ -3,6 +3,11 @@
   flakeConfig,
   ...
 }: {
+  environment.systemPackages = with pkgs; [
+    virtiofsd
+    docker-compose
+  ];
+
   virtualisation = {
     containers.enable = true;
 
@@ -27,11 +32,6 @@
   programs = {
     virt-manager.enable = true;
   };
-
-  environment.systemPackages = with pkgs; [
-    virtiofsd
-    docker-compose
-  ];
 
   users.users.${flakeConfig.user} = {
     extraGroups = [

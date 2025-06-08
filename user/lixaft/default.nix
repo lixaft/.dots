@@ -3,12 +3,13 @@
   flakeConfig,
   ...
 }: {
-  users.users.${flakeConfig.user} = {
-    shell = pkgs.nushell;
-    extraGroups = ["dialout"];
-  };
-
   environment.systemPackages = with pkgs; [
     nushell
   ];
+
+  users.users.${flakeConfig.user} = {
+    isNormalUser = true;
+    shell = pkgs.nushell;
+    extraGroups = ["wheel"];
+  };
 }

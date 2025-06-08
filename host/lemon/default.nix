@@ -5,22 +5,48 @@
   ...
 }: {
   imports = [
+    ../shared/audio.nix
+    ../shared/bluetooth.nix
     ../shared/boot.nix
     ../shared/desktop.nix
     ../shared/locale.nix
+    ../shared/network.nix
     ../shared/nix.nix
-    ../shared/shell.nix
-    ../shared/user.nix
     ../shared/virtualisation.nix
     ./hardware.nix
   ];
 
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    open = false;
-    modesetting.enable = true;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
+
+  hardware = {
+    nvidia = {
+      open = false;
+      modesetting.enable = true;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
+
+  networking = {
+    hostName = flakeConfig.host;
+    firewall.enable = true;
+  };
+
+  programs = {
+    nix-index-database.comma.enable = true;
+  };
+
+  services = {
+    xserver = {
+      enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      videoDrivers = ["nvidia"];
+    };
   };
 
   fileSystems = {
@@ -30,9 +56,9 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [nfs-utils];
-
-  nix.settings.trusted-users = [flakeConfig.user];
+  users.users.${flakeConfig.user}.extraGroups = [
+    "dialout"
+  ];
 
   system.stateVersion = "23.11";
 }

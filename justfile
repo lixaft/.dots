@@ -6,6 +6,11 @@ help:
 update:
     nix flake update
 
+# format the source files
+fmt:
+    nix fmt .
+    just --unstable --fmt
+
 # initialize a new host
 [group("local")]
 init name=`hostname`:
@@ -31,6 +36,15 @@ switch name=`hostname`:
     sudo nixos-rebuild \
         --flake .#{{ name }} \
         switch
+
+# build and activate the config, but do not add it to the boot menu (remotely)
+[group("remote")]
+remote-test host:
+    nixos-rebuild \
+        --build-host {{ host }} \
+        --target-host {{ host }} \
+        --flake .#{{ replace_regex(host, ".*@", "") }} \
+        test
 
 # build the config, activate it, and make it the boot default (remotely)
 [group("remote")]

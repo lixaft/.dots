@@ -7,37 +7,10 @@
   imports = [
     ../shared/boot.nix
     ../shared/locale.nix
+    ../shared/network.nix
     ../shared/nix.nix
     ./hardware.nix
   ];
-
-  fileSystems = {
-    "/jellyfin" = {
-      device = "papaya:/volume1/Jellyfin";
-      fsType = "nfs";
-    };
-  };
-
-  hardware = {
-    bluetooth.enable = false;
-  };
-
-  networking = {
-    hostName = flakeConfig.host;
-    networkmanager.enable = true;
-    networkmanager.wifi.powersave = false;
-    firewall.enable = true;
-  };
-
-  users.users = {
-    ${flakeConfig.user} = {
-      extraGroups = ["networkmanager"];
-    };
-    ${config.services.jellyfin.user} = {
-      shell = pkgs.bash;
-      extraGroups = ["users"];
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     nfs-utils
@@ -46,22 +19,41 @@
     jellyfin-ffmpeg
   ];
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   services = {
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "yes";
+      };
+    };
+
     jellyfin = {
       enable = true;
       openFirewall = true;
     };
   };
 
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "yes";
+  fileSystems = {
+    "/jellyfin" = {
+      device = "papaya:/volume1/Jellyfin";
+      fsType = "nfs";
+    };
+  };
+
+  networking = {
+    hostName = flakeConfig.host;
+    firewall.enable = true;
+  };
+
+  users.users = {
+    ${config.services.jellyfin.user} = {
+      shell = pkgs.bash;
+      extraGroups = ["users"];
     };
   };
 

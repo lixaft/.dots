@@ -1,12 +1,12 @@
 {...}: {
   nix = {
     settings = {
+      warn-dirty = false;
       auto-optimise-store = true;
       experimental-features = [
         "flakes"
         "nix-command"
       ];
-      warn-dirty = false;
     };
     gc = {
       automatic = true;
