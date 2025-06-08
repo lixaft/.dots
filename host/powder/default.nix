@@ -24,6 +24,7 @@
   ];
 
   programs = {
+    dconf.enable = true;
     nix-index-database.comma.enable = true;
   };
 
