@@ -4,13 +4,13 @@
     ./bash
     ./bat
     ./carapace
-    ./dconf
     ./direnv
     ./fzf
     ./gdb
     ./git
     ./hypr
     ./lf
+    ./nautilus
     ./nushell
     ./nvim
     ./pay-respects
@@ -18,6 +18,7 @@
     ./rofi
     ./starship
     ./tmux
+    ./virt-manager
     ./vscode
     ./zoxide
   ];

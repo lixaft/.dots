@@ -1,4 +1,4 @@
-local cmp = require("blink-cmp")
+local cmp = require("blink.cmp")
 
 ---@type vim.lsp.Config
 return {

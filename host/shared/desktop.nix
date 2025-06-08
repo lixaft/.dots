@@ -19,7 +19,6 @@
     displayManager = {
       defaultSession = "hyprland";
     };
-
     greetd = {
       enable = true;
       settings = {

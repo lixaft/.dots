@@ -1,6 +1,6 @@
-local blink = require("blink-cmp")
+local cmp = require("blink.cmp")
 
-blink.setup({
+cmp.setup({
   sources = {
     default = {
       "lsp",

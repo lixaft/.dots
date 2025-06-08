@@ -5,11 +5,7 @@
 }: {
   users.users.${flakeConfig.user} = {
     isNormalUser = true;
-    shell = pkgs.bash;
+    shell = pkgs.bashInteractive;
     extraGroups = ["wheel"];
   };
-
-  environment.systemPackages = with pkgs; [
-    bash
-  ];
 }

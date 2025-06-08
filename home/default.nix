@@ -18,8 +18,8 @@
     ];
 
     sessionVariables = {
-      EDITOR = lib.getExe config.programs.neovim.package;
       PAGER = "${lib.getExe pkgs.less} --chop-long-lines";
+      EDITOR = lib.getExe config.programs.neovim.package;
       LS_COLORS = flakeLib.concatAttrs "=" ":" {
         di = "00;36";
         ex = "01;32";
@@ -38,36 +38,11 @@
     };
 
     packages = import ./packages.nix pkgs;
-
-    pointerCursor = {
-      name = "phinger-cursors-dark";
-      package = pkgs.phinger-cursors;
-      size = 32;
-      gtk.enable = true;
-    };
-  };
-
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      monospace = ["DejaVuSansM Nerd Font"];
-    };
-  };
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-  };
-
-  qt = {
-    enable = true;
   };
 
   imports = [
     ./config
+    ./desktop.nix
     ./xdg.nix
   ];
 }
