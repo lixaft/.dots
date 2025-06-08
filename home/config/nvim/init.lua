@@ -1,4 +1,4 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.cmd("colorscheme flakeTheme")
+vim.cmd("colorscheme flake")

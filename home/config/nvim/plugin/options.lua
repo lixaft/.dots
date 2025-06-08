@@ -19,7 +19,7 @@ vim.opt.scrolloff = 8
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
--- Interactive search/replace.
+-- Substitute.
 vim.opt.inccommand = "split"
 
 -- Fold.

@@ -22,7 +22,7 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
 vim.keymap.set("v", "J", ":move '>+1<cr>gv=gv")
 vim.keymap.set("v", "K", ":move '<-2<cr>gv=gv")
 
--- Do not move cursor on join line.
+-- Do not move cursor on join lines.
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Preserve selection on indent.

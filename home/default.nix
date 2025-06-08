@@ -32,7 +32,7 @@
     };
 
     shellAliases = {
-      # Fix a weird clipboard bug in wsl.
+      # Fix a weird clipboard issue in wsl.
       # TODO: I don't think this is needed anymore, just keeping around ATM.
       fixway = "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/";
     };

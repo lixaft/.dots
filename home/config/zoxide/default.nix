@@ -1,7 +1,6 @@
 {...}: {
   home.shellAliases = {
-    # There is no executable for `zi`, it is always define inside the
-    # shell.
+    # There is no executable for `zi`, it is always define within the shell.
     cdi = "zi";
   };
 

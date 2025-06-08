@@ -1,6 +1,6 @@
 local M = {}
 
-M.colors = require("_flakeColors")
+M.colors = require("_flake_colors")
 M.lsp = require("flake.lsp")
 
 return M

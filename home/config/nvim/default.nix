@@ -7,12 +7,12 @@
     "nvim/after".source = ./after;
     "nvim/colors".source = ./colors;
     "nvim/init.lua".source = ./init.lua;
-    "nvim/lua/flake".source = ./lua/flake;
-    "nvim/lua/conform".source = ./lua/conform;
     "nvim/package.json".source = ./package.json;
     "nvim/plugin".source = ./plugin;
     "nvim/snippets".source = ./snippets;
-    "nvim/lua/_flakeColors.lua".text =
+    "nvim/lua/flake".source = ./lua/flake;
+    "nvim/lua/conform".source = ./lua/conform;
+    "nvim/lua/_flake_colors.lua".text =
       # lua
       ''
         return vim.json.decode([[${builtins.toJSON flakeLib.colors}]])
@@ -75,7 +75,6 @@
       conform-nvim
       fzf-lua
       gitsigns-nvim
-      harpoon2
       indent-o-matic
       lazydev-nvim
       marks-nvim
