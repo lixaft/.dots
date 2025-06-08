@@ -19,7 +19,6 @@
     ./starship
     ./tmux
     ./vscode
-    ./xdg
     ./zoxide
   ];
 }

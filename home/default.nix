@@ -66,11 +66,8 @@
     enable = true;
   };
 
-  programs = {
-    nix-index.enable = true;
-  };
-
   imports = [
     ./config
+    ./xdg.nix
   ];
 }
