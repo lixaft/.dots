@@ -40,7 +40,7 @@
     desktopEntries = {
       filebot = {
         name = "FileBot";
-        icon = ./filebot.svg;
+        icon = ./resource/filebot.svg;
         exec = lib.getExe pkgs.filebot;
         terminal = false;
         categories = ["Application"];
