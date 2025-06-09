@@ -86,6 +86,7 @@
       oil-nvim
       render-markdown-nvim
       treesj
+      quicker-nvim
       undotree
       vim-better-whitespace
       vim-dadbod
