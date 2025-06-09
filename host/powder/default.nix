@@ -12,7 +12,6 @@
     enable = true;
     startMenuLaunchers = true;
     defaultUser = flakeConfig.user;
-    docker-desktop.enable = true;
     wslConf = {
       automount.root = "/mnt";
       network.hostname = flakeConfig.host;
@@ -26,6 +25,14 @@
   programs = {
     dconf.enable = true;
     nix-index-database.comma.enable = true;
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
   fileSystems = {
