@@ -84,9 +84,9 @@
       nvim-treesitter.withAllGrammars
       nvim-web-devicons
       oil-nvim
+      quicker-nvim
       render-markdown-nvim
       treesj
-      quicker-nvim
       undotree
       vim-better-whitespace
       vim-dadbod
@@ -95,8 +95,6 @@
       vim-fugitive
       vim-illuminate
       virt-column-nvim
-
-      # friendly-snippets
     ];
   };
 }
