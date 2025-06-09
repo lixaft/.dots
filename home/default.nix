@@ -1,5 +1,4 @@
 {
-  config,
   flakeConfig,
   flakeLib,
   lib,
@@ -19,7 +18,7 @@
 
     sessionVariables = {
       PAGER = "${lib.getExe pkgs.less} --chop-long-lines";
-      EDITOR = lib.getExe config.programs.neovim.package;
+      EDITOR = "nvim";
       LS_COLORS = flakeLib.concatAttrs "=" ":" {
         di = "00;36";
         ex = "01;32";
