@@ -27,11 +27,10 @@
     nix-index-database.comma.enable = true;
   };
 
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
+  virtualisation = {
+    containers.enable = true;
+    docker = {
       enable = true;
-      setSocketVariable = true;
     };
   };
 
@@ -53,6 +52,10 @@
       fsType = "drvfs";
     };
   };
+
+  users.users.${flakeConfig.user}.extraGroups = [
+    "docker"
+  ];
 
   system.stateVersion = "23.11";
 }
