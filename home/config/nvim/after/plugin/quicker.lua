@@ -1,3 +1,3 @@
-local quicked = require("quicker")
+local quicker = require("quicker")
 
-quicked.setup()
+quicker.setup()
