@@ -1,7 +1,6 @@
 local colorizer = require("colorizer")
 
 colorizer.setup({
-  -- selene: allow(mixed_table)
   filetypes = {
     "*",
     css = { css = true },
@@ -13,5 +12,4 @@ colorizer.setup({
     names = false,
     mode = "virtualtext",
   },
-  buftypes = {},
 })

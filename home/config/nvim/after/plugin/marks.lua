@@ -5,7 +5,7 @@ marks.setup({
   mappings = {
     set_next = "m,",
     delete = "dm",
-    delete_buf = "dmc",
+    delete_buf = "dm*",
     preview = "m:",
     next = "}",
     prev = "{",

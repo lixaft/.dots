@@ -64,18 +64,10 @@ oil.setup({
     ["<c-i>"] = "actions.toggle_hidden",
     ["<c-l>"] = "actions.refresh",
     ["P"] = "actions.preview",
-    ["gs"] = "actions.change_sort",
-    ["gx"] = "actions.open_external",
-    ["gy"] = "actions.copy_entry_path",
     ["<c-q>"] = function()
       require("oil.actions").send_to_qflist.callback()
       vim.cmd("copen")
     end,
-    -- Disable harpoon mappings.
-    ["<c-g>"] = false,
-    ["<c-h>"] = false,
-    ["<c-n>"] = false,
-    ["<c-s>"] = false,
   },
 })
 

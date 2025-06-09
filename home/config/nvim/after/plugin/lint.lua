@@ -4,7 +4,6 @@ lint.linters_by_ft = {
   python = { "mypy" },
 }
 
--- TODO: Switch to dmypy when new version is available in nix packages.
 local mypy = lint.linters.mypy
 table.insert(mypy.args, #mypy.args, "--ignore-missing-imports")
 
