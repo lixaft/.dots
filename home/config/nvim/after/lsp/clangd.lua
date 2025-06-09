@@ -2,7 +2,7 @@ local cmp = require("blink.cmp")
 
 ---@type vim.lsp.Config
 return {
-  cmd = { "clangd" },
+  cmd = { "clangd", "--header-insertion=never" },
   root_markers = {
     ".clang-format",
     ".clang-tidy",
@@ -18,9 +18,4 @@ return {
   capabilities = cmp.get_lsp_capabilities({
     offsetEncoding = { "utf-16" },
   }),
-  settings = {
-    Style = {
-      AngledHeaders = { "/nix/store/.*" },
-    },
-  },
 }
