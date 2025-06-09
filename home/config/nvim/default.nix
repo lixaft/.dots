@@ -7,7 +7,6 @@
     "nvim/after".source = ./after;
     "nvim/colors".source = ./colors;
     "nvim/init.lua".source = ./init.lua;
-    "nvim/package.json".source = ./package.json;
     "nvim/plugin".source = ./plugin;
     "nvim/snippets".source = ./snippets;
     "nvim/lua/flake".source = ./lua/flake;
