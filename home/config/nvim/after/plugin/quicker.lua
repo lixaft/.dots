@@ -1,3 +1,8 @@
 local quicker = require("quicker")
 
-quicker.setup()
+quicker.setup({
+  opts = {
+    number = true,
+    relativenumber = true,
+  },
+})
