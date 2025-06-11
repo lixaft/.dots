@@ -5,14 +5,16 @@
   ...
 }: let
   c = flakeLib.colors;
+
   toFmt = color: let
     rgb = flakeLib.parseHexColor color;
-    toStr = builtins.toString;
-  in "\\033[38;2;${toStr rgb.r};${toStr rgb.g};${toStr rgb.b}m";
+    str = builtins.toString;
+  in "\\033[38;2;${str rgb.r};${str rgb.g};${str rgb.b}m";
+
   toFmtB = color: let
     rgb = flakeLib.parseHexColor color;
-    toStr = builtins.toString;
-  in "\\033[1;38;2;${toStr rgb.r};${toStr rgb.g};${toStr rgb.b}m";
+    str = builtins.toString;
+  in "\\033[1;38;2;${str rgb.r};${str rgb.g};${str rgb.b}m";
 in {
   xdg = {
     desktopEntries."lf" = {
