@@ -15,6 +15,7 @@ in {
     shellAliases = {
       cd = "smart-cd";
       fg = "job unfreeze";
+      start = "xdg-open";
     };
 
     # I don't really know why, but they don't seem to be added automatically.
@@ -136,7 +137,7 @@ in {
           color_config: {
             header: { fg: "${c.lavender}", attr: b },
             row_index: { fg: "${c.ui.dim}" },
-            separator: { fg: "${c.ui.dim}" },
+            separator: { fg: "${c.ui.separator}" },
 
             shape_block: { fg: "${c.syntax.comment}" },
             shape_bool: { fg: "${c.syntax.boolean}" },

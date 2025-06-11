@@ -1,8 +1,19 @@
 {
+  flakeLib,
   lib,
   pkgs,
   ...
-}: {
+}: let
+  c = flakeLib.colors;
+  toFmt = color: let
+    rgb = flakeLib.parseHexColor color;
+    toStr = builtins.toString;
+  in "\\033[38;2;${toStr rgb.r};${toStr rgb.g};${toStr rgb.b}m";
+  toFmtB = color: let
+    rgb = flakeLib.parseHexColor color;
+    toStr = builtins.toString;
+  in "\\033[1;38;2;${toStr rgb.r};${toStr rgb.g};${toStr rgb.b}m";
+in {
   xdg = {
     desktopEntries."lf" = {
       name = "Lf";
@@ -12,7 +23,6 @@
     };
 
     configFile = {
-      "lf/colors".source = ./colors;
       "lf/icons".source = ./icons;
     };
   };
@@ -26,6 +36,10 @@
       drawbox = true;
       hidden = true;
       icons = true;
+
+      borderfmt = toFmt c.ui.separator;
+      numberfmt = toFmt c.ui.separator;
+      promptfmt = "${toFmtB c.lavender}%d${toFmtB c.fg}%f\\033[0m";
     };
 
     previewer.source = lib.getExe pkgs.pistol;
