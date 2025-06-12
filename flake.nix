@@ -44,7 +44,7 @@
       default = import ./misc/shell.nix {pkgs = nixpkgs.legacyPackages.${system};};
     });
 
-    templates = import ./misc/tmeplate {};
+    templates = import ./misc/template {};
 
     nixosConfigurations = {
       "kiwi" = mkSystem {
