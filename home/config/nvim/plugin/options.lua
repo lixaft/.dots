@@ -50,3 +50,6 @@ vim.opt.undodir = os.getenv("XDG_STATE_HOME") .. "/nvim/undo"
 
 -- Status Bar.
 vim.opt.laststatus = 3
+
+-- Fix a SQL issue where we have to double <c-c>.
+vim.g.omni_sql_no_default_maps = 1
