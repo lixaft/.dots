@@ -18,7 +18,7 @@
 
     sessionVariables = {
       PAGER = "${lib.getExe pkgs.less} --chop-long-lines";
-      # Using full exe path does not seem to load the plugins...
+      # Using full exe path does not seem to load plugins...
       EDITOR = "nvim";
       LS_COLORS = flakeLib.concatAttrs "=" ":" {
         di = "00;36";
