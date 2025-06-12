@@ -1,0 +1,37 @@
+{
+  "Pretty print": {
+    "prefix": "pprint",
+    "body": "__import__(\"pprint\").pprint(${1:expression})$0"
+  },
+  "Json print": {
+    "prefix": "jprint",
+    "body": "print(__import__(\"json\").dumps(${1:expression}, indent=2))$0"
+  },
+  "Here": {
+    "prefix": "here",
+    "body": "HERE = os.path.dirname(__file__)"
+  },
+  "Path join here": {
+    "prefix": "herejoin",
+    "body": "os.path.join(os.path.dirname(__file__), ${1:expression})$0"
+  },
+  "Qt Widget": {
+    "prefix": "qwidget",
+    "body": [
+      "class ${1:Widget}(${2:QtWidgets.QWidget}):",
+      "    def __init__(self, parent: QtWidgets.QWidget | None = None) -> None:",
+      "        super().__init__(parent)$0"
+    ]
+  },
+  "If main": {
+    "prefix": "ifmain",
+    "body": ["if __name__ == \"__main__\":", "    $0"]
+  },
+  "If main exit": {
+    "prefix": "ifmainexit",
+    "body": [
+      "if __name__ == \"__main__\":",
+      "    raise SystemExit(${1:main()})$0"
+    ]
+  }
+}

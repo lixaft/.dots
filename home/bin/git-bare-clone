@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -oeu pipefail
+
+if [[ -z "$1" ]]; then
+    echo "error: remote repository required"
+    exit 1
+fi
+
+remote="$1"
+dest="${2:-${1/*\//}}"
+
+# Initialize an empty bare repository.
+git init --bare "$dest"
+cd "$dest"
+
+# Configure the remote repository.
+git config remote.origin.url "$remote"
+git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
+
+# Create a valid HEAD reference.
+# Since bare repo does not have a worktree, we need to use plumbing commands.
+branch="bare"
+tree=$(git write-tree)
+commit=$(git commit-tree -m "bare commit" "$tree")
+git update-ref "refs/heads/$branch" "$commit"
+git symbolic-ref "HEAD" "refs/heads/$branch"
+
+# Fetch information from the remote repository.
+git fetch origin

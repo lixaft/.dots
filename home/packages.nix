@@ -1,0 +1,33 @@
+pkgs:
+with pkgs; [
+  alacritty
+  bazecor
+  binutils
+  brave
+  discord
+  eza
+  fd
+  ffmpeg
+  file
+  filebot
+  gh
+  gimp3-with-plugins
+  google-chrome
+  less
+  nautilus
+  nerd-fonts.dejavu-sans-mono
+  pavucontrol
+  peek
+  protonvpn-gui
+  python3
+  qbittorrent
+  qimgv
+  rename
+  ripgrep
+  spotify
+  tlrc
+  vlc
+  vscodium
+  wl-clipboard
+  xdg-utils
+]

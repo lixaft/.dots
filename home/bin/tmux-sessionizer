@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+function filter_dirs() {
+    for each in $(cat "/dev/stdin"); do
+        if [[ -e "$each/.git" || -e "$each/HEAD" ]]; then
+            printf "%s\n" "$each"
+        fi
+    done
+}
+
+function build_name() {
+    base="$(basename "$1")"
+    name="$(echo $base | sed "s/^\.*\(.*\)/\1/" | tr "." "_")"
+    printf "%s" $name
+}
+
+# No input.
+if [ -z "$1" ]; then
+    dir="$(find "$HOME" "$HOME/dev" "$HOME/dev/stim" -mindepth 1 -maxdepth 1 -type d 2>/dev/null | filter_dirs | fzf)"
+    if [[ $? -ne 0 ]]; then
+        exit 1
+    fi
+    name="$(build_name "$dir")"
+    cmd=""
+
+# Input is a directory.
+elif [ -d "$1" ]; then
+    dir="$1"
+    name="$(build_name "$1")"
+    cmd=""
+
+# Input is a file.
+else
+    dir="$(dirname "$1")"
+    name="$(build_name "${1%.*}")"
+    cmd="$EDITOR $(basename "$1")"
+fi
+
+# Create the session if needed.
+if ! tmux has-session -t="$name" 2>"/dev/null"; then
+    tmux new-session -d -s "$name" -c "$dir" -- $cmd
+fi
+
+# Attach the session.
+if [ -z "$TMUX" ]; then
+    tmux attach-session -t "$name"
+else
+    tmux switch-client -t "$name"
+fi

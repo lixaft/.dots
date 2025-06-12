@@ -1,0 +1,92 @@
+[ruff]
+target-version = "py312"
+
+indent-width = 4
+line-length = 79
+
+[ruff.format]
+preview = true
+docstring-code-format = true
+
+quote-style = "double"
+indent-style = "space"
+
+[ruff.lint]
+select = [
+    "A",  # flake8-builtin
+    "ANN",  # flake8-annotation
+    "ARG",  # flake8-unused-arguments
+    "ASYNC",  # flake8-async
+    "B",  # flake8-bugbear
+    "BLE",  # flake8-blind-except
+    "C4",  # flake8-comprehensions
+    "COM",  # flake8-commas
+    "DTZ",  # flake8-datetimez
+    "E",  # pycodestyle (error)
+    "EM",  # flake8-errmsg
+    "ERA",  # eradicate
+    "EXE",  # flake8-executable
+    "F",  # pyflakes
+    "FA",  # flake8-future-annotations
+    "FLY",  # flynt
+    "G",  # flake8-logging-format
+    "I",  # isort
+    "ICN",  # flake8-import-conventions
+    "INP",  # flake8-no-pep420
+    "ISC",  # flake8-implicit-strconcat
+    "LOG",  # flake8-logging
+    "N",  # pep8-naming
+    "NPY",  # numpy
+    "PERF",  # perflint
+    "PGH",  # pygrep-hooks
+    "PIE",  # flake8-pie
+    "PL",  # pylint
+    "PT",  # flake8-pytest-style
+    "PYI",  # flake8-pyi
+    "Q",  # flake8-quotes
+    "RET",  # flake8-return
+    "RSE",  # flake8-raise
+    "RUF",  # ruff
+    "SIM",  # flake8-simplify
+    "SLF",  # flake8-self
+    "SLOT",  # flake8-slots
+    "T10",  # flake8-debugger
+    "T20",  # flake8-print
+    "TC",  # flake8-type-checking
+    "TD",  # flake8-todos
+    "TID",  # flake8-tidy-imports
+    "TRY",  # tryceratops
+    "UP",  # pyupgrade
+    "W",  # pycodestyle (warning)
+    "YTT",  # flake8-2020
+]
+ignore = [
+    "ANN401",  # any-type
+    "PERF203",  # try-except-in-loop
+    "SIM108",  # if-else-block-instead-of-if-exp
+    "TD002",  # invalid-todo-tag
+    "TD003",  # missing-todo-author
+    "TD006",  # invalid-todo-capitalization
+
+    # Formatter requirements.
+    "COM812",  # missing-trailing-comma
+    "ISC001",  # single-line-implicit-string-concatenation
+]
+fixable = ["ALL"]
+
+task-tags = ["TODO"]
+
+[ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+
+[ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[ruff.lint.isort]
+force-single-line = true
+required-imports = [
+    "from __future__ import annotations"
+]
+
+[ruff.lint.pydocstyle]
+convention = "google"
