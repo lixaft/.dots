@@ -1,6 +1,5 @@
 pkgs:
 with pkgs; [
-  alacritty
   bazecor
   binutils
   brave
@@ -14,7 +13,6 @@ with pkgs; [
   gimp3-with-plugins
   google-chrome
   less
-  nautilus
   nerd-fonts.dejavu-sans-mono
   pavucontrol
   peek
@@ -27,7 +25,6 @@ with pkgs; [
   spotify
   tlrc
   vlc
-  vscodium
   wl-clipboard
   xdg-utils
 ]

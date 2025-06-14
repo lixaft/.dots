@@ -29,6 +29,7 @@
         "*.lock" = "00;90";
         "*~" = "00;90";
       };
+      NIXPKGS_ALLOW_UNFREE = 1;
     };
 
     packages = import ./packages.nix pkgs;

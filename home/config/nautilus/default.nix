@@ -1,4 +1,8 @@
-{...}: {
+{pkgs, ...}: {
+  home.packages = [
+    pkgs.nautilus
+  ];
+
   dconf.settings = {
     "org/gnome/nautilus/preferences" = {
       default-folder-viewer = true;
