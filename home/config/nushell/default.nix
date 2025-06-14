@@ -15,7 +15,6 @@ in {
     shellAliases = {
       cd = "smart-cd";
       fg = "job unfreeze";
-      start = "xdg-open";
     };
 
     # I don't really know why, but they don't seem to be added automatically.
@@ -24,10 +23,11 @@ in {
     extraEnv =
       # nu
       ''
-        use std/util "path add"
+        $env.PATH ++= [
         ${lib.concatStringsSep "\n" (
-          map (x: ''path add "${x}"'') config.home.sessionPath
+          map (x: "  \"${x}\"") config.home.sessionPath
         )}
+        ]
       '';
 
     extraConfig =
