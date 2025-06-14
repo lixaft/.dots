@@ -46,7 +46,7 @@ in {
         "SUPER, x, exec, loginctl kill-user ${config.home.username}"
         "SUPER, t, exec, ${lib.getExe pkgs.alacritty}"
         "SUPER, c, killactive"
-        "SUPER, e, exec, ${lib.getExe pkgs.alacritty} --command ${pkgs.lf}/bin/lf"
+        "SUPER, e, exec, ${lib.getExe pkgs.nautilus} --new-window"
         "SUPER, v, togglefloating"
         "SUPER, f, fullscreen"
         "SUPER, d, exec, rofi -theme ${config.xdg.configHome}/rofi/launcher.rasi -show"
@@ -105,6 +105,7 @@ in {
       ];
 
       exec-once = [
+        "${lib.getExe pkgs.nautilus} --gapplication-service"
         "[workspace 2 silent] ${lib.getExe pkgs.spotify}"
         "[workspace 3 silent] ${lib.getExe pkgs.alacritty}"
         "[workspace 4 silent] ${lib.getExe pkgs.brave}"
