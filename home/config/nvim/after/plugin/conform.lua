@@ -8,6 +8,7 @@ conform.setup({
   formatters_by_ft = {
     ["*"] = { "injected" },
     cpp = { "clang-format" },
+    javascript = { "prettier" },
     json = { "prettier" },
     lua = { "stylua" },
     markdown = { "prettier" },
@@ -15,6 +16,7 @@ conform.setup({
     nix = { "alejandra" },
     python = { "ruff_organize_imports", "ruff_format" },
     sh = { "shfmt" },
+    typescript = { "prettier" },
     yaml = { "prettier" },
   },
   formatters = {
