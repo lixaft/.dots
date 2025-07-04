@@ -22,6 +22,7 @@ oil.setup({
         "__pycache__",
         "build",
         "dist",
+        "node_modules",
         "result",
         "venv",
         "zig-out",
