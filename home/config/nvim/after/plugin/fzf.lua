@@ -10,6 +10,7 @@ fzf.setup({
   },
 
   files = {
+    fd_opts = [[--color=never --hidden --type f --type l --no-require-git --exclude .git --exclude .jj]],
     winopts = {
       preview = {
         hidden = "hidden",
