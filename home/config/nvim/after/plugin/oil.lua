@@ -12,6 +12,7 @@ oil.setup({
         ".DS_Store",
         ".direnv",
         ".git",
+        ".jj",
         ".mypy_cache",
         ".nox",
         ".pytest_cache",

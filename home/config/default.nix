@@ -9,6 +9,7 @@
     ./gdb
     ./git
     ./hypr
+    ./jj
     ./lf
     ./nautilus
     ./nushell
