@@ -1,4 +1,8 @@
 {
+  "Define namespace": {
+    "prefix": "namespace",
+    "body": "__path__ = __import__(\"pkgutil\").extend_path(__path__, __name__)"
+  },
   "Pretty print": {
     "prefix": "pprint",
     "body": "__import__(\"pprint\").pprint(${1:expression})$0"
