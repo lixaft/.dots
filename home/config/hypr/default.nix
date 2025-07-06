@@ -59,15 +59,10 @@ in {
         "SUPER, j, movefocus, u"
         "SUPER, k, movefocus, d"
 
-        "SUPER SHIFT, l, movewindow, r"
-        "SUPER SHIFT, h, movewindow, l"
-        "SUPER SHIFT, k, movewindow, u"
-        "SUPER SHIFT, j, movewindow, d"
-
-        "SUPER CTRL, l, resizeactive, 128 0"
-        "SUPER CTRL, h, resizeactive, -128 0"
-        "SUPER CTRL, k, resizeactive, 0 -128"
-        "SUPER CTRL, j, resizeactive, 0 128"
+        "SUPER CTRL, l, movewindow, r"
+        "SUPER CTRL, h, movewindow, l"
+        "SUPER CTRL, k, movewindow, u"
+        "SUPER CTRL, j, movewindow, d"
 
         "SUPER, 1, workspace, 1"
         "SUPER, 2, workspace, 2"
@@ -124,12 +119,13 @@ in {
       # Resize mode.
       bind = SUPER, r, submap, resize
       submap = resize
-      binde = , l, resizeactive, 50 0
-      binde = , h, resizeactive, -50 0
-      binde = , k, resizeactive, 0 -50
-      binde = , j, resizeactive, 0 50
+      binde = , l, resizeactive, 128 0
+      binde = , h, resizeactive, -128 0
+      binde = , k, resizeactive, 0 -128
+      binde = , j, resizeactive, 0 128
       bind = , escape, submap, reset
-      bind = Ctrl, c, submap, reset
+      bind = CTRL, c, submap, reset
+      bind = SUPER, r, submap, reset
       submap = reset
     '';
   };
