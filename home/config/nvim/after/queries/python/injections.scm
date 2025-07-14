@@ -13,3 +13,8 @@
   left: (identifier) @injection.language
   right: (string (string_content) @injection.content)
   (#gsub! @injection.language ".*_" ""))
+
+(string
+  (string_content) @injection.content
+  (#match? @injection.content "^[\n ]*(CREATE|DELETE|ALTER|DROP|INSERT|SELECT|UPDATE)")
+  (#set! injection.language "sql"))
