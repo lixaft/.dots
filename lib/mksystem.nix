@@ -57,6 +57,7 @@ in
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${user}.imports = [
+              inputs.zen-browser.homeModules.beta
               nix-index-database.homeModules.nix-index
               ../home
             ];

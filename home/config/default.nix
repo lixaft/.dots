@@ -21,6 +21,7 @@
     ./tmux
     ./virt-manager
     ./vscode
+    ./zen
     ./zoxide
   ];
 }

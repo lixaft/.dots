@@ -38,6 +38,7 @@
   imports = [
     ./config
     ./desktop.nix
+    ./stim.nix
     ./xdg.nix
   ];
 }
