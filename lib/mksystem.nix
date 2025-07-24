@@ -57,7 +57,7 @@ in
             useGlobalPkgs = true;
             useUserPackages = true;
             users.${user}.imports = [
-              nix-index-database.hmModules.nix-index
+              nix-index-database.homeModules.nix-index
               ../home
             ];
             extraSpecialArgs = args;
