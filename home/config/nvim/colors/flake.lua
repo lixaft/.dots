@@ -89,6 +89,9 @@ hl("@punctuation.special.diff", { fg = c.diff.header })
 hl("@string.special.path.diff", { fg = c.diff.header })
 hl("@variable.parameter.diff", { fg = c.diff.header })
 
+-- Treesitter (yaml).
+hl("@punctuation.special.yaml", { fg = c.syntax.operator })
+
 -- Git.
 hl("Added", { fg = c.diff.added })
 hl("Changed", { fg = c.diff.changed })
