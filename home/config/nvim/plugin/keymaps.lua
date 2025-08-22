@@ -34,10 +34,11 @@ vim.keymap.set("n", "gh", "<cmd>nohlsearch<cr>")
 vim.keymap.set("n", "gs", "<cmd>set spell!<cr>")
 
 -- LSP.
-pcall(vim.keymap.del, "n", "grr")
 pcall(vim.keymap.del, "n", "gra")
 pcall(vim.keymap.del, "n", "gri")
 pcall(vim.keymap.del, "n", "grn")
+pcall(vim.keymap.del, "n", "grr")
+pcall(vim.keymap.del, "n", "grt")
 
 vim.keymap.set("n", "gr", vim.lsp.buf.rename)
 
