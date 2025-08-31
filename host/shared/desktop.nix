@@ -23,7 +23,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${lib.getExe pkgs.greetd.tuigreet} --remember --remember-user-session --time";
+          command = "${lib.getExe pkgs.tuigreet} --remember --remember-user-session --time";
           user = flakeConfig.user;
         };
       };
