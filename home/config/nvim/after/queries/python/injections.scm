@@ -16,5 +16,5 @@
 
 (string
   (string_content) @injection.content
-  (#match? @injection.content "^[\n ]*(CREATE|DELETE|ALTER|DROP|INSERT|SELECT|UPDATE)")
+  (#match? @injection.content "^[\n ]*(CREATE|DELETE|ALTER|DROP|INSERT|SELECT|UPDATE|WITH)")
   (#set! injection.language "sql"))
