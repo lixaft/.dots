@@ -1,7 +1,13 @@
-{...}: {
+{pkgs, ...}: {
   programs.zen-browser = {
     enable = true;
-    policies = {
-    };
+    nativeMessagingHosts = with pkgs; [
+      firefoxpwa
+    ];
   };
+
+  # Web applications setup.
+  home.packages = with pkgs; [
+    firefoxpwa
+  ];
 }
