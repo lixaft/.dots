@@ -103,7 +103,7 @@ in {
         "${lib.getExe pkgs.nautilus} --gapplication-service"
         "[workspace 2 silent] ${lib.getExe pkgs.spotify}"
         "[workspace 3 silent] ${lib.getExe pkgs.alacritty}"
-        "[workspace 4 silent] ${lib.getExe pkgs.brave}"
+        "[workspace 4 silent] ${lib.getExe config.programs.zen-browser.package}"
         "hyprctl dispatch workspace 3"
       ];
 
