@@ -156,3 +156,8 @@ hl("FzfLuaCursorLineNr", { link = "LineNr" })
 hl("FzfLuaLivePrompt", { link = "Normal" })
 hl("FzfLuaLiveSym", { fg = c.red })
 hl("FzfLuaTitle", { link = "Title" })
+hl("FzfLuaTitleFlags", { link = "StatusLine" })
+-- IDK what's going on with: https://github.com/ibhagwan/fzf-lua/commit/c42049d57c6dbb07c67723c88095d24b956c19b2
+hl("fzf1", { link = "StatusLine" })
+hl("fzf2", { link = "StatusLine" })
+hl("fzf3", { link = "StatusLine" })
