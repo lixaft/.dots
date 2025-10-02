@@ -4,5 +4,3 @@ vim.diagnostic.config({
     source = "always",
   },
 })
-
-vim.lsp.set_log_level("off")
