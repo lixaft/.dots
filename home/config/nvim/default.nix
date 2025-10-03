@@ -72,6 +72,7 @@
     plugins = with pkgs.vimPlugins; [
       blink-cmp
       conform-nvim
+      dial-nvim
       fzf-lua
       gitsigns-nvim
       indent-o-matic
