@@ -56,8 +56,8 @@ in {
 
         "SUPER, l, movefocus, r"
         "SUPER, h, movefocus, l"
-        "SUPER, j, movefocus, u"
-        "SUPER, k, movefocus, d"
+        "SUPER, k, movefocus, u"
+        "SUPER, j, movefocus, d"
 
         "SUPER CTRL, l, movewindow, r"
         "SUPER CTRL, h, movewindow, l"
