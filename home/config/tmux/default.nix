@@ -5,24 +5,31 @@ in {
   programs.tmux = {
     enable = true;
 
-    prefix = "C-a";
+    keyMode = "vi";
     terminal = "tmux-256color";
     mouse = true;
-    resizeAmount = 10;
-    keyMode = "vi";
+
     baseIndex = 1;
     disableConfirmationPrompt = true;
-    escapeTime = 0;
     historyLimit = 50000;
+    resizeAmount = 10;
+
+    # Recommended by vim.health.
+    escapeTime = 0;
+    focusEvents = true;
 
     extraConfig =
       # tmux
       ''
+        # Waiting on https://github.com/nix-community/home-manager/issues/7771
+        # to revert back to set this through home manager config (tmux.prefix).
+        unbind C-b
+        set -g prefix C-a
+        bind -N "Send the prefix key through to the application" \
+          C-a send-prefix
+
         set -g default-terminal "tmux-256color"
         set -a terminal-features "$TERM:RGB"
-
-        # Recommended by nvim.
-        set -g focus-events on
 
         # Renumber windows when a window is closed.
         set -g renumber-windows on
