@@ -36,7 +36,7 @@ in {
       quarante-neuf-trois = "!git norris";
       congrat = "blame";
       random = ''"!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"'';
-      contrib = ''!git log --pretty="%an" | sort | uniq -c | sort -hr'';
+      contrib = ''!git log --pretty="%aN" | sort | uniq -c | sort -hr'';
     };
 
     includes = [
