@@ -11,6 +11,14 @@
     "prefix": "jprint",
     "body": "print(__import__(\"json\").dumps(${1:expression}, indent=2))$0"
   },
+  "EQ print": {
+    "prefix": "=print",
+    "body": [
+      "print(\"=\" * 80)",
+      "__import__(\"pprint\").pprint(${1:expression})$0",
+      "print(\"=\" * 80)"
+    ]
+  },
   "Here": {
     "prefix": "here",
     "body": "HERE = os.path.dirname(__file__)"
