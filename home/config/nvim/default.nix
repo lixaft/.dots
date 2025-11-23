@@ -52,7 +52,6 @@
       gopls
       lua-language-server
       nil
-      postgres-lsp
       pyright
       ruff
       rust-analyzer

@@ -4,10 +4,12 @@ in {
   programs.git = {
     enable = true;
 
-    userName = "Fabien Taxil";
-    userEmail = "me@lixaft.dev";
+    settings = {
+      user = {
+        name = "Fabien Taxil";
+        email = "me@lixaft.dev";
+      };
 
-    extraConfig = {
       advice.statusHints = false;
       color.ui = true;
       core.symlinks = true;
