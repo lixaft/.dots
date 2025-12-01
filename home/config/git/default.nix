@@ -26,19 +26,19 @@ in {
         old = c.diff.removed;
         new = c.diff.added;
       };
-    };
 
-    aliases = {
-      git = "!git";
-      oops = "commit --amend --no-edit";
-      undo = "reset --soft HEAD^";
-      fuck = "reset --hard HEAD";
-      yolo = "push --force-with-lease origin HEAD";
-      norris = "push --force origin HEAD";
-      quarante-neuf-trois = "!git norris";
-      congrat = "blame";
-      random = ''"!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"'';
-      contrib = ''!git log --pretty="%aN" | sort | uniq -c | sort -hr'';
+      aliases = {
+        git = "!git";
+        oops = "commit --amend --no-edit";
+        undo = "reset --soft HEAD^";
+        fuck = "reset --hard HEAD";
+        yolo = "push --force-with-lease origin HEAD";
+        norris = "push --force origin HEAD";
+        quarante-neuf-trois = "!git norris";
+        congrat = "blame";
+        random = ''"!git commit -m \"$(curl -s https://whatthecommit.com/index.txt)\"'';
+        contrib = ''!git log --pretty="%aN" | sort | uniq -c | sort -hr'';
+      };
     };
 
     includes = [
