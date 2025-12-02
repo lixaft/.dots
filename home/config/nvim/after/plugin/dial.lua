@@ -5,6 +5,7 @@ local config = require("dial.config")
 config.augends:register_group({
   default = {
     augend.constant.alias.bool,
+    augend.constant.alias.Bool,
     augend.date.alias["%H:%M"],
     augend.date.alias["%Y-%m-%d"],
     augend.date.alias["%Y/%m/%d"],
@@ -14,11 +15,6 @@ config.augends:register_group({
     augend.integer.alias.hex,
     augend.misc.alias.markdown_header,
     augend.semver.alias.semver,
-
-    -- `augend.constant.alias.bool` does not seem to support python booleans.
-    augend.constant.new({
-      elements = { "True", "False" },
-    }),
   },
 })
 
