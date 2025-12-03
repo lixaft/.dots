@@ -13,4 +13,12 @@ return {
     "python",
   },
   capabilities = cmp.get_lsp_capabilities(),
+  settings = {
+    ty = {
+      experimental = {
+        autoImport = true,
+        rename = true,
+      },
+    },
+  },
 }
