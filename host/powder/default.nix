@@ -2,7 +2,9 @@
   flakeConfig,
   pkgs,
   ...
-}: {
+}: let
+  password = builtins.readFile ./password;
+in {
   imports = [
     ../shared/locale.nix
     ../shared/nix.nix
@@ -39,17 +41,32 @@
       device = "C:";
       fsType = "drvfs";
     };
+    # "/n" = {
+    #   device = "N:";
+    #   fsType = "drvfs";
+    # };
+    # "/o" = {
+    #   device = "O:";
+    #   fsType = "drvfs";
+    # };
+    # "/y" = {
+    #   device = "Y:";
+    #   fsType = "drvfs";
+    # };
+    "/y" = {
+      device = "//fileshare.stimstudio.local/stim-projects$";
+      fsType = "cifs";
+      options = [ "username=ftaxil" "password=${password}" "x-systemd.automount" "noauto" "uid=1000" ];
+    };
     "/n" = {
-      device = "N:";
-      fsType = "drvfs";
+      device = "//fileshare.stimstudio.local/share$";
+      fsType = "cifs";
+      options = [ "username=ftaxil" "password=${password}" "x-systemd.automount" "noauto" "uid=1000" ];
     };
     "/o" = {
-      device = "O:";
-      fsType = "drvfs";
-    };
-    "/y" = {
-      device = "Y:";
-      fsType = "drvfs";
+      device = "//fileshare.stimstudio.local/plugins$";
+      fsType = "cifs";
+      options = [ "username=ftaxil" "password=${password}" "x-systemd.automount" "noauto" "uid=1000" ];
     };
   };
 
