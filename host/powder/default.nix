@@ -34,23 +34,20 @@
     };
   };
 
-  fileSystems = {
+  fileSystems = let
+    stim_mount = name: {
+      device = "//fileshare.stimstudio.local/${name}$";
+      fsType = "cifs";
+      options = ["credentials=/root/.cifs" "x-systemd.automount" "noauto" "uid=1000"];
+    };
+  in {
     "/c" = {
       device = "C:";
       fsType = "drvfs";
     };
-    "/n" = {
-      device = "N:";
-      fsType = "drvfs";
-    };
-    "/o" = {
-      device = "O:";
-      fsType = "drvfs";
-    };
-    "/y" = {
-      device = "Y:";
-      fsType = "drvfs";
-    };
+    "/y" = stim_mount "stim-projects$";
+    "/n" = stim_mount "share$";
+    "/o" = stim_mount "plugins$";
   };
 
   users.users.${flakeConfig.user}.extraGroups = [
