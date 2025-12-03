@@ -66,8 +66,8 @@ local function swap(direction, group)
   end
 end
 
-vim.keymap.set("n", "]]", swap("next", "@parameter.inner"))
-vim.keymap.set("n", "[[", swap("previous", "@parameter.inner"))
+vim.keymap.set("n", ">p", swap("next", "@parameter.inner"))
+vim.keymap.set("n", "<p", swap("previous", "@parameter.inner"))
 
 local function move(mode, group)
   return function()
