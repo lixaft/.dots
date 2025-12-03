@@ -4,5 +4,8 @@ local flake = require("flake")
 vim.opt_local.commentstring = "-- %s"
 vim.opt_local.shiftwidth = 4
 
+-- Treesitter.
+vim.treesitter.start()
+
 -- LSP.
 flake.lsp.start("typos_lsp")
