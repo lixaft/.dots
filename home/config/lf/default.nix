@@ -44,6 +44,10 @@ in {
       promptfmt = "${toFmtB c.lavender}%d${toFmtB c.fg}%f\\033[0m";
     };
 
+    keybindings = {
+      "Y" = "&echo $fx | wl-copy";
+    };
+
     previewer.source = lib.getExe pkgs.pistol;
   };
 }
