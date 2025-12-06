@@ -52,6 +52,7 @@
       gopls
       lua-language-server
       nil
+      nushell
       pyright
       ruff
       rust-analyzer
@@ -63,7 +64,7 @@
       alejandra
       meson
       mypy
-      nodePackages.prettier
+      prettier
       shfmt
       stylua
     ];
