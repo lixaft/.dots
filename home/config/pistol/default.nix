@@ -12,7 +12,7 @@
       }
       {
         mime = "image/*";
-        command = "${lib.getExe pkgs.chafa} %pistol-filename%";
+        command = "${lib.getExe pkgs.chafa} %pistol-filename% --view-size %pistol-extra0%x%pistol-extra1%";
       }
     ];
   };
