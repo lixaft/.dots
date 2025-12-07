@@ -1,5 +1,5 @@
 {...}: rec {
-  generic = {path = ./misc/template/generic;};
-  python = {path = ./misc/template/python;};
+  generic = {path = ./generic;};
+  python = {path = ./python;};
   default = generic;
 }
