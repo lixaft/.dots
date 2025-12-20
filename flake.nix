@@ -56,6 +56,7 @@
         system = "x86_64-linux";
         host = "kiwi";
         user = "lixaft";
+        wsl.enable = true;
         home = {
           enable = true;
           stateVersion = "23.11";
