@@ -79,7 +79,6 @@
       lazydev-nvim
       marks-nvim
       nvim-colorizer-lua
-      nvim-lint
       nvim-treesitter-context
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
