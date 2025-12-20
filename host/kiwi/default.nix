@@ -4,48 +4,41 @@
   ...
 }: {
   imports = [
-    ../shared/audio.nix
-    ../shared/bluetooth.nix
-    ../shared/boot.nix
-    ../shared/desktop.nix
     ../shared/locale.nix
-    ../shared/network.nix
     ../shared/nix.nix
-    ../shared/virtualisation.nix
-    ./hardware.nix
   ];
 
-  hardware = {
-    nvidia = {
-      open = false;
-      modesetting.enable = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+  wsl = {
+    enable = true;
+    startMenuLaunchers = true;
+    defaultUser = flakeConfig.user;
+    wslConf = {
+      automount.root = "/mnt";
+      network.hostname = flakeConfig.host;
     };
   };
 
-  networking = {
-    hostName = flakeConfig.host;
-    firewall.enable = true;
-  };
-
   programs = {
+    dconf.enable = true;
     nix-index-database.comma.enable = true;
   };
 
-  services = {
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      videoDrivers = ["nvidia"];
+  # virtualisation = {
+  #   containers.enable = true;
+  #   docker = {
+  #     enable = true;
+  #   };
+  # };
+
+  fileSystems = {
+    "/c" = {
+      device = "C:";
+      fsType = "drvfs";
     };
   };
 
   users.users.${flakeConfig.user}.extraGroups = [
-    "dialout"
+    "docker"
   ];
 
   system.stateVersion = "23.11";
