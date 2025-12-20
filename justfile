@@ -1,3 +1,8 @@
+export NIX_CONFIG := "experimental-features = nix-command flakes"
+
+_switch:
+    @just switch
+
 # print this help message
 help:
     @just --list
@@ -10,11 +15,6 @@ update:
 fmt:
     nix fmt .
     just --unstable --fmt
-
-# initialize a new host
-[group("local")]
-init name=`hostname`:
-    NIX_CONFIG="experimental-features = nix-command flakes" just switch {{ name }}
 
 # build the config, but neither activate it nor add it to the boot menu
 [group("local")]
