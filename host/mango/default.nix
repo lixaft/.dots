@@ -1,6 +1,5 @@
 {
   pkgs,
-  config,
   flakeConfig,
   ...
 }: {
@@ -14,9 +13,6 @@
 
   environment.systemPackages = with pkgs; [
     nfs-utils
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
   ];
 
   services = {
@@ -31,29 +27,60 @@
         PermitRootLogin = "yes";
       };
     };
-
-    jellyfin = {
-      enable = true;
-      openFirewall = true;
-    };
   };
 
   fileSystems = {
-    "/jellyfin" = {
-      device = "papaya:/volume1/Jellyfin";
+    "/starr/media" = {
+      device = "papaya:/volume1/media";
       fsType = "nfs";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /starr/media 775 root users -"
+  ];
 
   networking = {
     hostName = flakeConfig.host;
     firewall.enable = true;
   };
 
-  users.users = {
-    ${config.services.jellyfin.user} = {
-      shell = pkgs.bash;
-      extraGroups = ["users"];
+  nixarr = {
+    enable = true;
+    mediaDir = "/starr/media";
+    stateDir = "/starr/.state";
+
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+    };
+    jellyseerr = {
+      enable = true;
+      openFirewall = true;
+    };
+    prowlarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    radarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+    };
+    transmission = {
+      enable = true;
+      openFirewall = true;
+      flood.enable = true;
+    };
+  };
+
+  services = {
+    flaresolverr = {
+      enable = true;
+      openFirewall = true;
     };
   };
 

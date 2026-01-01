@@ -1,8 +1,8 @@
-local configs = require("nvim-treesitter.configs")
+local config = require("nvim-treesitter.config")
 local context = require("treesitter-context")
 local tsj = require("treesj")
 
-configs.setup({
+config.setup({
   highlight = {
     enable = true,
   },

@@ -107,11 +107,11 @@ in {
         "hyprctl dispatch workspace 3"
       ];
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
+      windowrule = [
+        "suppress_event maximize, match:class .*"
 
         # Remove borders when there is only one window in the workspace.
-        "noborder, onworkspace:w[t1]"
+        "border_size 0, match:workspace w[t1]"
       ];
     };
 

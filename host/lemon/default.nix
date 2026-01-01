@@ -50,11 +50,25 @@
   };
 
   fileSystems = {
-    "/jellyfin" = {
+    "/nas/documents" = {
+      device = "papaya:/volume1/Documents";
+      fsType = "nfs";
+    };
+    "/nas/media" = {
+      device = "papaya:/volume1/media";
+      fsType = "nfs";
+    };
+    "/nas/jellyfin" = {
       device = "papaya:/volume1/Jellyfin";
       fsType = "nfs";
     };
   };
+
+  systemd.tmpfiles.rules = [
+    "d /nas/documents 775 root users -"
+    "d /nas/media 775 root users -"
+    "d /nas/jellyfin 775 root users -"
+  ];
 
   users.users.${flakeConfig.user}.extraGroups = [
     "dialout"
