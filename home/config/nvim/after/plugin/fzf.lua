@@ -31,6 +31,7 @@ fzf.setup({
       ["shift-up"] = "first",
       ["shift-down"] = "last",
       ["ctrl-q"] = "select-all+accept",
+      ["ctrl-h"] = "toggle-preview",
     },
   },
 })
