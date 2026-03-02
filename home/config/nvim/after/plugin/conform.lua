@@ -8,6 +8,7 @@ conform.setup({
   formatters_by_ft = {
     ["*"] = { "injected" },
     cpp = { "clang-format" },
+    go = { "gofmt" },
     javascript = { "prettier" },
     json = { "prettier" },
     lua = { "stylua" },
