@@ -8,7 +8,9 @@ conform.setup({
   formatters_by_ft = {
     ["*"] = { "injected" },
     cpp = { "clang-format" },
+    css = { "prettier" },
     go = { "gofmt" },
+    html = { "prettier" },
     javascript = { "prettier" },
     json = { "prettier" },
     lua = { "stylua" },
@@ -16,6 +18,7 @@ conform.setup({
     meson = { "meson-format" },
     nix = { "alejandra" },
     python = { "ruff_organize_imports", "ruff_format" },
+    scss = { "prettier" },
     sh = { "shfmt" },
     typescript = { "prettier" },
     yaml = { "prettier" },

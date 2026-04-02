@@ -58,6 +58,7 @@
       rust-analyzer
       ty
       typos-lsp
+      vtsls
       zls
 
       # Formatter & Linters.
