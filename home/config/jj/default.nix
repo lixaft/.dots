@@ -11,6 +11,10 @@
         email = "me@lixaft.dev";
       };
 
+      aliases = {
+        update = ["rebase" "-b" "heads(all()) ~ immutable()" "-d" "main"];
+      };
+
       ui = {
         default-command = ["log"];
         pager = ":builtin";
