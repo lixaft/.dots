@@ -46,8 +46,14 @@
       fsType = "drvfs";
     };
     "/y" = stim_mount "stim-projects$";
-    "/n" = stim_mount "share$";
-    "/o" = stim_mount "plugins$";
+    "/n" = {
+      device = "N:";
+      fsType = "drvfs";
+    };
+    "/o" = {
+      device = "O:";
+      fsType = "drvfs";
+    };
   };
 
   users.users.${flakeConfig.user}.extraGroups = [
