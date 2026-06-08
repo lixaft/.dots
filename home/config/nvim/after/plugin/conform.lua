@@ -22,6 +22,7 @@ conform.setup({
     sh = { "shfmt" },
     typescript = { "prettier" },
     yaml = { "prettier" },
+    zig = { "zigfmt" },
   },
   formatters = {
     ruff_organize_imports = {
