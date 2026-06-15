@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config, ...}: {
   home.pointerCursor = {
     name = "phinger-cursors-dark";
     package = pkgs.phinger-cursors;
@@ -14,6 +14,7 @@
   };
 
   gtk = {
+    gtk4.theme = config.gtk.theme;
     enable = true;
     iconTheme = {
       name = "Papirus";

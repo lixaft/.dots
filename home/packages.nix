@@ -16,7 +16,7 @@ with pkgs; [
   nerd-fonts.dejavu-sans-mono
   pavucontrol
   peek
-  protonvpn-gui
+  proton-vpn
   python3
   qbittorrent
   qimgv

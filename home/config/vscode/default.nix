@@ -8,7 +8,7 @@
     code = lib.getExe config.programs.vscode.package;
   };
 
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
     package = pkgs.vscodium;
   };
