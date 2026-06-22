@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -ueo pipefail
+vim -q <(rg --vimgrep "$@")
