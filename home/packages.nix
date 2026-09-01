@@ -3,6 +3,7 @@ with pkgs; [
   bazecor
   binutils
   brave
+  claude-code
   discord
   eza
   fd
