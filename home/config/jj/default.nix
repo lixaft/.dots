@@ -25,6 +25,14 @@
 
       templates = {
         log = "format_commit_summary_with_refs(self, bookmarks)";
+
+        revert_description = ''
+          concat(
+            'revert "' ++ description.first_line() ++ '"' ++ "\n",
+            "\n",
+            "This reverts commit " ++ commit_id ++ ".\n",
+          )
+        '';
       };
     };
   };
