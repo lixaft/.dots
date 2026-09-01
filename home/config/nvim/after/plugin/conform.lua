@@ -6,7 +6,7 @@ conform.setup({
     lsp_format = "fallback",
   },
   formatters_by_ft = {
-    ["*"] = { "injected" },
+    -- ["*"] = { "injected" },
     cpp = { "clang-format" },
     css = { "prettier" },
     go = { "gofmt" },
@@ -17,6 +17,7 @@ conform.setup({
     markdown = { "prettier" },
     meson = { "meson-format" },
     nix = { "alejandra" },
+    odin = { "odinfmt" },
     python = { "ruff_organize_imports", "ruff_format" },
     scss = { "prettier" },
     sh = { "shfmt" },
